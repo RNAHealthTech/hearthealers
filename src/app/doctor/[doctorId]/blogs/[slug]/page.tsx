@@ -22,10 +22,10 @@ function getBlogBySubdomainAndSlug(subdomain: 'drjay' | 'dranupam', slug: string
 }
 
 interface Props {
-  params: { 
+  params: Promise<{ 
     doctorId: string;
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -43,8 +43,9 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const doctor = getDoctorById(params.doctorId);
-  const blog = getBlogBySubdomainAndSlug(params.doctorId as 'drjay' | 'dranupam', params.slug);
+  const {doctorId, slug} = await params;
+  const doctor = getDoctorById(doctorId);
+  const blog = getBlogBySubdomainAndSlug(doctorId as 'drjay' | 'dranupam', slug);
   
   if (!doctor || !blog) {
     return {
@@ -63,9 +64,10 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-export default function BlogPage({ params }: Props) {
-  const doctor = getDoctorById(params.doctorId);
-  const blog = getBlogBySubdomainAndSlug(params.doctorId as 'drjay' | 'dranupam', params.slug);
+export default async function BlogPage({ params }: Props) {
+  const { doctorId, slug } = await params;
+  const doctor = getDoctorById(doctorId);
+  const blog = getBlogBySubdomainAndSlug(doctorId as 'drjay' | 'dranupam', slug);
   
   if (!doctor || !blog) {
     notFound();

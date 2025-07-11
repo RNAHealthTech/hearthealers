@@ -16,7 +16,7 @@ function getDoctorById(id: string): Doctor | null {
 }
 
 interface Props {
-  params: { doctorId: string };
+  params: Promise<{ doctorId: string }>;
 }
 
 export async function generateStaticParams() {
@@ -27,7 +27,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const doctor = getDoctorById(params.doctorId);
+  const { doctorId }= await params;
+  const doctor = getDoctorById(doctorId);
   
   if (!doctor) {
     return {
@@ -46,8 +47,9 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-export default function DoctorHomePage({ params }: Props) {
-  const doctor = getDoctorById(params.doctorId);
+export default async function DoctorHomePage({ params }: Props) {
+  const {doctorId} = await params;
+  const doctor = getDoctorById(doctorId);
   
   if (!doctor) {
     notFound();
