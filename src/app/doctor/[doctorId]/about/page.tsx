@@ -1,59 +1,62 @@
 import { notFound } from "next/navigation";
-import Doctor ,{ drjayData, dranupamData } from "@/data/doctors";
+import Doctor, { drjayData, dranupamData } from "@/data/doctors";
 import About from "@/app/components/doctor/About";
 
-
+// Utility function to get doctor data by ID
 function getDoctorById(id: string): Doctor | null {
-    switch(id){
-        case 'drjay':
-            return drjayData;
-        case 'dranupam':
-            return dranupamData;
-        default:
-            return null;
-    }
+  switch (id) {
+    case "drjay":
+      return drjayData;
+    case "dranupam":
+      return dranupamData;
+    default:
+      return null;
+  }
 }
 
+// Define Props with params as a Promise
 interface Props {
-    params: {doctorId: string};
+  params: Promise<{ doctorId: string }>;
 }
 
-export async function generateStaticParams(){
-    return [
-        {doctorId: 'drjay'}, 
-        {doctorId: 'dranupam'}, 
-    ];
+// Generate static parameters for the dynamic route
+export async function generateStaticParams() {
+  return [
+    { doctorId: "drjay" },
+    { doctorId: "dranupam" },
+  ];
 }
 
-export async function generateMetadata({ params }: Props){
-    const { doctorId } = await params;
-    const doctor = getDoctorById(doctorId);
+// Generate metadata for the page
+export async function generateMetadata({ params }: Props) {
+  const { doctorId } = await params; // Await params to resolve doctorId
+  const doctor = getDoctorById(doctorId);
 
-    if (!doctor){
-        return {
-            title: 'Doctor not Found', 
-        };
-    }
-
+  if (!doctor) {
     return {
-        title:  `${doctor.personalDetails.name} -  Best Heart Doctor Near you`, 
-        description: `Meet ${doctor.personalDetails.name} with  with ${doctor.totalExp} years experience`, 
-        openGraph: {
-            title:  `${doctor.personalDetails.name} -  Best Heart Doctor Near you`, 
-            description: `Meet ${doctor.personalDetails.name} with  with ${doctor.totalExp} years experience`, 
-            images: [doctor.personalDetails.imageUrl]
-        }
-       
+      title: "Doctor not Found",
     };
+  }
+
+  return {
+    title: `${doctor.personalDetails.name} - Best Heart Doctor Near you`,
+    description: `Meet ${doctor.personalDetails.name} with ${doctor.totalExp} years experience`,
+    openGraph: {
+      title: `${doctor.personalDetails.name} - Best Heart Doctor Near you`,
+      description: `Meet ${doctor.personalDetails.name} with ${doctor.totalExp} years experience`,
+      images: [doctor.personalDetails.imageUrl],
+    },
+  };
 }
 
+// Page component
 export default async function DoctorAboutPage({ params }: Props) {
-    const { doctorId } = await params;
-    const doctor = getDoctorById(doctorId);
+  const { doctorId } = await params; // Await params to resolve doctorId
+  const doctor = getDoctorById(doctorId);
 
-    if (!doctor){
-        notFound();
-    }
+  if (!doctor) {
+    notFound();
+  }
 
-    return <About doctor={doctor} />
+  return <About doctor={doctor} />;
 }
