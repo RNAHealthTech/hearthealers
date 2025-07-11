@@ -98,7 +98,7 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ doctor, formspr
        <motion.div
                         className="absolute inset-0 z-0 shadow-xl"
                         style={{
-                            backgroundImage: "url('http://localhost:3000/images/contact.jpg')",
+                            backgroundImage: "url('https://hearthealers.in/images/contact.jpg')",
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             filter: "brightness(0.7)"
