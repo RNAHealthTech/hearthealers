@@ -156,12 +156,7 @@ const ServiceTemplate = () => {
                   Book Consultation
                 </button>
                 
-                <button className="inline-flex items-center px-8 py-4 bg-white/20 backdrop-blur-sm border-2 border-white/50 text-white rounded-xl font-semibold transition-all duration-300 hover:bg-white hover:text-slate-900 hover:border-white">
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.955 8.955 0 01-1.946-.276A5.005 5.005 0 0112 20.717a5.005 5.005 0 01-1.054-3.276A8.955 8.955 0 0110 17.5c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8z" />
-                  </svg>
-                  Ask Questions
-                </button>
+                
               </div>
             </div>
           </div>
@@ -321,12 +316,7 @@ const ServiceTemplate = () => {
               </svg>
               Book Appointment Now
             </button>
-            <button className={`inline-flex items-center px-10 py-5 rounded-xl font-bold text-lg transition-all duration-300 border-2 ${colorScheme.buttonOutline} bg-white hover:shadow-lg transform hover:-translate-y-1`}>
-              <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.955 8.955 0 01-1.946-.276A5.005 5.005 0 0112 20.717a5.005 5.005 0 01-1.054-3.276A8.955 8.955 0 0110 17.5c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8z" />
-              </svg>
-              Ask a Question
-            </button>
+            
           </div>
         </div>
       </div>

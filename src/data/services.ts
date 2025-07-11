@@ -103,7 +103,7 @@ export interface Service {
       subdomain: 'dranupam',
       title: 'Device Closures',
       description: 'Minimally invasive procedures for ASD, VSD, PDA, and AP window closures.',
-      image: '/images/procedures/device-closures.png',
+      image: 'https://hearthealers.in/images/services/device-closures.png',
       procedureInfo: 'Contact Dr. Anupam for more information about device closure procedures.', 
       phone: '+91-9899094465'
     },
@@ -113,7 +113,7 @@ export interface Service {
       subdomain: 'dranupam',
       title: 'Balloon Valvuloplasty',
       description: 'Non-surgical treatment for pulmonary and aortic valve conditions.',
-      image: 'https://hearthealers.in/images/procedures/balloon-valvuloplasty.png',
+      image: 'https://hearthealers.in/images/services/balloon-valvuloplasty.jpg',
       procedureInfo: 'Contact Dr. Anupam for more information about balloon valvuloplasty procedures.', 
             phone: '+91-9899094465'
     },
@@ -123,7 +123,7 @@ export interface Service {
       subdomain: 'dranupam',
       title: 'Coarctation Treatment',
       description: 'Balloon dilation procedures for aortic coarctation.',
-      image: 'https://hearthealers.in/images/procedures/coarctation-treatment.png',
+      image: 'https://hearthealers.in/images/services/coarctation-treatment.png',
       procedureInfo: 'Contact Dr. Anupam for more information about coarctation treatment.', 
             phone: '+91-9899094465'
     },
@@ -133,7 +133,7 @@ export interface Service {
       subdomain: 'dranupam',
       title: 'Pediatric Stenting',
       description: 'Advanced stenting procedures for neonatal and pediatric patients.',
-      image: 'https://hearthealers.in/images/procedures/pediatric-stenting.png',
+      image: 'https://hearthealers.in/images/services/pediatric-stenting.webp',
       procedureInfo: 'Contact Dr. Anupam for more information about pediatric stenting procedures.', 
             phone: '+91-9899094465'
     },
@@ -143,7 +143,7 @@ export interface Service {
       subdomain: 'dranupam',
       title: 'Diagnostic Procedures',
       description: 'Angiography and cardiac catheterization for accurate diagnosis.',
-      image: 'https://hearthealers.in/images/procedures/diagnostic-procedures.png',
+      image: 'https://hearthealers.in/images/services/diagnostic-procedures.jpg',
       procedureInfo: 'Contact Dr. Anupam for more information about diagnostic procedures.', 
             phone: '+91-9899094465'
     }
