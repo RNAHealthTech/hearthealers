@@ -1,11 +1,12 @@
 'use client'
 
-import React from 'react';
+import React, {useState} from 'react';
 import Doctor from '@/data/doctors';
 import HomeServicesSection from '../utilities/HomeServices';
 import HomeAbout from '../utilities/HomeAbout';
 import HomeContactSection from '../utilities/HomeContact';
 import Image from 'next/image';
+import BookAppointmentModal from '../utilities/BookAppointment';
 
 
 interface HomeProps {
@@ -40,6 +41,9 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
   };
 
   const colors = getColorClasses();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   return (
     <main>
@@ -128,6 +132,7 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
               min-w-[200px]
               cursor-pointer
             `}
+          onClick={()=>setIsModalOpen(true)}
           >
             Book Appointment
           </button>
@@ -143,8 +148,13 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
     </section>
     <HomeAbout doctor={doctor} />
     <HomeServicesSection subdomain={doctor.subdomain} />
-
-<HomeContactSection doctor={doctor} formspreeId={doctor.id === 'drjay' ? 'xovwobnv' : 'mgvyjqlo'} />
+    <HomeContactSection doctor={doctor} formspreeId={doctor.id === 'drjay' ? 'xovwobnv' : 'mgvyjqlo'} />
+    <BookAppointmentModal
+  isOpen={isModalOpen}
+  onClose={() => setIsModalOpen(false)}
+  variant={ isJayRelan ? "drjay" : "dranupam" }// or "dranupam"
+  doctorName={doctor.personalDetails.name}
+/>
     </main>
   );
 };

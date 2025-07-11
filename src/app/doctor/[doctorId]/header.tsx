@@ -5,6 +5,7 @@ import { Menu, X, ChevronDown, Calendar, Home, User, Briefcase, FileText, Messag
 import { AnimatePresence, motion } from 'framer-motion';
 import { drjayData, dranupamData } from '@/data/doctors';
 import type Doctor from '@/data/doctors';
+import BookAppointmentModal from '@/app/components/utilities/BookAppointment';
 
 interface HeaderProps {
   doctorId: string;
@@ -22,6 +23,7 @@ function getDoctorById(id: string): Doctor | null {
 
 const Header: React.FC<HeaderProps> = ({ doctorId }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [doctor, setDoctor] = useState<Doctor | null>(null);
@@ -54,6 +56,9 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
   };
 
   if (!doctor) return null;
+
+ 
+
 
   const isJayRelan = doctorId === 'drjay';
   const colorScheme = isJayRelan 
@@ -223,6 +228,7 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
                 className={`hidden md:flex items-center gap-2 ${colorScheme.primary} ${colorScheme.primaryHover} text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm cursor-pointer`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={()=>setIsModalOpen(true)}
               >
                 <Calendar className="w-4 h-4" />
                 Book Appointment
@@ -331,6 +337,7 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
                     className={`${colorScheme.primary} text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 justify-center shadow-lg mt-4`}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
+                    onClick={()=>setIsModalOpen(true)}
                   >
                     <Calendar className="w-4 h-4" />
                     Book Appointment
@@ -382,13 +389,21 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
               className={`${colorScheme.primary} text-white p-3 rounded-full shadow-lg relative`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
+              onClick={()=>setIsModalOpen(true)}
             >
               <Calendar className="w-6 h-6" />
                
             </motion.button>
           </div>
         </motion.div>
+
       </div>
+      <BookAppointmentModal
+  isOpen={isModalOpen}
+  onClose={() => setIsModalOpen(false)}
+  variant={ isJayRelan ? "drjay" : "dranupam" }// or "dranupam"
+  doctorName={doctor.personalDetails.name}
+/>
     </>
   );
 };

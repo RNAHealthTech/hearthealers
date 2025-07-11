@@ -38,8 +38,8 @@ const doctorFormIds = {
 };
 
 const doctorWhatsAppNumbers = {
-  drjay: '91', // Replace with Dr. Jay's WhatsApp number
-  dranupam: '91', // Replace with Dr. Anupam's WhatsApp number
+  drjay: '919868700886', // Replace with Dr. Jay's WhatsApp number
+  dranupam: '919899094465', // Replace with Dr. Anupam's WhatsApp number
 };
 
 const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) => {

@@ -139,7 +139,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
 
         {/* Read More Button */}
         <Link href={`/blogs/${blog.slug}`} className="block">
-          <button className="w-full bg-gray-900 hover:bg-blue-600 text-white py-3 px-6 rounded-xl font-medium transition-colors duration-200 group-hover:bg-blue-600">
+          <button className="w-full bg-gray-900 hover:bg-blue-600 text-white py-3 px-6 rounded-xl font-medium transition-colors duration-200 group-hover:bg-blue-600 cursor-pointer">
             Read Article
           </button>
         </Link>
