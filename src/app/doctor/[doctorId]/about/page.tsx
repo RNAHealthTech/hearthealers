@@ -15,8 +15,7 @@ function getDoctorById(id: string): Doctor | null {
 }
 
 interface Props {
-    params: Promise<{doctorId: string}>;
-    searchParams: { [key: string]: string | string[] | undefined };
+    params: {doctorId: string};
 }
 
 export async function generateStaticParams(){
