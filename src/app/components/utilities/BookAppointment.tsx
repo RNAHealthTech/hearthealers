@@ -167,7 +167,7 @@ Message/Concern: ${formData.message}`;
                 Request Sent!
               </h3>
               <p className="text-gray-600 mb-4">
-                You'll be redirected to WhatsApp to complete your appointment booking.
+                You&#39;ll be redirected to WhatsApp to complete your appointment booking.
               </p>
               <button
                 onClick={onClose}
