@@ -331,7 +331,7 @@ const Home = () => {
               <Heart className="h-6 w-6 text-red-600" />
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Cardiac Catheterization</h4>
+              <h4 className="text-lg font-semibold text-gray-900">Congenital Heart Defects</h4>
             </div>
           </div>
           
@@ -340,7 +340,7 @@ const Home = () => {
               <Stethoscope className="h-6 w-6 text-red-600" />
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Coronary Angioplasty</h4>
+              <h4 className="text-lg font-semibold text-gray-900">Acquired Heart Diseases</h4>
             </div>
           </div>
           
@@ -349,7 +349,7 @@ const Home = () => {
               <Activity className="h-6 w-6 text-red-600" />
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Pacemaker Implantation</h4>
+              <h4 className="text-lg font-semibold text-gray-900">Hypertension Care</h4>
             </div>
           </div>
           
@@ -358,7 +358,7 @@ const Home = () => {
               <Zap className="h-6 w-6 text-red-600" />
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Electrophysiology</h4>
+              <h4 className="text-lg font-semibold text-gray-900">Cardiac Arrhythmias</h4>
             </div>
           </div>
         </div>
@@ -376,7 +376,7 @@ const Home = () => {
               <Shield className="h-6 w-6 text-teal-600" />
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Preventive Cardiology</h4>
+              <h4 className="text-lg font-semibold text-gray-900">Pediatric Stenting</h4>
             </div>
           </div>
           
@@ -385,7 +385,7 @@ const Home = () => {
               <Scan className="h-6 w-6 text-teal-600" />
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Cardiac Imaging</h4>
+              <h4 className="text-lg font-semibold text-gray-900">Coarctation Treatment</h4>
             </div>
           </div>
           
@@ -394,7 +394,7 @@ const Home = () => {
               <Pill className="h-6 w-6 text-teal-600" />
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Heart Failure Management</h4>
+              <h4 className="text-lg font-semibold text-gray-900">Balloon Valvuloplasty</h4>
             </div>
           </div>
           
@@ -403,7 +403,7 @@ const Home = () => {
               <Gauge className="h-6 w-6 text-teal-600" />
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Hypertension Care</h4>
+              <h4 className="text-lg font-semibold text-gray-900">Device Closures</h4>
             </div>
           </div>
         </div>
