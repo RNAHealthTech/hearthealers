@@ -1,16 +1,19 @@
 'use client'
 
-// components/doctor/Home.tsx
 import React from 'react';
 import Doctor from '@/data/doctors';
 import HomeServicesSection from '../utilities/HomeServices';
+import HomeAbout from '../utilities/HomeAbout';
+import HomeContactSection from '../utilities/HomeContact';
+import Image from 'next/image';
+
 
 interface HomeProps {
   doctor: Doctor;
 }
 
 const Home: React.FC<HomeProps> = ({ doctor }) => {
-  const { personalDetails, id, span, h1, bgVideo, subdomain } = doctor;
+  const { personalDetails, id, span, h1, bgVideo } = doctor;
 
   const isJayRelan = id === 'drjay';
 
@@ -77,11 +80,11 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
             {/*  doctor avatar  */}
             <div className='flex-shrink-0'>
               <div className='relative'>
-                <img 
+                <Image 
                  src={personalDetails.imageUrl}
                  alt={personalDetails.name}
                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-contain border-4 border-white/30 shadow-xl"
-             
+                 fill
                 />
 
                </div>
@@ -108,9 +111,9 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
               ${colors.button}
               ${colors.buttonText}
               font-semibold
-              py-4 px-8
-              rounded-xl
-              text-lg
+              py-5 px-12
+              rounded-2xl
+              text-md md:text-lg
               transform
               transition-all
               duration-300
@@ -123,6 +126,7 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
               active:scale-95
               backdrop-blur-sm
               min-w-[200px]
+              cursor-pointer
             `}
           >
             Book Appointment
@@ -137,7 +141,10 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
       <div className="absolute bottom-1/4 right-10 w-2 h-32 bg-white/20 rounded-full blur-sm"></div>
       <div className="absolute top-1/2 right-20 w-1 h-16 bg-white/30 rounded-full blur-sm hidden lg:block"></div>
     </section>
+    <HomeAbout doctor={doctor} />
     <HomeServicesSection subdomain={doctor.subdomain} />
+
+<HomeContactSection doctor={doctor} formspreeId={doctor.id === 'drjay' ? 'xovwobnv' : 'mgvyjqlo'} />
     </main>
   );
 };

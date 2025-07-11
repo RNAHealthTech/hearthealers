@@ -8,8 +8,7 @@ import { Service, getServiceBySlug } from '@/data/services';
 
 const ServiceTemplate = () => {
   const params = useParams();
-  const router = useRouter();
-  const [service, setService] = useState<Service | null>(null);
+   const [service, setService] = useState<Service | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
@@ -246,7 +245,7 @@ const ServiceTemplate = () => {
                   </svg>
                   <div>
                     <h3 className={`font-bold text-lg ${colorScheme.text} mb-2`}>Personalized Treatment</h3>
-                    <p className={`${colorScheme.subtext} leading-relaxed`}>Tailored care plans designed for each patient's unique needs</p>
+                    <p className={`${colorScheme.subtext} leading-relaxed`}>Tailored care plans designed for each patient&#39;s unique needs</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4 p-4 rounded-lg bg-gradient-to-r from-slate-50 to-slate-100 hover:from-slate-100 hover:to-slate-200 transition-all duration-200">
@@ -313,7 +312,7 @@ const ServiceTemplate = () => {
             Ready to Take the Next Step?
           </h2>
           <p className={`text-xl mb-10 ${colorScheme.subtext} leading-relaxed`}>
-            Don't wait to address your cardiac health concerns. Schedule a consultation with {doctorName} today and take the first step towards better heart health.
+            Don&#39;t wait to address your cardiac health concerns. Schedule a consultation with {doctorName} today and take the first step towards better heart health.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <button className={`inline-flex items-center px-10 py-5 rounded-xl font-bold text-lg transition-all duration-300 ${colorScheme.button} text-white hover:shadow-xl transform hover:-translate-y-1 hover:scale-105`}>

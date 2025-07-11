@@ -15,11 +15,7 @@ function getDoctorById(id: string): Doctor | null {
         return null;
     }
   }
-  
-  // Function to get blogs by subdomain
-  function getBlogsBySubdomain(subdomain: 'drjay' | 'dranupam') {
-    return services.filter(service => service.subdomain === subdomain);
-  }
+   
   
   interface Props {
     params: { doctorId: string };

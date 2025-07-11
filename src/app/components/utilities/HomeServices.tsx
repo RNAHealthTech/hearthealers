@@ -104,11 +104,7 @@ const HomeServicesSection: React.FC<HomeServicesSectionProps> = ({ subdomain }) 
                           {symptom}
                         </span>
                       ))}
-                      {service.procedureInfo && (
-                        <span className="text-xs px-3 py-1 bg-white/20 rounded-full">
-                          {service.procedureInfo}
-                        </span>
-                      )}
+
                     </div>
                   </div>
                 </motion.div>
@@ -130,7 +126,7 @@ const HomeServicesSection: React.FC<HomeServicesSectionProps> = ({ subdomain }) 
       <div className="flex items-center justify-center">
         <button
           onClick={() => router.push("/services")}
-          className={`mt-8 rounded-lg px-8 py-4 text-lg transition duration-300 text-white ${subdomain === 'drjay' ? 'bg-red-800 hover:bg-red-900' : subdomain === 'dranupam' ? 'bg-teal-700 hover:bg-teal-800' : 'bg-gray-400 hover:bg-gray-500'}`}
+          className={`mt-8 rounded-xl px-12 py-4 font-bold text-md md:text-lg transition duration-300 text-white cursor-pointer ${subdomain === 'drjay' ? 'bg-red-500 hover:bg-red-900' : subdomain === 'dranupam' ? 'bg-teal-700 hover:bg-teal-800' : 'bg-gray-400 hover:bg-gray-500'}`}
         >
           Explore All Services 
         </button>

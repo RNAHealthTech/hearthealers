@@ -5,10 +5,10 @@ import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Service, getServicesBySubdomain } from '@/data/services';
+import {motion} from 'framer-motion';
 
 const Services = () => {
   const params = useParams();
-  const router = useRouter();
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
   const doctorId = params.doctorId as 'drjay' | 'dranupam';
@@ -47,8 +47,8 @@ const Services = () => {
         gradient: 'from-blue-50 to-white'
       }
     : {
-        primary: 'bg-slate-900',
-        secondary: 'bg-slate-800',
+        primary: 'bg-teal-500',
+        secondary: 'bg-zinc-100',
         accent: 'text-slate-100',
         border: 'border-slate-700',
         button: 'bg-slate-700 hover:bg-slate-600',
@@ -59,10 +59,18 @@ const Services = () => {
   const serviceType = isDrJay ? 'Services' : 'Procedures';
 
   return (
-    <div className={`min-h-screen ${isDrJay ? 'bg-gradient-to-br from-blue-50 to-white' : 'bg-gradient-to-br from-slate-900 to-slate-800'}`}>
+    <div className={`min-h-screen ${isDrJay ? 'bg-gradient-to-br from-blue-50 to-white' : 'bg-gradient-to-br from-teal-50 to-white'}`}>
       {/* Hero Section */}
       <div className="relative overflow-hidden mt-10">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
+      <motion.div
+                        className="absolute inset-0 z-0 shadow-xl"
+                        style={{
+                            backgroundImage: "url('http://localhost:3000/images/contact.jpg')",
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            filter: "brightness(0.7)"
+                        }}
+                    />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
             <h1 className={`text-4xl md:text-6xl font-bold mb-6 ${isDrJay ? 'text-slate-800' : 'text-white'}`}>
@@ -87,7 +95,7 @@ const Services = () => {
           {services.map((service) => (
             <div
               key={service.id}
-              className={`group relative overflow-hidden rounded-2xl ${colorScheme.secondary} ${colorScheme.border} border backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105`}
+              className={`group relative overflow-hidden backdrop-blur-xl rounded-2xl ${colorScheme.secondary}  backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105`}
             >
               {/* Image Section */}
               <div className="relative h-48 overflow-hidden">
@@ -102,10 +110,10 @@ const Services = () => {
 
               {/* Content Section */}
               <div className="p-6">
-                <h3 className={`text-xl font-bold mb-3 ${isDrJay ? 'text-slate-800' : 'text-white'}`}>
+                <h3 className={`text-xl font-bold mb-3 ${isDrJay ? 'text-slate-800' : 'text-zinc-800'}`}>
                   {service.title}
                 </h3>
-                <p className={`text-sm mb-4 line-clamp-3 ${isDrJay ? 'text-slate-600' : 'text-slate-300'}`}>
+                <p className={`text-sm mb-4 line-clamp-3 ${isDrJay ? 'text-slate-600' : 'text-slate-800'}`}>
                   {service.description}
                 </p>
 

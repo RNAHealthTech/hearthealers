@@ -3,8 +3,6 @@
 import { notFound } from 'next/navigation';
 import { drjayData, dranupamData } from '@/data/doctors';
 import Doctor from '@/data/doctors';
-import Link from 'next/link';
-import Image from 'next/image';
 import Header from './header';
 import Footer from './footer';
 

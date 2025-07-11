@@ -54,6 +54,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
     message: '',
     doctorName: '',
   });
+  console.log(appointmentType)
 
   useEffect(() => {
     if (state.succeeded) {
@@ -124,7 +125,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
           <div className="text-center p-6 bg-white/80 rounded-lg border border-green-200">
             <div className="text-green-600 text-2xl mb-2">✓</div>
             <p className="text-zinc-700 font-work-sans text-lg">
-              Thank you for submitting! We'll be in touch soon.
+              Thank you for submitting! We&#39;ll be in touch soon.
             </p>
           </div>
         ) : (

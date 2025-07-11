@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, Clock, Calendar, Heart, Star, ChevronUp, ArrowRight, Activity, Shield, Target, Zap, Settings, Microscope } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock,  Heart, ArrowRight, Activity, Shield, Target, Zap, Settings, Microscope } from 'lucide-react';
 import { drjayData, dranupamData } from '@/data/doctors';
 import type Doctor from '@/data/doctors';
 
@@ -23,6 +23,7 @@ function getDoctorById(id: string): Doctor | null {
 const Footer: React.FC<FooterProps> = ({ doctorId }) => {
   const [doctor, setDoctor] = useState<Doctor | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  console.log(showScrollTop);
 
   useEffect(() => {
     const doctorData = getDoctorById(doctorId);
@@ -37,9 +38,7 @@ const Footer: React.FC<FooterProps> = ({ doctorId }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+ 
 
   if (!doctor) return null;
 
@@ -67,11 +66,11 @@ const Footer: React.FC<FooterProps> = ({ doctorId }) => {
       };
 
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Services', href: '#services' },
-    { name: 'Blogs', href: '#blogs' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Services', href: '/services' },
+    { name: 'Blogs', href: '/blogs' },
+    { name: 'Contact', href: '/contact' }
   ];
 
   // Dr. Jay's Services

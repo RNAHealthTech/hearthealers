@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Doctor from '@/data/doctors';
 import Image from 'next/image';
-import { Calendar, MapPin, Phone, Mail, Award, BookOpen, Users, Clock, Star, ChevronRight, Globe, Stethoscope, GraduationCap, Briefcase, Trophy, Medal, Crown } from 'lucide-react';
+import { Calendar, MapPin, Phone, Mail, Award, BookOpen, Clock, Star, ChevronRight, Globe, Stethoscope, GraduationCap, Briefcase, Trophy, Medal, Crown } from 'lucide-react';
 
 interface AboutProps {
   doctor: Doctor;
@@ -12,7 +12,7 @@ interface AboutProps {
 const About: React.FC<AboutProps> = ({ doctor }) => {
   const [activeTab, setActiveTab] = useState('bio');
   const [scrollY, setScrollY] = useState(0);
-  
+  console.log(scrollY)
   const { 
     personalDetails, 
     contactDetails, 
@@ -25,11 +25,8 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
     offline, 
     onlineTiming, 
     id, 
-    span, 
-    h1,
-    bio,
-    socialLinks
-  } = doctor;
+    span, bio,
+      } = doctor;
 
   // Determine color schema based on doctor ID
   const isDrJay = id === 'dr-jay' || personalDetails.name.toLowerCase().includes('jay');
@@ -63,25 +60,8 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
     borderColor: 'border-teal-200/30',
     hoverShadow: 'hover:shadow-teal-200/20'
   };
-
-  // Award icon mapping
-  const getAwardIcon = (index: number) => {
-    const icons = [Trophy, Medal, Crown, Award, Star];
-    const IconComponent = icons[index % icons.length];
-    return IconComponent;
-  };
-
-  // Award tier colors
-  const getAwardTier = (index: number) => {
-    const tiers = [
-      { bg: 'bg-gradient-to-br from-yellow-400 to-yellow-600', text: 'text-yellow-50', glow: 'shadow-yellow-200/50' },
-      { bg: 'bg-gradient-to-br from-gray-400 to-gray-600', text: 'text-gray-50', glow: 'shadow-gray-200/50' },
-      { bg: 'bg-gradient-to-br from-amber-600 to-amber-800', text: 'text-amber-50', glow: 'shadow-amber-200/50' },
-      { bg: colorScheme.primaryBg, text: 'text-white', glow: colorScheme.hoverShadow },
-      { bg: colorScheme.secondaryBg, text: 'text-white', glow: colorScheme.hoverShadow }
-    ];
-    return tiers[index % tiers.length];
-  };
+ 
+ 
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);

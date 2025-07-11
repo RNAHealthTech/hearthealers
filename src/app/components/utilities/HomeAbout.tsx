@@ -1,0 +1,184 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import Image from 'next/image';
+import Doctor  from '@/data/doctors';
+
+interface HomeAboutProps {
+  doctor: Doctor;
+}
+
+const HomeAbout: React.FC<HomeAboutProps> = ({ doctor }) => {
+  // Dynamic styling based on doctor
+  const getColorScheme = () => {
+    if (doctor.id === 'drjay') {
+      return {
+        background: 'from-orange-50 via-amber-50 to-orange-100',
+        cardBg: 'bg-gradient-to-br from-orange-100/80 to-amber-100/80',
+        accentColor: 'text-orange-600',
+        buttonBg: 'bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600',
+        borderColor: 'border-orange-200'
+      };
+    } else if (doctor.id === 'dranupam') {
+      return {
+        background: 'from-teal-50 via-emerald-50 to-teal-100',
+        cardBg: 'bg-gradient-to-br from-teal-100/80 to-emerald-100/80',
+        accentColor: 'text-teal-600',
+        buttonBg: 'bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600',
+        borderColor: 'border-teal-200'
+      };
+    }
+    // Default fallback
+    return {
+      background: 'from-gray-50 via-blue-50 to-gray-100',
+      cardBg: 'bg-gradient-to-br from-blue-100/80 to-gray-100/80',
+      accentColor: 'text-blue-600',
+      buttonBg: 'bg-gradient-to-r from-blue-500 to-gray-500 hover:from-blue-600 hover:to-gray-600',
+      borderColor: 'border-blue-200'
+    };
+  };
+
+  const colors = getColorScheme();
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut" as const,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut" as const
+      }
+    }
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8, x: 50 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut" as const
+      }
+    }
+  };
+
+  return (
+    <section className={`relative py-16 md:py-24 bg-gradient-to-br ${colors.background} overflow-hidden`}>
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-0 left-0 w-72 h-72 bg-white/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={containerVariants}
+          className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
+        >
+          {/* Content Section */}
+          <div className="space-y-6">
+            <motion.div variants={itemVariants} className="space-y-4">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                Meet Your{' '}
+                <span className={`${colors.accentColor} relative`}>
+                  Trusted Doctor
+                  <div className={`absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r ${colors.buttonBg.replace('hover:', '').replace('bg-gradient-to-r', '')} rounded-full`}></div>
+                </span>
+              </h2>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Discover the expertise, dedication, and compassionate care that defines{' '}
+                <span className="font-semibold text-gray-800">{doctor.personalDetails.name}</span>
+              </p>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className={`${colors.cardBg} backdrop-blur-sm p-6 rounded-2xl border ${colors.borderColor} shadow-lg`}>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className={`w-3 h-3 rounded-full ${colors.buttonBg}`}></div>
+                  <h3 className="text-xl font-semibold text-gray-900">
+                    {doctor.personalDetails.speciality}
+                  </h3>
+                </div>
+                <p className="text-gray-700 leading-relaxed">
+                  {doctor.personalDetails.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className={`px-3 py-1 ${colors.cardBg} border ${colors.borderColor} rounded-full text-sm font-medium ${colors.accentColor}`}>
+                    {doctor.totalExp} Years Experience
+                  </span>
+                  <span className={`px-3 py-1 ${colors.cardBg} border ${colors.borderColor} rounded-full text-sm font-medium ${colors.accentColor}`}>
+                    {doctor.research.reduce((total, research) => total + research.publications.length, 0)} Publications
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="space-y-4">
+              <h4 className="text-lg font-semibold text-gray-900">Key Specializations</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {doctor.skills.slice(0, 4).map((skill, index) => (
+                  <div key={index} className="flex items-center space-x-2">
+                    <svg className={`w-4 h-4 ${colors.accentColor} flex-shrink-0`} fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-gray-700 text-sm">{skill}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div variants={itemVariants}>
+              <Link
+                href="/about"
+                className={`inline-flex items-center space-x-2 ${colors.buttonBg} text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl`}
+              >
+                <span>Learn More About Dr {doctor.personalDetails.name.split(' ')[1]}</span>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Image Section */}
+          <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="relative w-full h-96 lg:h-[700px]  rounded-3xl overflow-hidden">
+                <Image
+                  src={doctor.personalDetails.imageUrl}
+                  alt={doctor.personalDetails.name}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default HomeAbout;

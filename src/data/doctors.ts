@@ -117,7 +117,7 @@ export const drjayData: Doctor = {
         gender: "Male"
     },
     subdomain: "drjay",
-    totalExp: '9+', 
+    totalExp: '10+', 
     bgVideo: 'http://localhost:3000/images/drjay-bg.mp4', 
     bio: "Dr. Jay Relan is a highly accomplished Pediatric Cardiologist with specialized training from AIIMS, New Delhi. He has completed his DM in Pediatric Cardiology (Gold Medalist), MD in Pediatrics (Gold Medalist), and MBBS (Gold Medalist). With over 31 published research articles and multiple national awards, Dr. Relan brings extensive expertise in managing complex congenital heart diseases, fetal cardiac screening, and pediatric cardiac interventions. He has completed advanced fellowships in fetal echocardiography and holds certifications from the Fetal Medicine Foundation, UK.",
     h1: "Best Care for Your Baby's Heart",
@@ -330,7 +330,7 @@ export const dranupamData: Doctor = {
         gender: "Male"
     },
     subdomain: "dranupam",
-    totalExp: '10+', 
+    totalExp: '15+', 
     bgVideo: 'http://localhost:3000/images/dranupam-bg.mp4', 
     bio: "Dr. Anupam Das is a highly accomplished Cardiothoracic & Vascular Surgeon with extensive qualifications including MBBS, MS (General Surgery), MRCS (Edinburgh), MCh. CTVS (AIIMS), DNB (Cardiothoracic Surgery), MEBCTS, FRCS CTh. (Edinburgh), FACS, and FCCE. He has pioneered complex congenital heart surgery programs and minimally invasive cardiac surgery techniques. With over 2000 adult and congenital heart surgeries to his credit, Dr. Das specializes in advanced cardiac procedures, transplantation, and mechanical circulatory support systems.",
     h1: "Best Cardiothoracic Surgeon in Delhi NCR", 
@@ -567,7 +567,7 @@ export const dranupamData: Doctor = {
             schedules: [
                 {
                     day: "Monday to Friday",
-                    timing: "9:00 AM - 5:00 PM"
+                    timing: "10:00 AM - 4:00 PM"
                 }
             ]
         }
@@ -576,19 +576,4 @@ export const dranupamData: Doctor = {
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 };
 
-
-// export function getDoctorById(id: string) : Doctor | undefined {
-//      return doctors.find(doctor => doctor.id === id); 
-// }
-
-// export function getAllDoctors() : Doctor[] {
-//     return doctors;
-// }
-
-// export function getDoctorsBySpecialty(specality: string) : Doctor[] {
-//     return doctors.filter(doctor => 
-//         doctor.personalDetails.specality.toLocaleLowerCase().includes(specality.toLowerCase())
-//     );
-// }
-
-// export const DOCTOR_SUBDOMAINS = doctors.map(doctor => doctor.id); 
+ 
