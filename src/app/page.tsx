@@ -189,7 +189,7 @@ const Home = () => {
                     src="https://hearthealers.in/images/landing.png"
                     alt="Expert cardiac care"
                     className="w-full h-96 lg:h-[500px] object-cover"
-                    fill
+                    
                   />
                  </div>
                 

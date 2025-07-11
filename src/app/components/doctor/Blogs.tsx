@@ -45,7 +45,7 @@ const Blogs: React.FC<BlogsProps> = ({ blogs, doctor = 'all' }) => {
         <section
           className="relative  border-b border-gray-200 h-96 md:mt-20"
           style={{
-            backgroundImage: "url('http://localhost:3000/images/blog/blogs-bg.webp')",
+            backgroundImage: "url('https://hearthealers.in/images/blog/blogs-bg.webp')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
