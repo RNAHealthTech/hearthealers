@@ -109,16 +109,16 @@ export const drjayData: Doctor = {
         name: "Dr. Jay Relan",
         speciality: "Pediatric Cardiologist",
         description: "Pediatric Cardiologist with extensive experience in congenital heart diseases, fetal echocardiography, and pediatric cardiac interventions. Gold medalist with 31 published research articles.",
-        imageUrl: 'http://localhost:3000/images/drjay.jpg',  
+        imageUrl: 'https://hearthealers.in/images/drjay.jpg',  
         imageUrl2: "", // To be added
         imageUrl3: "", // To be added
-        backgroundImageUrl: "http://localhost:3000/images/bg1.jpg", // To be added
+        backgroundImageUrl: "https://hearthealers.in/images/bg1.jpg", // To be added
         age: 35, // Estimated based on graduation timeline
         gender: "Male"
     },
     subdomain: "drjay",
     totalExp: '10+', 
-    bgVideo: 'http://localhost:3000/images/drjay-bg.mp4', 
+    bgVideo: 'https://hearthealers.in/images/drjay-bg.mp4', 
     bio: "Dr. Jay Relan is a highly accomplished Pediatric Cardiologist with specialized training from AIIMS, New Delhi. He has completed his DM in Pediatric Cardiology (Gold Medalist), MD in Pediatrics (Gold Medalist), and MBBS (Gold Medalist). With over 31 published research articles and multiple national awards, Dr. Relan brings extensive expertise in managing complex congenital heart diseases, fetal cardiac screening, and pediatric cardiac interventions. He has completed advanced fellowships in fetal echocardiography and holds certifications from the Fetal Medicine Foundation, UK.",
     h1: "Best Care for Your Baby's Heart",
     span: "Leading Pediatric Cardiologist in Delhi NCR Dr Jay Relan",  
@@ -322,16 +322,16 @@ export const dranupamData: Doctor = {
         name: "Dr. Anupam Das",
         speciality: "Cardiothoracic & Vascular Surgeon",
         description: "Senior Consultant & Head of Cardiothoracic & Vascular Surgery with expertise in adult and congenital heart surgeries, minimally invasive cardiac procedures, and complex aortic surgeries.",
-        imageUrl: "http://localhost:3000/images/dranupam.jpg", // To be provided
+        imageUrl: "https://hearthealers.in/images/dranupam.jpg", // To be provided
         imageUrl2: "", // To be provided
         imageUrl3: "", // To be provided
-        backgroundImageUrl: "http://localhost:3000/images/bg1.jpg", // To be provided
+        backgroundImageUrl: "https://hearthealers.in/images/bg1.jpg", // To be provided
         age: 39, 
         gender: "Male"
     },
     subdomain: "dranupam",
     totalExp: '15+', 
-    bgVideo: 'http://localhost:3000/images/dranupam-bg.mp4', 
+    bgVideo: 'https://hearthealers.in/images/dranupam-bg.mp4', 
     bio: "Dr. Anupam Das is a highly accomplished Cardiothoracic & Vascular Surgeon with extensive qualifications including MBBS, MS (General Surgery), MRCS (Edinburgh), MCh. CTVS (AIIMS), DNB (Cardiothoracic Surgery), MEBCTS, FRCS CTh. (Edinburgh), FACS, and FCCE. He has pioneered complex congenital heart surgery programs and minimally invasive cardiac surgery techniques. With over 2000 adult and congenital heart surgeries to his credit, Dr. Das specializes in advanced cardiac procedures, transplantation, and mechanical circulatory support systems.",
     h1: "Best Cardiothoracic Surgeon in Delhi NCR", 
     span: "Minimally Invasive Cardiac Surgery Expert Dr Anupam Das", 

@@ -21,7 +21,7 @@ export interface Service {
       subdomain: 'drjay',
       title: 'Congenital Heart Defects',
       description: 'Specialized treatment for shunts, valvular/vascular obstructions, and cyanotic diseases.',
-      image: '/images/services/heart-defects.png',
+      image: 'https://hearthealers.in/images/services/heart-defects.png',
       symptoms: [
         'Cyanosis (bluish skin)',
         'Shortness of breath',
@@ -37,7 +37,7 @@ export interface Service {
       subdomain: 'drjay',
       title: 'Acquired Heart Diseases',
       description: 'Expert care for rheumatic heart disease and cardiomyopathies.',
-      image: '/images/services/acquired-heart.png',
+      image: 'https://hearthealers.in/images/services/acquired-heart.png',
       symptoms: [
         'Chest pain',
         'Fatigue',
@@ -53,7 +53,7 @@ export interface Service {
       subdomain: 'drjay',
       title: 'Pulmonary Hypertension',
       description: 'Specialized care for conditions affecting pulmonary circulation.',
-      image: '/images/services/pulmonary-hypertension.png',
+      image: 'https://hearthealers.in/images/services/pulmonary-hypertension.png',
       symptoms: [
         'Shortness of breath',
         'Chest pressure or pain',
@@ -69,7 +69,7 @@ export interface Service {
       subdomain: 'drjay',
       title: 'Systemic Hypertension',
       description: 'Comprehensive management of high blood pressure.',
-      image: '/images/services/systemic-hypertension.png',
+      image: 'https://hearthealers.in/images/services/systemic-hypertension.png',
       symptoms: [
         'Headaches',
         'Nosebleeds',
@@ -85,7 +85,7 @@ export interface Service {
       subdomain: 'drjay',
       title: 'Cardiac Arrhythmias',
       description: 'Advanced treatment for heart rhythm disorders.',
-      image: '/images/services/arrhythmias.png',
+      image: 'https://hearthealers.in/images/services/arrhythmias.png',
       symptoms: [
         'Palpitations',
         'Dizziness or lightheadedness',
@@ -113,7 +113,7 @@ export interface Service {
       subdomain: 'dranupam',
       title: 'Balloon Valvuloplasty',
       description: 'Non-surgical treatment for pulmonary and aortic valve conditions.',
-      image: '/images/procedures/balloon-valvuloplasty.png',
+      image: 'https://hearthealers.in/images/procedures/balloon-valvuloplasty.png',
       procedureInfo: 'Contact Dr. Anupam for more information about balloon valvuloplasty procedures.', 
             phone: '+91-9899094465'
     },
@@ -123,7 +123,7 @@ export interface Service {
       subdomain: 'dranupam',
       title: 'Coarctation Treatment',
       description: 'Balloon dilation procedures for aortic coarctation.',
-      image: '/images/procedures/coarctation-treatment.png',
+      image: 'https://hearthealers.in/images/procedures/coarctation-treatment.png',
       procedureInfo: 'Contact Dr. Anupam for more information about coarctation treatment.', 
             phone: '+91-9899094465'
     },
@@ -133,7 +133,7 @@ export interface Service {
       subdomain: 'dranupam',
       title: 'Pediatric Stenting',
       description: 'Advanced stenting procedures for neonatal and pediatric patients.',
-      image: '/images/procedures/pediatric-stenting.png',
+      image: 'https://hearthealers.in/images/procedures/pediatric-stenting.png',
       procedureInfo: 'Contact Dr. Anupam for more information about pediatric stenting procedures.', 
             phone: '+91-9899094465'
     },
@@ -143,7 +143,7 @@ export interface Service {
       subdomain: 'dranupam',
       title: 'Diagnostic Procedures',
       description: 'Angiography and cardiac catheterization for accurate diagnosis.',
-      image: '/images/procedures/diagnostic-procedures.png',
+      image: 'https://hearthealers.in/images/procedures/diagnostic-procedures.png',
       procedureInfo: 'Contact Dr. Anupam for more information about diagnostic procedures.', 
             phone: '+91-9899094465'
     }

@@ -18,7 +18,7 @@ export const blogs: BlogContent[] = [
         subdomain: 'drjay',
         title: 'Understanding Congenital Heart Defects: Early Detection and Treatment',
         slug: 'understanding-congenital-heart-defects-early-detection-treatment',
-        imageUrl: 'http://localhost:3000/images/blog/congenital-heart-defects.webp',
+        imageUrl: 'https://hearthealers.in/images/blog/congenital-heart-defects.webp',
         description: 'Learn about the most common congenital heart defects in children, their symptoms, and modern treatment approaches from Dr. Jay Relan, a leading pediatric cardiologist.',
         tags: ['Congenital Heart Disease', 'Pediatric Cardiology', 'Heart Defects', 'Children Health', 'Early Detection'],
         content: [
@@ -64,7 +64,7 @@ export const blogs: BlogContent[] = [
         subdomain: 'drjay',
         title: 'Pediatric Arrhythmias: When Young Hearts Beat Differently',
         slug: 'pediatric-arrhythmias-when-young-hearts-beat-differently',
-        imageUrl: 'http://localhost:3000/images/blog/pediatric-arrhythmias.jpg',
+        imageUrl: 'https://hearthealers.in/images/blog/pediatric-arrhythmias.jpg',
         description: 'Explore the world of pediatric arrhythmias, their causes, symptoms, and treatment options. Dr. Jay Relan discusses how irregular heartbeats in children differ from adults.',
         tags: ['Arrhythmias', 'Pediatric Cardiology', 'Heart Rhythm', 'Children Health', 'ECG'],
         content: [
@@ -136,7 +136,7 @@ export const blogs: BlogContent[] = [
         subdomain: 'dranupam',
         title: 'Device Closure Procedures: Minimally Invasive Heart Defect Repairs',
         slug: 'device-closure-procedures-minimally-invasive-heart-defect-repairs',
-        imageUrl: 'http://localhost:3000/images/blog/device-closure-procedures.png',
+        imageUrl: 'https://hearthealers.in/images/blog/device-closure-procedures.png',
         description: 'Discover how modern device closure procedures can treat heart defects without surgery. Dr. Anupam explains ASD, VSD, and PDA closures in detail.',
         tags: ['Device Closure', 'ASD', 'VSD', 'PDA', 'Minimally Invasive', 'Catheter Procedures'],
         content: [
@@ -224,7 +224,7 @@ export const blogs: BlogContent[] = [
         subdomain: 'dranupam',
         title: 'Balloon Valvuloplasty: Opening Hearts Without Surgery',
         slug: 'balloon-valvuloplasty-opening-hearts-without-surgery',
-        imageUrl: 'http://localhost:3000/images/blog/balloon-valvuloplasty.jpg',
+        imageUrl: 'https://hearthealers.in/images/blog/balloon-valvuloplasty.jpg',
         description: 'Learn about balloon valvuloplasty procedures for treating heart valve stenosis in children. Dr. Anupam explains pulmonary valve, aortic valve treatments, and more.',
         tags: ['Balloon Valvuloplasty', 'Pulmonary Stenosis', 'Aortic Stenosis', 'Heart Valves', 'Catheter Intervention'],
         content: [

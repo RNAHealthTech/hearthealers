@@ -1,8 +1,9 @@
 import type { NextConfig } from "next";
 
+ 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["localhost"],
+    domains:  ["www.hearthealers.in"],
   },
   /* config options here */
 };
