@@ -183,15 +183,15 @@ const Home = () => {
               <div className="relative">
              
                 
-                {/* Main Image */}
-                <div className="relative  rounded-3xl">
+              <div className="relative w-full h-96 lg:h-[700px] rounded-3xl overflow-hidden">
                   <Image
                     src="https://hearthealers.in/images/landing.png"
                     alt="Expert cardiac care"
-                    className="w-full h-96 lg:h-[500px] object-cover"
-                    
+                    className="w-full h-full object-contain"
+                    width={600}
+                    height={700}
                   />
-                 </div>
+                </div>
                 
                 {/* Floating Stats */}
                 <div className="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-2xl border border-white/30">
@@ -235,14 +235,16 @@ const Home = () => {
           <div className="flex flex-col items-center text-center mb-8">
             <div className="relative mb-6">
               {doctor.personalDetails.imageUrl ? (
-                <div className="relative">
-                  <Image
-                    src={doctor.personalDetails.imageUrl}
-                    alt={doctor.personalDetails.name}
-                    className="w-36 h-36 rounded-full object-cover shadow-2xl ring-4 ring-white group-hover:scale-105 transition-transform duration-300"
-  fill
-/>
-                  <div className={`absolute inset-0 rounded-full bg-gradient-to-t ${theme.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
+               <div className="relative w-34 h-34">
+               <Image
+                 src={doctor.personalDetails.imageUrl}
+                 alt={doctor.personalDetails.name}
+                 className="rounded-full object-contain shadow-2xl ring-4 ring-white group-hover:scale-105 transition-transform duration-300"
+                 fill
+                 sizes="144px"
+               />
+             
+               <div className={`absolute inset-0 rounded-full bg-gradient-to-t ${theme.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
                 </div>
               ) : (
                 <div className={`w-36 h-36 ${theme.secondary} rounded-full flex items-center justify-center shadow-2xl ring-4 ring-white group-hover:scale-105 transition-transform duration-300`}>

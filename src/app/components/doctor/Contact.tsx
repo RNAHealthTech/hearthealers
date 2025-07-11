@@ -141,7 +141,7 @@ Message: ${formData.message}`;
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="relative w-full h-96 lg:h-[700px] rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-96 lg:h-[700px] rounded-3xl overflow-hidden">
                 <Image
                   src={doctor.personalDetails.imageUrl}
                   alt={doctor.personalDetails.name}
