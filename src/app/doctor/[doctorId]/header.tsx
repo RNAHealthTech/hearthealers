@@ -121,9 +121,9 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
         {/* Main Navigation */}
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            {/* Logo */}
+            {/* Logo - Mobile Center, Desktop Left */}
             <motion.div 
-              className="flex items-center gap-3 cursor-pointer"
+              className="flex items-center gap-3 cursor-pointer lg:flex-initial flex-1 lg:justify-start justify-center"
               whileHover={{ scale: 1.02 }}
  
             >
@@ -230,7 +230,7 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
               
               {/* Mobile Menu Button */}
               <motion.button 
-                className={`lg:hidden p-2 rounded-full transition-colors backdrop-blur-sm cursor-pointer ${
+                className={`hidden p-2 rounded-full transition-colors backdrop-blur-sm cursor-pointer ${
                   scrolled ? `text-gray-700 ${colorScheme.accentHover} hover:bg-white/50` : 'text-zinc-800 hover:text-zinc/80 hover:bg-white/20'
                 }`}
                 onClick={toggleMobileMenu}
