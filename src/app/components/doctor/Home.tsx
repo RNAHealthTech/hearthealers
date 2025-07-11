@@ -79,15 +79,15 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-18">
             {/*  doctor avatar  */}
             <div className='flex-shrink-0'>
-              <div className='relative'>
-                <Image 
-                 src={personalDetails.imageUrl}
-                 alt={personalDetails.name}
-                 className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-contain border-4 border-white/30 shadow-xl"
-                 fill
-                />
-
-               </div>
+            <div className='relative'>
+  <Image 
+    src={personalDetails.imageUrl}
+    alt={personalDetails.name}
+    className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-contain border-4 border-white/30 shadow-xl"
+    width={96}
+    height={96}
+  />
+</div>
             </div>
 
             <div className="text-center sm:text-left">

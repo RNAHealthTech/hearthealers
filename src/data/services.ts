@@ -21,7 +21,7 @@ export interface Service {
       subdomain: 'drjay',
       title: 'Congenital Heart Defects',
       description: 'Specialized treatment for shunts, valvular/vascular obstructions, and cyanotic diseases.',
-      image: 'https://hearthealers.in/images/services/heart-defects.png',
+      image: 'https://hearthealers.in/images/services/heart-defects.jpg',
       symptoms: [
         'Cyanosis (bluish skin)',
         'Shortness of breath',
@@ -37,7 +37,7 @@ export interface Service {
       subdomain: 'drjay',
       title: 'Acquired Heart Diseases',
       description: 'Expert care for rheumatic heart disease and cardiomyopathies.',
-      image: 'https://hearthealers.in/images/services/acquired-heart.png',
+      image: 'https://hearthealers.in/images/services/acquired-heart.jpg',
       symptoms: [
         'Chest pain',
         'Fatigue',
@@ -53,7 +53,7 @@ export interface Service {
       subdomain: 'drjay',
       title: 'Pulmonary Hypertension',
       description: 'Specialized care for conditions affecting pulmonary circulation.',
-      image: 'https://hearthealers.in/images/services/pulmonary-hypertension.png',
+      image: 'https://hearthealers.in/images/services/pulmonary-hypertension.jpeg',
       symptoms: [
         'Shortness of breath',
         'Chest pressure or pain',
@@ -69,7 +69,7 @@ export interface Service {
       subdomain: 'drjay',
       title: 'Systemic Hypertension',
       description: 'Comprehensive management of high blood pressure.',
-      image: 'https://hearthealers.in/images/services/systemic-hypertension.png',
+      image: 'https://hearthealers.in/images/services/systemic-hypertension.jpeg',
       symptoms: [
         'Headaches',
         'Nosebleeds',
@@ -85,7 +85,7 @@ export interface Service {
       subdomain: 'drjay',
       title: 'Cardiac Arrhythmias',
       description: 'Advanced treatment for heart rhythm disorders.',
-      image: 'https://hearthealers.in/images/services/arrhythmias.png',
+      image: 'https://hearthealers.in/images/services/arrhythmias.jpg',
       symptoms: [
         'Palpitations',
         'Dizziness or lightheadedness',
