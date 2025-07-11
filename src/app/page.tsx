@@ -186,7 +186,7 @@ const Home = () => {
                 {/* Main Image */}
                 <div className="relative  rounded-3xl">
                   <Image
-                    src="/images/landing.png"
+                    src="https://hearthealers.in/images/landing.png"
                     alt="Expert cardiac care"
                     className="w-full h-96 lg:h-[500px] object-cover"
                     fill
