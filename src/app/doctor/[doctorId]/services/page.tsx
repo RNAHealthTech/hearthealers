@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { services } from "@/data/services";
+// import { services } from "@/data/services";
 import Doctor, {drjayData, dranupamData} from "@/data/doctors";
 import Services from '@/app/components/doctor/Services';
 

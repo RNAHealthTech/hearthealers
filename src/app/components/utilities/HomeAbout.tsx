@@ -65,18 +65,18 @@ const HomeAbout: React.FC<HomeAboutProps> = ({ doctor }) => {
     }
   };
 
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.8, x: 50 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut" as const
-      }
-    }
-  };
+//   const imageVariants = {
+//     hidden: { opacity: 0, scale: 0.8, x: 50 },
+//     visible: {
+//       opacity: 1,
+//       scale: 1,
+//       x: 0,
+//       transition: {
+//         duration: 0.8,
+//         ease: "easeOut" as const
+//       }
+//     }
+//   };
 
   return (
     <section className={`relative py-16 md:py-24 bg-gradient-to-br ${colors.background} overflow-hidden`}>

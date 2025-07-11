@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Doctor from '@/data/doctors';
 import Image from 'next/image';
-import { Calendar, MapPin, Phone, Mail, Award, BookOpen, Clock, Star, ChevronRight, Globe, Stethoscope, GraduationCap, Briefcase, Trophy, Medal, Crown } from 'lucide-react';
+import { Calendar, MapPin, Phone, Mail, Award, BookOpen, Clock, Star, ChevronRight, Globe, Stethoscope, GraduationCap, Briefcase} from 'lucide-react';
 
 interface AboutProps {
   doctor: Doctor;

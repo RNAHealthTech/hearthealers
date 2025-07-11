@@ -9,9 +9,7 @@ import {
   FaEnvelope,
   FaPhone,
   FaClock,
-   
-  FaLinkedin,
-  FaInstagram,
+    
   FaArrowRight,
 } from "react-icons/fa";
 import { useForm, ValidationError } from "@formspree/react";

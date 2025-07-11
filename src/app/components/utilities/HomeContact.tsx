@@ -75,13 +75,7 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ doctor, formspr
       }
     }
   };
-
-  // Generate Google Maps embed URL based on doctor's address
-  const getMapUrl = () => {
-    const address = doctor.contactDetails.address || doctor.offline[0]?.hospital || '';
-    const encodedAddress = encodeURIComponent(address);
-    return `https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodedAddress}`;
-  };
+ 
 
   // For demo purposes, using a generic map URL - replace with actual API key
   const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14042.308553553954!2d77.32582385857022!3d28.371631393795468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdd78a06fe98f%3A0x5c7eaa85fa52d93!2sSarvodaya%20Hospital%20and%20Research%20Center%20%7C%20Dental%20and%20Maxillofacial%20Surgery%20%7C%20Faridabad!5e0!3m2!1sen!2sin!4v1752063408927!5m2!1sen!2sin`;
@@ -142,7 +136,7 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ doctor, formspr
                   Schedule Consultation
                 </h3>
                 <p className="text-gray-600">
-                  Fill out the form below and we'll get back to you within 24 hours
+                  Fill out the form below and we&#39;ll get back to you within 24 hours
                 </p>
               </div>
 
@@ -161,7 +155,7 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ doctor, formspr
                     Message Sent Successfully!
                   </h4>
                   <p className="text-gray-600">
-                    Thank you for your message. We'll get back to you soon!
+                    Thank you for your message. We&#39;ll get back to you soon!
                   </p>
                 </motion.div>
               ) : (

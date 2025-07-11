@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { Menu, X, Phone, ChevronDown, Calendar, Home, User, Briefcase, FileText, MessageSquare, Mail, MapPin, Clock, Stethoscope, Heart, Activity, Shield, Zap, Target, Microscope, Settings, Plus } from 'lucide-react';
+import { Menu, X, ChevronDown, Calendar, Home, User, Briefcase, FileText, MessageSquare, Stethoscope, Heart, Activity, Shield, Zap, Target, Microscope, Settings } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { drjayData, dranupamData } from '@/data/doctors';
 import type Doctor from '@/data/doctors';
@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
   const [scrolled, setScrolled] = useState(false);
   const [doctor, setDoctor] = useState<Doctor | null>(null);
   const [activeSection, setActiveSection] = useState('home');
-   
+  console.log(setActiveSection); 
 
   useEffect(() => {
     const doctorData = getDoctorById(doctorId);
