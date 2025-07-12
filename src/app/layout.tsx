@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Raleway } from 'next/font/google'
+import { Raleway, Merriweather } from 'next/font/google'
 
 const raleway = Raleway({
   subsets: ["latin"],
   weight: ['400', '700']
+});
+
+const merriweather = Merriweather({
+  subsets: ["latin"],
+  weight: ['400', '700', '900'],
+  variable: '--font-merriweather'
 });
  
 export const metadata: Metadata = {
@@ -20,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${raleway.className}`}
+        className={`${raleway.className} ${merriweather.variable}`}
       >
         {children}
       </body>
