@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import Doctor from '@/data/doctors';
 import Image from 'next/image';
-import { Calendar, MapPin, Phone, Mail, Award, BookOpen, Clock, Star, ChevronRight, Globe, Stethoscope, GraduationCap, Briefcase} from 'lucide-react';
+import { Calendar, MapPin, Phone, Mail, Award, BookOpen, Clock, Star, ChevronRight, Globe, Stethoscope, GraduationCap, Briefcase } from 'lucide-react';
+import BookAppointmentModal from '../utilities/BookAppointment';
 
 interface AboutProps {
   doctor: Doctor;
@@ -12,25 +13,27 @@ interface AboutProps {
 const About: React.FC<AboutProps> = ({ doctor }) => {
   const [activeTab, setActiveTab] = useState('bio');
   const [scrollY, setScrollY] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   console.log(scrollY)
-  const { 
-    personalDetails, 
-    contactDetails, 
-    currentWorkExperience, 
+  const {
+    personalDetails,
+    contactDetails,
+    currentWorkExperience,
     pastExperience,
     education,
     research,
     awards,
-    skills, 
-    offline, 
-    onlineTiming, 
-    id, 
+    skills,
+    offline,
+    onlineTiming,
+    id,
     span, bio,
-      } = doctor;
+  } = doctor;
 
   // Determine color schema based on doctor ID
   const isDrJay = id === 'dr-jay' || personalDetails.name.toLowerCase().includes('jay');
-  
+
   const colorScheme = isDrJay ? {
     primary: 'red',
     secondary: 'amber',
@@ -60,8 +63,8 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
     borderColor: 'border-teal-200/30',
     hoverShadow: 'hover:shadow-teal-200/20'
   };
- 
- 
+
+
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -88,7 +91,7 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
             />
           </svg>
         </div>
-        
+
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-32 pb-16 md:pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
             {/* Content - Mobile Centered */}
@@ -103,7 +106,7 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
                     </span>
                   </div>
                 </div>
-                
+
                 <div>
                   <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-3 md:mb-4 px-2 md:px-0">
                     {personalDetails.name}
@@ -116,7 +119,7 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
                   </p>
                 </div>
               </div>
-              
+
               {/* Enhanced Stats - Mobile Centered */}
               <div className="hidden md:flex justify-center lg:justify-start">
                 <div className={`${colorScheme.cardBg} backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-sm ${colorScheme.borderColor} border`}>
@@ -134,7 +137,9 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
 
               {/* Enhanced CTA Button - Mobile Centered */}
               <div className="flex justify-center lg:justify-start">
-                <button className={`bg-gradient-to-r ${colorScheme.gradientFrom} ${colorScheme.gradientTo} text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 group text-sm md:text-base`}>
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className={`bg-gradient-to-r ${colorScheme.gradientFrom} ${colorScheme.gradientTo} text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 group text-sm md:text-base`}>
                   <span className="flex items-center justify-center">
                     Book Appointment
                     <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -210,10 +215,10 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
                 </div>
                 <h2 className="text-xl md:text-2xl font-bold text-gray-900">Experience</h2>
               </div>
-              
+
               {/* Current Experience Dropdown */}
               <div className="mb-4 md:mb-6">
-                <button 
+                <button
                   onClick={() => setActiveTab(activeTab === 'current' ? '' : 'current')}
                   className="w-full flex items-center justify-between p-3 md:p-4 bg-gray-50/50 rounded-xl border border-gray-200/50 hover:bg-gray-100/50 transition-all duration-300"
                 >
@@ -236,7 +241,7 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
 
               {/* Past Experience Dropdown */}
               <div>
-                <button 
+                <button
                   onClick={() => setActiveTab(activeTab === 'past' ? '' : 'past')}
                   className="w-full flex items-center justify-between p-3 md:p-4 bg-gray-50/50 rounded-xl border border-gray-200/50 hover:bg-gray-100/50 transition-all duration-300"
                 >
@@ -370,8 +375,8 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
               </div>
               <div className="flex flex-wrap gap-1.5 md:gap-2">
                 {skills.map((skill, index) => (
-                  <span 
-                    key={index} 
+                  <span
+                    key={index}
                     className={`px-2 md:px-3 py-1 bg-gray-50/50 ${colorScheme.primaryText} text-xs md:text-sm font-medium rounded-full border border-gray-200/30 hover:bg-gray-100/50 transition-all duration-300`}
                   >
                     {skill}
@@ -403,9 +408,14 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
           </div>
         </div>
       </section>
+      <BookAppointmentModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        variant={isDrJay ? "drjay" : "dranupam"}// or "dranupam"
+        doctorName={doctor.personalDetails.name}
+      />
     </div>
   );
 };
 
 export default About;
- 

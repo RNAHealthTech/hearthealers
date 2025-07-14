@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Doctor from '@/data/doctors';
 import HomeServicesSection from '../utilities/HomeServices';
 import HomeAbout from '../utilities/HomeAbout';
@@ -47,71 +47,71 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
 
   return (
     <main>
-    <section id='home' className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video */}
-      <div className="absolute inset-0 z-0">
-        <video
-          className="w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-        >
-          <source src={bgVideo} type="video/mp4" />
-          {/* Fallback for browsers that don't support video */}
-          <div className="w-full h-full bg-gradient-to-br from-gray-900 to-gray-700"></div>
-        </video>
-        {/* Video overlay */}
-      
-      </div>
+      <section id='home' className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video
+            className="w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          >
+            <source src={bgVideo} type="video/mp4" />
+            {/* Fallback for browsers that don't support video */}
+            <div className="w-full h-full bg-gradient-to-br from-gray-900 to-gray-700"></div>
+          </video>
+          {/* Video overlay */}
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        {/* Main Heading */}
-        <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ${colors.textPrimary} mb-6 leading-tight tracking-tight`}>
-          {h1}
-        </h1>
-
-        {/* Subtitle */}
-        <p className={`text-lg sm:text-xl md:text-2xl ${colors.textSecondary} mb-8 max-w-3xl mx-auto leading-relaxed font-light`}>
-          {span}
-        </p>
-
-        {/* Doctor Info Card */}
-        <div className="mb-12 p-6 backdrop-blur-sm bg-white/10 rounded-2xl border border-white/20 shadow-2xl">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-18">
-            {/*  doctor avatar  */}
-            <div className='flex-shrink-0'>
-            <div className='relative'>
-  <Image 
-    src={personalDetails.imageUrl}
-    alt={personalDetails.name}
-    className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-contain border-4 border-white/30 shadow-xl"
-    width={96}
-    height={96}
-  />
-</div>
-            </div>
-
-            <div className="text-center sm:text-left">
-              <h2 className={`text-2xl font-semibold ${colors.textPrimary} mb-2`}>
-                {personalDetails.name}
-              </h2>
-              <p className={`${colors.textSecondary} text-lg mb-2`}>
-                {personalDetails.speciality}
-              </p>
-              <p className={`${colors.textSecondary} text-sm`}>
-                {doctor.totalExp} years of experience
-              </p>
-            </div>
-          </div>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button
-            className={`
+        {/* Content */}
+        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+          {/* Main Heading */}
+          <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ${colors.textPrimary} mb-6 leading-tight tracking-tight`}>
+            {h1}
+          </h1>
+
+          {/* Subtitle */}
+          <p className={`text-lg sm:text-xl md:text-2xl ${colors.textSecondary} mb-8 max-w-3xl mx-auto leading-relaxed font-light`}>
+            {span}
+          </p>
+
+          {/* Doctor Info Card */}
+          <div className="mb-12 p-6 backdrop-blur-sm bg-white/10 rounded-2xl border border-white/20 shadow-2xl">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-18">
+              {/*  doctor avatar  */}
+              <div className='flex-shrink-0'>
+                <div className='relative'>
+                  <Image
+                    src={personalDetails.imageUrl}
+                    alt={personalDetails.name}
+                    className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-contain border-4 border-white/30 shadow-xl"
+                    width={96}
+                    height={96}
+                  />
+                </div>
+              </div>
+
+              <div className="text-center sm:text-left">
+                <h2 className={`text-2xl font-semibold ${colors.textPrimary} mb-2`}>
+                  {personalDetails.name}
+                </h2>
+                <p className={`${colors.textSecondary} text-lg mb-2`}>
+                  {personalDetails.speciality}
+                </p>
+                <p className={`${colors.textSecondary} text-sm`}>
+                  {doctor.totalExp} years of experience
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button
+              className={`
               ${colors.button}
               ${colors.buttonText}
               font-semibold
@@ -132,29 +132,29 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
               min-w-[200px]
               cursor-pointer
             `}
-          onClick={()=>setIsModalOpen(true)}
-          >
-            Book Appointment
-          </button>
-          
- 
-        </div>
-      </div> 
+              onClick={() => setIsModalOpen(true)}
+            >
+              Book Appointment
+            </button>
 
-      {/* Decorative Elements */}
-      <div className="absolute top-1/4 left-10 w-2 h-20 bg-white/20 rounded-full blur-sm"></div>
-      <div className="absolute bottom-1/4 right-10 w-2 h-32 bg-white/20 rounded-full blur-sm"></div>
-      <div className="absolute top-1/2 right-20 w-1 h-16 bg-white/30 rounded-full blur-sm hidden lg:block"></div>
-    </section>
-    <HomeAbout doctor={doctor} />
-    <HomeServicesSection subdomain={doctor.subdomain} />
-    <HomeContactSection doctor={doctor} formspreeId={doctor.id === 'drjay' ? 'xovwobnv' : 'mgvyjqlo'} />
-    <BookAppointmentModal
-  isOpen={isModalOpen}
-  onClose={() => setIsModalOpen(false)}
-  variant={ isJayRelan ? "drjay" : "dranupam" }// or "dranupam"
-  doctorName={doctor.personalDetails.name}
-/>
+
+          </div>
+        </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute top-1/4 left-10 w-2 h-20 bg-white/20 rounded-full blur-sm"></div>
+        <div className="absolute bottom-1/4 right-10 w-2 h-32 bg-white/20 rounded-full blur-sm"></div>
+        <div className="absolute top-1/2 right-20 w-1 h-16 bg-white/30 rounded-full blur-sm hidden lg:block"></div>
+      </section>
+      <HomeAbout doctor={doctor} />
+      <HomeServicesSection subdomain={doctor.subdomain} />
+      <HomeContactSection doctor={doctor} formspreeId={doctor.id === 'drjay' ? 'xovwobnv' : 'mgvyjqlo'} />
+      <BookAppointmentModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        variant={isJayRelan ? "drjay" : "dranupam"}// or "dranupam"
+        doctorName={doctor.personalDetails.name}
+      />
     </main>
   );
 };
