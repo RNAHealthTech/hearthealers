@@ -291,7 +291,7 @@ export const drjayData: Doctor = {
         "Medical Education"
     ],
     contactDetails: {
-        address: " Sector-8, YMCA Rd, near Escorts Mujesar Metro Station, Sector 8, Faridabad, Haryana 121006",
+        address: "Sarvodaya Hospital & Research Centre, Sector-8, YMCA Rd, near Escorts Mujesar Metro Station, Sector 8, Faridabad, Haryana 121006",
         phone: "+91 9868700886", // Not provided in CV
         email: "jay.relan@gmail.com" // Not provided in CV, as per instruction to not add multiple emails
     },
@@ -553,7 +553,7 @@ export const dranupamData: Doctor = {
         "TAVI Procedures"
     ],
     contactDetails: {
-        address: "B-2 / 56-B, Lawrence Road, Keshav Puram, Delhi 110035, India",
+        address: "Sarvodaya Hospital & Research Centre, Sector-8, YMCA Rd, near Escorts Mujesar Metro Station, Sector 8, Faridabad, Haryana 121006",
         phone: "+91-9899094465",
         email: "dranupamdas86@gmail.com"
     },
