@@ -553,7 +553,7 @@ export const dranupamData: Doctor = {
         "TAVI Procedures"
     ],
     contactDetails: {
-        address: "Sarvodaya Hospital & Research Centre, Sector-8, YMCA Rd, near Escorts Mujesar Metro Station, Sector 8, Faridabad, Haryana 121006",
+        address: "1069, Mother & Child Care Center, Sarvodaya Hospital, Sector-8, YMCA Rd, near Escorts Mujesar Metro Station, Faridabad, Haryana 121006",
         phone: "+91-9899094465",
         email: "dranupamdas86@gmail.com"
     },
