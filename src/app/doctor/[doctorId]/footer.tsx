@@ -205,7 +205,7 @@ const Footer: React.FC<FooterProps> = ({ doctorId }) => {
               </div>
 
               {/* Offline Schedule */}
-              {doctor.offline.length > 0 && (
+              {/* {doctor.offline.length > 0 && (
                 <div className="mt-6">
                   <h5 className="font-medium mb-3 text-sm">Offline Schedule</h5>
                   <div className="space-y-3">
@@ -224,7 +224,7 @@ const Footer: React.FC<FooterProps> = ({ doctorId }) => {
                     ))}
                   </div>
                 </div>
-              )}
+              )} */}
             </div>
           </div>
         </div>

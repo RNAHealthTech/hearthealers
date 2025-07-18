@@ -212,7 +212,7 @@ Message: ${formData.message}`;
                   <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-teal-500 rounded-xl flex items-center justify-center mb-6">
                     <FaClock className="text-white text-lg" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-6 text-gray-900">{schedule.hospital}</h3>
+                  <h3 className="text-xl font-semibold mb-6 text-gray-900">{doctor.contactDetails.address}</h3>
                   <div className="space-y-4">
                     {schedule.schedules.map((timing, timingIndex) => (
                       <div key={timingIndex} className="flex items-center">
