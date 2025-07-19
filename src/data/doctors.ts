@@ -291,7 +291,7 @@ export const drjayData: Doctor = {
         "Medical Education"
     ],
     contactDetails: {
-        address: "Sarvodaya Hospital & Research Centre, Sector-8, YMCA Rd, near Escorts Mujesar Metro Station, Sector 8, Faridabad, Haryana 121006",
+        address: "1071, Mother & Child Care Center, Sarvodaya Hospital, Sector-8, YMCA Rd, near Escorts Mujesar Metro Station, Faridabad, Haryana 121006",
         phone: "+91 9868700886", // Not provided in CV
         email: "jay.relan@gmail.com" // Not provided in CV, as per instruction to not add multiple emails
     },
@@ -301,7 +301,7 @@ export const drjayData: Doctor = {
     },
     offline: [
         {
-            hospital: "Sarvodaya Hospital & Research Centre, Faridabad",
+            hospital: "1071, Mother & Child Care Center, Sarvodaya Hospital, Sector-8, YMCA Rd, near Escorts Mujesar Metro Station, Faridabad, Haryana 121006",
             schedules: [
                 {
                     day: "Monday to Saturday",
