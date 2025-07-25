@@ -216,7 +216,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20" >
             <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent mb-6">
-              Meet Our Expert Cardiologists
+              Meet Our Heart Experts 
             </h2>
             <div className="w-32 h-1 bg-gradient-to-r from-red-600 to-red-500 mx-auto mb-8"></div>
            
