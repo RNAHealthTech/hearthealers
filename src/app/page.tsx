@@ -376,7 +376,7 @@ const Home = () => {
               <Shield className="h-6 w-6 text-teal-600" />
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Pediatric Stenting</h4>
+              <h4 className="text-lg font-semibold text-gray-900">Adult and Pediatric Congenital Heart Surgeries</h4>
             </div>
           </div>
           
@@ -385,7 +385,7 @@ const Home = () => {
               <Scan className="h-6 w-6 text-teal-600" />
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Coarctation Treatment</h4>
+              <h4 className="text-lg font-semibold text-gray-900">Aortic Surgeries</h4>
             </div>
           </div>
           
@@ -394,7 +394,7 @@ const Home = () => {
               <Pill className="h-6 w-6 text-teal-600" />
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Balloon Valvuloplasty</h4>
+              <h4 className="text-lg font-semibold text-gray-900">Vascular Surgeries</h4>
             </div>
           </div>
           
@@ -403,7 +403,7 @@ const Home = () => {
               <Gauge className="h-6 w-6 text-teal-600" />
             </div>
             <div>
-              <h4 className="text-lg font-semibold text-gray-900">Device Closures</h4>
+              <h4 className="text-lg font-semibold text-gray-900">Heart Failure and Mechanical Circulatory Support</h4>
             </div>
           </div>
         </div>

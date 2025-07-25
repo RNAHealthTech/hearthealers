@@ -2,7 +2,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Phone, Mail, MapPin, Clock,  Heart, ArrowRight, Activity, Shield, Target, Zap, Settings, Microscope } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Heart, ArrowRight, Activity, Shield, Target, Zap, Settings, Microscope } from 'lucide-react';
 import { drjayData, dranupamData } from '@/data/doctors';
 import type Doctor from '@/data/doctors';
 
@@ -10,15 +10,16 @@ interface FooterProps {
   doctorId: string;
 }
 
-function getDoctorById(id: string): Doctor | null {   
-    switch (id) {     
-        case 'drjay':       
-           return drjayData;     
-        case 'dranupam':       
-            return dranupamData;     
-        default:       
-            return null;   
-        }} 
+function getDoctorById(id: string): Doctor | null {
+  switch (id) {
+    case 'drjay':
+      return drjayData;
+    case 'dranupam':
+      return dranupamData;
+    default:
+      return null;
+  }
+}
 
 const Footer: React.FC<FooterProps> = ({ doctorId }) => {
   const [doctor, setDoctor] = useState<Doctor | null>(null);
@@ -38,32 +39,32 @@ const Footer: React.FC<FooterProps> = ({ doctorId }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
- 
+
 
   if (!doctor) return null;
 
   const isJayRelan = doctorId === 'drjay';
-  const colorScheme = isJayRelan 
+  const colorScheme = isJayRelan
     ? {
-        primary: 'bg-red-600',
-        primaryHover: 'hover:bg-red-700',
-        accent: 'text-red-600',
-        accentHover: 'hover:text-red-700',
-        gradient: 'from-red-600 to-red-700',
-        border: 'border-red-200',
-        bg: 'bg-red-50',
-        darkBg: 'bg-red-900'
-      }
+      primary: 'bg-red-600',
+      primaryHover: 'hover:bg-red-700',
+      accent: 'text-red-600',
+      accentHover: 'hover:text-red-700',
+      gradient: 'from-red-600 to-red-700',
+      border: 'border-red-200',
+      bg: 'bg-red-50',
+      darkBg: 'bg-red-900'
+    }
     : {
-        primary: 'bg-teal-600',
-        primaryHover: 'hover:bg-teal-700',
-        accent: 'text-teal-600',
-        accentHover: 'hover:text-teal-700',
-        gradient: 'from-teal-600 to-teal-700',
-        border: 'border-teal-200',
-        bg: 'bg-teal-50',
-        darkBg: 'bg-teal-900'
-      };
+      primary: 'bg-teal-600',
+      primaryHover: 'hover:bg-teal-700',
+      accent: 'text-teal-600',
+      accentHover: 'hover:text-teal-700',
+      gradient: 'from-teal-600 to-teal-700',
+      border: 'border-teal-200',
+      bg: 'bg-teal-50',
+      darkBg: 'bg-teal-900'
+    };
 
   const quickLinks = [
     { name: 'Home', href: '/' },
@@ -82,14 +83,46 @@ const Footer: React.FC<FooterProps> = ({ doctorId }) => {
     { title: 'Cardiac Arrhythmias', icon: Zap, description: 'Heart rhythm disorder treatment' }
   ];
 
-  // Dr. Anupam's Procedures
+  // Dr. Anupam's Procedures (Updated with actual surgical procedures)
   const anupamProcedures = [
-    { title: 'Device Closures', icon: Settings, description: 'ASD, VSD, PDA, AP window closures' },
-    { title: 'Balloon Valvuloplasty', icon: Heart, description: 'Pulmonary & Aortic valve procedures' },
-    { title: 'Coarctation Treatment', icon: Activity, description: 'Balloon dilation for aortic coarctation' },
-    { title: 'Pediatric Stenting', icon: Target, description: 'Neonatal & pediatric cardiac stenting' },
-    { title: 'Diagnostic Procedures', icon: Microscope, description: 'Angiography & cardiac catheterization' }
+    {
+      title: 'Coronary Artery Bypass Grafting',
+      icon: Heart,
+      description: 'Both off-pump and on-pump CABG, with total arterial revascularization (LIMA, RIMA, and radial artery harvesting)'
+    },
+    {
+      title: 'Valve Repair/Replacements',
+      icon: Settings,
+      description: 'Mitral valve repair/replacements (MVR), aortic valve replacement (AVR), tricuspid valve repair, double valve replacement (DVR)'
+    },
+    {
+      title: 'Minimally Invasive Cardiac Surgeries',
+      icon: Target,
+      description: 'Keyhole surgeries including MICS MVR, MICS AVR, MIDCAB, MICS ASD Closure, MICS VSD Closure'
+    },
+    {
+      title: 'Adult and Pediatric Congenital Heart Surgeries',
+      icon: Activity,
+      description: 'ASD, VSD, AVSD, Tetralogy of Fallot, BT shunt, TAPVC repair, single ventricle repair, Ebstein\'s repair, and more'
+    },
+    {
+      title: 'Aortic Surgeries',
+      icon: Microscope,
+      description: 'Bentall operation, Wheat procedure, hemiarch or total arch replacement, TEVAR/EVAR for aortic aneurysms and dissections'
+    },
+    {
+      title: 'Vascular Surgeries',
+      icon: Heart,
+      description: 'Aortobifemoral bypass, femoro-femoral bypass, femoropopliteal bypass, embolectomies, vascular repairs, arteriovenous fistulas'
+    },
+    {
+      title: 'Heart Failure and Mechanical Circulatory Support',
+      icon: Settings,
+      description: 'Heart failure treatment, ECMO (venoarterial and venovenous), LVADs, IABP, heart transplantation'
+    }
   ];
+
+
 
   const servicesData = isJayRelan ? jayServices : anupamProcedures;
   const sectionTitle = isJayRelan ? 'Services' : 'Procedures';
@@ -138,7 +171,7 @@ const Footer: React.FC<FooterProps> = ({ doctorId }) => {
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
-                    <a 
+                    <a
                       href={link.href}
                       className={`text-gray-400 hover:text-white transition-colors flex items-center gap-2 group text-sm`}
                     >
@@ -156,7 +189,7 @@ const Footer: React.FC<FooterProps> = ({ doctorId }) => {
               <ul className="space-y-3">
                 {servicesData.map((service, index) => (
                   <li key={index}>
-                    <a 
+                    <a
                       href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                       className={`text-gray-400 hover:text-white transition-colors flex items-center gap-2 group text-sm`}
                     >
@@ -245,10 +278,9 @@ const Footer: React.FC<FooterProps> = ({ doctorId }) => {
         </div>
       </footer>
 
- 
+
     </>
   );
 };
 
 export default Footer;
- 
