@@ -20,16 +20,16 @@ function getDoctorById(id: string): Doctor | null {
         default:       
             return null;   
         }} 
-
 const Header: React.FC<HeaderProps> = ({ doctorId }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isProceduresOpen, setIsProceduresOpen] = useState(false); // Add separate state for procedures
   const [scrolled, setScrolled] = useState(false);
   const [doctor, setDoctor] = useState<Doctor | null>(null);
   const [activeSection, setActiveSection] = useState('home');
-  console.log(setActiveSection); 
 
+  console.log(setActiveSection)
   useEffect(() => {
     const doctorData = getDoctorById(doctorId);
     setDoctor(doctorData);
@@ -51,14 +51,20 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
     setIsServicesOpen(false);
   }, []);
 
+  // Add handlers for procedures dropdown
+  const handleProceduresOpen = useCallback(() => {
+    setIsProceduresOpen(true);
+  }, []);
+
+  const handleProceduresClose = useCallback(() => {
+    setIsProceduresOpen(false);
+  }, []);
+
   const toggleMobileMenu = () => {
     setIsMenuOpen(prev => !prev);
   };
 
   if (!doctor) return null;
-
- 
-
 
   const isJayRelan = doctorId === 'drjay';
   const colorScheme = isJayRelan 
@@ -87,32 +93,81 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
 
   // Dr. Jay's Services
   const jayServices = [
-    { title: 'Congenital Heart Defects', icon: Heart, description: 'Shunts, Valvular/Vascular Obstructions, Cyanotic diseases' },
-    { title: 'Acquired Heart Diseases', icon: Activity, description: 'Rheumatic heart disease, Cardiomyopathies' },
-    { title: 'Pulmonary Hypertension', icon: Shield, description: 'Specialized care for pulmonary circulation' },
-    { title: 'Systemic Hypertension', icon: Target, description: 'Comprehensive blood pressure management' },
-    { title: 'Cardiac Arrhythmias', icon: Zap, description: 'Heart rhythm disorder treatment' }
+    { title: 'Congenital Heart Defects', icon: Heart },
+    { title: 'Acquired Heart Diseases', icon: Activity },
+    { title: 'Pulmonary Hypertension', icon: Shield },
+    { title: 'Systemic Hypertension', icon: Target },
+    { title: 'Cardiac Arrhythmias', icon: Zap }
   ];
 
-  // Dr. Anupam's Procedures
-  const anupamProcedures = [
-    { title: 'Device Closures', icon: Settings, description: 'ASD, VSD, PDA, AP window closures' },
-    { title: 'Balloon Valvuloplasty', icon: Heart, description: 'Pulmonary & Aortic valve procedures' },
-    { title: 'Coarctation Treatment', icon: Activity, description: 'Balloon dilation for aortic coarctation' },
-    { title: 'Pediatric Stenting', icon: Target, description: 'Neonatal & pediatric cardiac stenting' },
-    { title: 'Diagnostic Procedures', icon: Microscope, description: 'Angiography & cardiac catheterization' }
+  // Dr. Jay's Procedures
+  const jayProcedures = [
+    { title: 'Device Closures', icon: Settings },
+    { title: 'Balloon Valvuloplasty', icon: Heart },
+    { title: 'Coarctation Treatment', icon: Activity },
+    { title: 'Pediatric Stenting', icon: Target },
+    { title: 'Diagnostic Procedures', icon: Microscope }
   ];
 
-  const servicesData = isJayRelan ? jayServices : anupamProcedures;
-  const servicesTitle = isJayRelan ? 'Services' : 'Procedures';
+  // Dr. Anupam's Services (which includes procedures)
+  const anupamServices = [
+    { title: 'Coronary Artery Bypass Grafting', icon: Heart },
+    { title: 'Valve Repair', icon: Settings },
+    { title: 'Minimally Invasive Cardiac Surgeries', icon: Target },
+    { title: 'Adult and Pediatric Congenital Heart Surgeries', icon: Activity },
+    { title: 'Aortic Surgeries', icon: Microscope },
+    { title: 'Vascular Surgeries', icon: Heart },
+    { title: 'Heart Failure and Mechanical Circulatory Support', icon: Settings }
+  ];
+
+  const servicesData = isJayRelan ? jayServices : anupamServices;
 
   const navigationItems = [
     { title: 'Home', href: '/', icon: Home },
     { title: 'About', href: '/about', icon: User },
-    { title: servicesTitle, href: '/services', icon: Briefcase, hasSubmenu: true },
+    { title: 'Services', href: '/services', icon: Briefcase, hasSubmenu: true, submenuType: 'services' },
+    ...(isJayRelan ? [{ 
+      title: 'Procedures', 
+      href: '/services', 
+      icon: Stethoscope, 
+      hasSubmenu: true, 
+      submenuType: 'procedures' 
+    }] : []),
     { title: 'Blogs', href: '/blogs', icon: FileText },
     { title: 'Contact', href: '/contact', icon: MessageSquare }
   ];
+
+  // Function to render dropdown content based on type
+  const renderDropdownContent = (submenuType: string, isOpen: boolean) => {
+    const data = submenuType === 'procedures' ? jayProcedures : servicesData;
+    
+    return (
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="absolute left-0 mt-2 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 py-3 z-10"
+          >
+            {data.map((item, subIndex) => (
+              <motion.a
+                key={subIndex}
+                href={`/services/${item.title.toLowerCase().replace(/\s+/g, '-')}`}
+                className={`flex items-start gap-3 px-4 py-3 text-gray-700 ${colorScheme.accentHover} transition-colors hover:bg-white/50 rounded-lg mx-2`}
+                whileHover={{ x: 5 }}
+              >
+                <item.icon className="w-5 h-5 mt-1 flex-shrink-0" />
+                <div>
+                  <div className="font-medium">{item.title}</div>
+                </div>
+              </motion.a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    );
+  };
 
   return (
     <>
@@ -130,7 +185,6 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
             <motion.div 
               className="flex items-center gap-3 cursor-pointer lg:flex-initial flex-1 lg:justify-start justify-center"
               whileHover={{ scale: 1.02 }}
- 
             >
               <div className={`w-12 h-12 rounded-full ${scrolled ? colorScheme.light : 'bg-white/20'} flex items-center justify-center backdrop-blur-sm`}>
                 <Stethoscope className={`w-6 h-6 ${colorScheme.accent}`} />
@@ -152,8 +206,8 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
                   {item.hasSubmenu ? (
                     <div
                       className="group relative"
-                      onMouseEnter={handleServicesOpen}
-                      onMouseLeave={handleServicesClose}
+                      onMouseEnter={item.submenuType === 'procedures' ? handleProceduresOpen : handleServicesOpen}
+                      onMouseLeave={item.submenuType === 'procedures' ? handleProceduresClose : handleServicesClose}
                     >
                       <motion.button
                         className={`flex items-center gap-1 font-medium px-4 py-2 rounded-full transition-all duration-200 ${
@@ -165,33 +219,17 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
                         whileTap={{ scale: 0.95 }}
                       >
                         {item.title}
-                        <ChevronDown className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+                        <ChevronDown className={`w-4 h-4 transition-transform ${
+                          (item.submenuType === 'procedures' && isProceduresOpen) || 
+                          (item.submenuType === 'services' && isServicesOpen) ? 'rotate-180' : ''
+                        }`} />
                       </motion.button>
-                      <AnimatePresence>
-                        {isServicesOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            className="absolute left-0 mt-2 w-80 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 py-3 z-10"
-                          >
-                            {servicesData.map((service, subIndex) => (
-                              <motion.a
-                                key={subIndex}
-                                href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
-                                className={`flex items-start gap-3 px-4 py-3 text-gray-700 ${colorScheme.accentHover} transition-colors hover:bg-white/50 rounded-lg mx-2`}
-                                whileHover={{ x: 5 }}
-                              >
-                                <service.icon className="w-5 h-5 mt-1 flex-shrink-0" />
-                                <div>
-                                  <div className="font-medium">{service.title}</div>
-                                  <div className="text-sm text-gray-500">{service.description}</div>
-                                </div>
-                              </motion.a>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                      
+                      {/* Render appropriate dropdown */}
+                      {renderDropdownContent(
+                        item.submenuType || 'services',
+                        item.submenuType === 'procedures' ? isProceduresOpen : isServicesOpen
+                      )}
                     </div>
                   ) : (
                     <motion.a
@@ -313,7 +351,7 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
                                     <service.icon className="w-4 h-4 mt-1 flex-shrink-0" />
                                     <div>
                                       <div className="font-medium text-sm">{service.title}</div>
-                                      <div className="text-xs text-gray-500">{service.description}</div>
+                                      
                                     </div>
                                   </motion.a>
                                 ))}
@@ -409,3 +447,5 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
 };
 
 export default Header;
+
+ 
