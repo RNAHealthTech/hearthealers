@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!-- Main Domain -->
+    <url>
+        <loc>https://hearthealers.in/</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- Dr. Jay Relan Subdomain - drjay.hearthealers.in -->
+    <url>
+        <loc>https://drjay.hearthealers.in/</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://drjay.hearthealers.in/about</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://drjay.hearthealers.in/services</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Dr. Jay's Services -->
+    <url>
+        <loc>https://drjay.hearthealers.in/services/congenital-heart-defects</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://drjay.hearthealers.in/services/acquired-heart-diseases</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://drjay.hearthealers.in/services/pulmonary-hypertension</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://drjay.hearthealers.in/services/systemic-hypertension</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://drjay.hearthealers.in/services/cardiac-arrhythmias</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Dr. Jay's Procedures (under services/) -->
+    <url>
+        <loc>https://drjay.hearthealers.in/services/device-closures</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://drjay.hearthealers.in/services/balloon-valvuloplasty</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://drjay.hearthealers.in/services/coarctation-treatment</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://drjay.hearthealers.in/services/pediatric-stenting</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://drjay.hearthealers.in/services/diagnostic-procedures</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://drjay.hearthealers.in/blogs</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://drjay.hearthealers.in/contact</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+    <!-- Dr. Anupam Subdomain - dranupam.hearthealers.in -->
+    <url>
+        <loc>https://dranupam.hearthealers.in/</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://dranupam.hearthealers.in/about</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://dranupam.hearthealers.in/services</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Dr. Anupam's Services -->
+    <url>
+        <loc>https://dranupam.hearthealers.in/services/coronary-artery-bypass-grafting</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://dranupam.hearthealers.in/services/valve-repair</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://dranupam.hearthealers.in/services/minimally-invasive-cardiac-surgeries</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>
+            https://dranupam.hearthealers.in/services/adult-and-pediatric-congenital-heart-surgeries</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://dranupam.hearthealers.in/services/aortic-surgeries</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://dranupam.hearthealers.in/services/vascular-surgeries</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>
+            https://dranupam.hearthealers.in/services/heart-failure-and-mechanical-circulatory-support</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://dranupam.hearthealers.in/blogs</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://dranupam.hearthealers.in/contact</loc>
+        <lastmod>2025-07-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
+</urlset>
