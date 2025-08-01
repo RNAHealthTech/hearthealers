@@ -86,7 +86,7 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
               <div className='flex-shrink-0'>
                 <div className='relative'>
                   <Image
-                    src={personalDetails.imageUrl}
+                    src={personalDetails.imageUrl2}
                     alt={personalDetails.name}
                     className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-contain border-4 border-white/30 shadow-xl"
                     width={96}

@@ -143,7 +143,7 @@ Message: ${formData.message}`;
             >
               <div className="relative w-full h-96 lg:h-[700px] rounded-3xl overflow-hidden">
                 <Image
-                  src={doctor.personalDetails.imageUrl}
+                  src={doctor.personalDetails.imageUrl2}
                   alt={doctor.personalDetails.name}
                   fill
                   className="object-contain"
