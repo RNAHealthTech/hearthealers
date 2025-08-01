@@ -110,7 +110,7 @@ export const drjayData: Doctor = {
     speciality: "Pediatric Cardiologist",
     description:
       "Pediatric Cardiologist with extensive experience in congenital heart diseases, fetal echocardiography, and pediatric cardiac interventions.",
-    imageUrl: "https://hearthealers.in/images/drjay.jpg",
+    imageUrl: "https://hearthealers.in/images/drjay-1.jpg",
     imageUrl2: "", // To be added
     imageUrl3: "", // To be added
     backgroundImageUrl: "https://hearthealers.in/images/bg1.jpg", // To be added
@@ -573,9 +573,9 @@ export const dranupamData: Doctor = {
     speciality: "Cardiothoracic & Vascular Surgeon",
     description:
       "Senior Consultant & Head of Cardiothoracic & Vascular Surgery with expertise in adult and congenital heart surgeries, minimally invasive cardiac procedures, and complex aortic surgeries.",
-    imageUrl: "https://hearthealers.in/images/dranupam.jpg", // To be provided
-    imageUrl2: "", // To be provided
-    imageUrl3: "", // To be provided
+    imageUrl: "https://hearthealers.in/images/dranupam-1.jpg", // To be provided
+    imageUrl2: "https://hearthealers.in/images/dranupam-2.jpg",
+    imageUrl3: "https://hearthealers.in/images/dranupam-3.jpg",
     backgroundImageUrl: "https://hearthealers.in/images/bg1.jpg", // To be provided
     age: 39,
     gender: "Male",
