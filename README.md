@@ -29,3 +29,90 @@ Diagnostic angiography & catheterization
 5.	Aortic Surgeries- Bentall operation, Wheat procedure, hemiarch or total arch replacement, TEVAR/ EVAR (endovascular stent grafting of aorta) for aortic aneurysms, aortic dissections
 6.	Vascular Surgeries- aortobifemoral bypass, femoro-femoral bypass, femoropopliteal bypass, axillofemoral bypass, thoraco-femoral bypass, embolectomies, vascular repairs, arteriovenous fistulas for hemodialysis
 7.	Heart failure and mechanical circulatory support- Heart failure treatment, ECMO (venoarterial and venovenous), LVADs, IABP, heart transplantation 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+Dr Jay Relan Changes
+ 
+Remove gold medalist from section "Pediatric cardiologist" under 'Meet Your Trusted Doctor' Section [done]
+ 
+Remove publications under the same section [done] 
+ 
+Remove email entry from appointment form [done]
+ 
+Remove gold medalist from footer intro [done]
+ 
+ 
+"Dedicated" instead of "leading" cardiologist in About section [done]
+ 
+Under Experience section
+remove duration years from all listings [done]
+ 
+Current position should show position at Sarvodaya hospital [done]
+ 
+Show Sir Gangaram hospital under previous experience [done]
+ 
+Remove junior resident from experience [done]
+ 
+Include all 30 researches but create a drop-down for research publications instead of a list [done]
+ 
+Contact info on the right hand side
+remove "Online consultation" [done]
+ 
+Under specializations
+Remove electrophysiology [done]
+And research and publications  [done]
+ 
+Create drop-down for awards [done]
+ 
+About page
+Remove timing from online consultation [done]
+ 
+Add more addresses to contact info
+Both in pages and appointment form (Address to be provided)
+ 
+ 
+hospital: Madhukar Rainbow Children's Hospital, Malviya Nagar, Delhi
+hospital: Sitaram Bhartia Institute of Science and Research, Qutab Institutional area, Delhi
+hospital: Apollo Cradle Maternity & Child Hospital, Greater Kailash, Delhi
+    

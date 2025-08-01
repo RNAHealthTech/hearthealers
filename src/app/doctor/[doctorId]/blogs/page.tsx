@@ -1,8 +1,10 @@
+// app/doctor/[doctorId]/blogs/page.tsx
+
 import { notFound } from 'next/navigation';
-import { blogs } from '@/data/blogs';
+import { blogs } from '@/data/blogs'; // Import ALL blogs
 import { drjayData, dranupamData } from '@/data/doctors';
-import Doctor from '@/data/doctors';
-import Blogs from '@/app/components/doctor/Blogs';
+import Doctor from '@/data/doctors'; // Assuming this is your Doctor interface
+import Blogs from '@/app/components/doctor/Blogs'; // Import your Blogs component
 
 // Function to get doctor data by ID
 function getDoctorById(id: string): Doctor | null {
@@ -16,13 +18,10 @@ function getDoctorById(id: string): Doctor | null {
   }
 }
 
-// Function to get blogs by subdomain
-function getBlogsBySubdomain(subdomain: 'drjay' | 'dranupam') {
-  return blogs.filter(blog => blog.subdomain === subdomain);
-}
+// REMOVE getBlogsBySubdomain from here, as Blogs component will do the filtering
 
 interface Props {
-  params: Promise<{ doctorId: string }>;
+  params: { doctorId: string }; // params is an object, not a Promise in page.tsx for direct access
 }
 
 export async function generateStaticParams() {
@@ -33,7 +32,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const  { doctorId } = await params;
+  // Access doctorId directly from params, not await
+  const doctorId = params.doctorId;
   const doctor = getDoctorById(doctorId);
   
   if (!doctor) {
@@ -54,14 +54,82 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function BlogsPage({ params }: Props) {
-  const {doctorId} = await params;
+  // Access doctorId directly from params, not await
+  const doctorId = params.doctorId;
   const doctor = getDoctorById(doctorId);
   
   if (!doctor) {
     notFound();
   }
 
-  const doctorBlogs = getBlogsBySubdomain(doctorId as 'drjay' | 'dranupam');
-  
-  return <Blogs blogs={doctorBlogs} />;
+  // Pass ALL blogs and the specific doctorId to the Blogs component
+  return <Blogs blogs={blogs} doctor={doctorId as 'drjay' | 'dranupam'} />;
 }
+
+// import { notFound } from 'next/navigation';
+// import { blogs } from '@/data/blogs';
+// import { drjayData, dranupamData } from '@/data/doctors';
+// import Doctor from '@/data/doctors';
+// import Blogs from '@/app/components/doctor/Blogs';
+
+// // Function to get doctor data by ID
+// function getDoctorById(id: string): Doctor | null {
+//   switch (id) {
+//     case 'drjay':
+//       return drjayData;
+//     case 'dranupam':
+//       return dranupamData;
+//     default:
+//       return null;
+//   }
+// }
+
+// // Function to get blogs by subdomain
+// function getBlogsBySubdomain(subdomain: 'drjay' | 'dranupam') {
+//   return blogs.filter(blog => blog.subdomain === subdomain);
+// }
+
+// interface Props {
+//   params: Promise<{ doctorId: string }>;
+// }
+
+// export async function generateStaticParams() {
+//   return [
+//     { doctorId: 'drjay' },
+//     { doctorId: 'dranupam' },
+//   ];
+// }
+
+// export async function generateMetadata({ params }: Props) {
+//   const  { doctorId } = await params;
+//   const doctor = getDoctorById(doctorId);
+  
+//   if (!doctor) {
+//     return {
+//       title: 'Doctor Not Found',
+//     };
+//   }
+
+//   return {
+//     title: `Blog - ${doctor.personalDetails.name}`,
+//     description: `Read latest medical insights and articles by ${doctor.personalDetails.name}`,
+//     openGraph: {
+//       title: `Blog - ${doctor.personalDetails.name}`,
+//       description: `Read latest medical insights and articles by ${doctor.personalDetails.name}`,
+//       images: [doctor.personalDetails.imageUrl],
+//     },
+//   };
+// }
+
+// export default async function BlogsPage({ params }: Props) {
+//   const {doctorId} = await params;
+//   const doctor = getDoctorById(doctorId);
+  
+//   if (!doctor) {
+//     notFound();
+//   }
+
+//   const doctorBlogs = getBlogsBySubdomain(doctorId as 'drjay' | 'dranupam');
+  
+//   return <Blogs blogs={doctorBlogs} />;
+// }

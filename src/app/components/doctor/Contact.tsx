@@ -227,9 +227,8 @@ Message: ${formData.message}`;
                 </div>
               </FadeUp>
             ))}
-
-            {/* Online Consultation */}
-            {doctor.onlineTiming && (
+ 
+            {/* {doctor.onlineTiming && (
               <FadeUp duration={0.8}>
                 <div className="bg-gradient-to-br from-indigo-600 to-purple-600 text-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-6">
@@ -254,7 +253,7 @@ Message: ${formData.message}`;
                   </div>
                 </div>
               </FadeUp>
-            )}
+            )} */}
           </div>
 
           {/* Social Links */}
@@ -323,7 +322,7 @@ Message: ${formData.message}`;
                       <ValidationError prefix="Name" field="name" errors={state.errors} />
                     </div>
                     
-                    <div>
+                    {/* <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-3">
                         Email Address
                       </label>
@@ -338,7 +337,7 @@ Message: ${formData.message}`;
                         className="w-full px-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900"
                       />
                       <ValidationError prefix="Email" field="email" errors={state.errors} />
-                    </div>
+                    </div> */}
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-8">

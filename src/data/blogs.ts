@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 
 export interface BlogContent {
     id: string;
+    
     subdomain: 'drjay' | 'dranupam';
     title: string;
     slug: string;
@@ -15,6 +16,7 @@ export const blogs: BlogContent[] = [
     // Dr. Jay Relan Blogs
     {
         id: 'drjay-1',
+         
         subdomain: 'drjay',
         title: 'Understanding Congenital Heart Defects: Early Detection and Treatment',
         slug: 'understanding-congenital-heart-defects-early-detection-treatment',

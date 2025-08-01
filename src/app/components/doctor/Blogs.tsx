@@ -1,8 +1,10 @@
-'use client';
+// app/components/doctor/Blogs.tsx
+
+'use client';  
 
 import React from 'react';
-import { GetStaticProps } from 'next';
-import { blogs, BlogContent } from '@/data/blogs';
+ 
+import { BlogContent } from '@/data/blogs';
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
@@ -13,25 +15,62 @@ interface BlogsProps {
 }
 
 const Blogs: React.FC<BlogsProps> = ({ blogs, doctor = 'all' }) => {
+  // Debug the doctor parameter
+  console.log('=== BLOGS COMPONENT DEBUG START ===');
+  console.log('Doctor prop received:', doctor);
+  console.log('Doctor type:', typeof doctor);
+  console.log('Doctor exact value:', JSON.stringify(doctor));
+  console.log('Blogs received:', blogs?.length || 0, 'items');
+
   // Filter blogs based on doctor prop
-  const filteredBlogs = doctor === 'all' 
-    ? blogs 
+  const filteredBlogs = doctor === 'all'
+    ? blogs
     : blogs.filter(blog => blog.subdomain === doctor);
+
+  console.log('Filtered blogs count:', filteredBlogs?.length || 0);
+  console.log('Filter condition - doctor === "all":', doctor === 'all');
+  if (doctor !== 'all') {
+    console.log('Filtering by subdomain:', doctor);
+    console.log('Available subdomains in blogs:', blogs?.map(blog => blog.subdomain) || []);
+  }
 
   // Get doctor name for page title
   const getDoctorName = (doctorCode: string) => {
-    switch(doctorCode) {
-      case 'drjay': return 'Dr. Jay Relan';
-      case 'dranupam': return 'Dr. Anupam';
-      default: return 'Medical Experts';
+    console.log('Getting doctor name for:', JSON.stringify(doctorCode));
+    switch (doctorCode) {
+      case 'drjay':
+        console.log('Matched drjay case for doctor name');
+        return 'Dr. Jay Relan';
+      case 'dranupam':
+        console.log('Matched dranupam case for doctor name');
+        return 'Dr. Anupam';
+      default:
+        console.log('Matched default case for doctor name with value:', JSON.stringify(doctorCode));
+        return 'Medical Experts';
+    }
+  };
+
+  // Get page description
+  const getPageDescription = (doctorCode: string) => {
+    console.log('Getting page description for:', JSON.stringify(doctorCode));
+    switch (doctorCode) {
+      case 'drjay':
+        console.log('Matched drjay case for description');
+        return 'Expert insights on pediatric cardiology, congenital heart defects, and children\'s heart health from our medical experts.';
+      case 'dranupam':
+        console.log('Matched dranupam case for description');
+        return 'Expert perspectives on coronary artery bypass grafting, minimally invasive cardiac surgeries and medical breakthroughs.';
+      default:
+        console.log('Matched default case for description with value:', JSON.stringify(doctorCode));
+        return 'Expert insights from our medical professionals on cardiology, heart health, and medical breakthroughs.';
     }
   };
 
   const doctorName = getDoctorName(doctor);
+  const pageDescription = getPageDescription(doctor);
   const pageTitle = doctor === 'all' ? 'Medical Blogs' : `${doctorName} - Medical Blogs`;
-  const pageDescription = doctor === 'all' 
-    ? 'Expert insights on pediatric cardiology, congenital heart defects, and children\'s heart health from our medical experts.'
-    : `Expert insights and medical articles from ${doctorName}.`;
+
+
   return (
     <>
       <Head>
@@ -43,7 +82,7 @@ const Blogs: React.FC<BlogsProps> = ({ blogs, doctor = 'all' }) => {
       <div className="min-h-screen bg-gray-50">
         {/* Header Section */}
         <section
-          className="relative  border-b border-gray-200 h-96 md:mt-20"
+          className="relative border-b border-gray-200 h-96 md:mt-20"
           style={{
             backgroundImage: "url('https://hearthealers.in/images/blog/blogs-bg.webp')",
             backgroundSize: 'cover',
@@ -58,11 +97,10 @@ const Blogs: React.FC<BlogsProps> = ({ blogs, doctor = 'all' }) => {
                 {doctor === 'all' ? 'Medical Insights' : `${doctorName}'s Insights`}
               </h1>
               <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                {doctor === 'all' 
-                  ? 'Expert perspectives on pediatric cardiology, heart health, and medical breakthroughs'
-                  : `Expert perspectives and medical insights from ${doctorName}`
-                }
+                {pageDescription}
               </p>
+
+
             </div>
           </div>
         </section>
@@ -84,7 +122,7 @@ const Blogs: React.FC<BlogsProps> = ({ blogs, doctor = 'all' }) => {
                   </div>
                   <h3 className="text-xl font-medium text-gray-500 mb-2">No articles found</h3>
                   <p className="text-gray-400">
-                    {doctor === 'all' 
+                    {doctor === 'all'
                       ? 'No blog articles are available at the moment.'
                       : `No articles found for ${doctorName}.`
                     }
@@ -104,6 +142,8 @@ interface BlogCardProps {
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
+  console.log('Rendering blog card:', blog.title, 'subdomain:', blog.subdomain);
+
   return (
     <div className="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
       {/* Image Container */}
@@ -115,11 +155,18 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
           className="object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-        
+
         {/* Tags Overlay */}
         <div className="absolute top-4 left-4">
           <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-gray-700">
             {blog.tags[0]}
+          </span>
+        </div>
+
+        {/* Debug overlay (remove in production) */}
+        <div className="absolute top-4 right-4">
+          <span className="px-2 py-1 bg-blue-500/90 backdrop-blur-sm rounded text-xs font-medium text-white">
+            {blog.subdomain}
           </span>
         </div>
       </div>
@@ -135,8 +182,6 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
           </p>
         </div>
 
-        
-
         {/* Read More Button */}
         <Link href={`/blogs/${blog.slug}`} className="block">
           <button className="w-full bg-gray-900 hover:bg-blue-600 text-white py-3 px-6 rounded-xl font-medium transition-colors duration-200 group-hover:bg-blue-600 cursor-pointer">
@@ -148,20 +193,24 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  // Get doctor from params or default to 'all'
-  const doctor = params?.doctor as string || 'all';
-  
-  // Validate doctor parameter
-  const validDoctors = ['drjay', 'dranupam', 'all'];
-  const selectedDoctor = validDoctors.includes(doctor) ? doctor : 'all';
-  
-  return {
-    props: {
-      blogs: blogs,
-      doctor: selectedDoctor,
-    },
-  };
-};
+// REMOVE THIS BLOCK:
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+//   // Get doctor from params or default to 'all'
+//   const doctor = params?.doctor as string || 'all';
+//   console.log('Doctor extracted from params:', doctor);
+//   console.log('Doctor type:', typeof doctor);
+
+//   // Validate doctor parameter
+//   const validDoctors = ['drjay', 'dranupam', 'all'];
+//   const selectedDoctor = validDoctors.includes(doctor) ? doctor : 'all';
+
+
+//   return {
+//     props: {
+//       blogs: blogs,
+//       doctor: selectedDoctor,
+//     },
+//   };
+// };
 
 export default Blogs;

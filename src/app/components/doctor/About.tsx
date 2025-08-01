@@ -26,7 +26,6 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
     awards,
     skills,
     offline,
-    onlineTiming,
     id,
     span, bio,
   } = doctor;
@@ -232,7 +231,6 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
                         <h4 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">{exp.role}</h4>
                         <p className={`${colorScheme.primaryText} font-medium mb-1 text-sm md:text-base`}>{exp.department}</p>
                         <p className="text-gray-700 mb-2 text-sm md:text-base">{exp.organization}</p>
-                        <p className="text-gray-500 text-xs md:text-sm">{exp.duration.start} - {exp.duration.end}</p>
                       </div>
                     ))}
                   </div>
@@ -255,7 +253,6 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
                         <h4 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">{exp.role}</h4>
                         {exp.department && <p className={`${colorScheme.primaryText} font-medium mb-1 text-sm md:text-base`}>{exp.department}</p>}
                         <p className="text-gray-700 mb-2 text-sm md:text-base">{exp.organization}</p>
-                        <p className="text-gray-500 text-xs md:text-sm">{exp.duration.start} - {exp.duration.end}</p>
                       </div>
                     ))}
                   </div>
@@ -263,35 +260,41 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
               </div>
             </div>
 
-            {/* Research - Mobile Optimized */}
             {research.length > 0 && (
               <div className={`${colorScheme.cardBg} backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg ${colorScheme.borderColor} border`}>
                 <div className="flex items-center mb-4 md:mb-6">
                   <div className={`w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r ${colorScheme.gradientFrom} ${colorScheme.gradientTo} rounded-lg flex items-center justify-center mr-3 md:mr-4`}>
                     <Globe className="w-4 h-4 md:w-5 md:h-5 text-white" />
                   </div>
-                  <h2 className="text-xl md:text-2xl font-bold text-gray-900">Research</h2>
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-900">Research and Publications</h2>
                 </div>
-                <div className="space-y-4 md:space-y-6">
-                  {research.map((res, index) => (
-                    <div key={index} className="bg-gray-50/50 rounded-xl p-4 md:p-6 border border-gray-200/50 hover:shadow-md transition-all duration-300">
-                      <h3 className="font-semibold text-gray-900 mb-3 text-sm md:text-base">{res.title}</h3>
-                      <p className="text-gray-700 mb-4 leading-relaxed text-sm md:text-base">{res.description}</p>
-                      {res.publications.length > 0 && (
-                        <div>
-                          <h4 className="font-medium text-gray-900 mb-3 text-sm md:text-base">Publications</h4>
-                          <div className="space-y-2">
-                            {res.publications.map((pub, pubIndex) => (
-                              <div key={pubIndex} className="text-gray-600 text-xs md:text-sm bg-white/50 p-3 rounded-lg border border-gray-200/30">
-                                <span className={`font-medium ${colorScheme.primaryText}`}>{pub.title}</span> - {pub.journal}
-                                {pub.year && <span className="text-gray-500"> ({pub.year})</span>}
-                              </div>
-                            ))}
-                          </div>
+
+                <div>
+                  <button
+                    onClick={() => setActiveTab(activeTab === 'research' ? '' : 'research')}
+                    className="w-full flex items-center justify-between p-3 md:p-4 bg-gray-50/50 rounded-xl border border-gray-200/50 hover:bg-gray-100/50 transition-all duration-300"
+                  >
+                    <h3 className="text-base md:text-lg font-semibold text-gray-900">Publications</h3>
+                    <ChevronRight className={`w-4 h-4 md:w-5 md:h-5 text-gray-600 transition-transform duration-300 ${activeTab === 'research' ? 'rotate-90' : ''}`} />
+                  </button>
+                  {activeTab === 'research' && (
+                    <div className="mt-3 md:mt-4 space-y-4 md:space-y-6">
+                      {research.map((res, index) => (
+                        <div key={index} className="bg-white/80 rounded-xl p-4 md:p-6 border border-gray-200/50 shadow-sm">
+                          {res.publications.length > 0 && (
+                            <div className="space-y-2">
+                              {res.publications.map((pub, pubIndex) => (
+                                <div key={pubIndex} className="text-gray-600 text-xs md:text-sm bg-gray-50/50 p-3 rounded-lg border border-gray-200/30">
+                                  <span className={`font-medium ${colorScheme.primaryText}`}>{pub.title}</span> - {pub.journal}
+                                  {pub.year && <span className="text-gray-500"> ({pub.year})</span>}
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
-                      )}
+                      ))}
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             )}
@@ -326,17 +329,7 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
                     <span className="text-gray-700 text-xs md:text-sm">{contactDetails.address}</span>
                   </div>
                 )}
-              </div>
 
-              {/* Online Timing */}
-              <div className="mt-4 md:mt-6 pt-3 md:pt-4 border-t border-gray-200/50">
-                <h4 className="text-xs md:text-sm font-medium text-gray-900 mb-2 md:mb-3 flex items-center">
-                  <Clock className={`w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 ${colorScheme.primaryText}`} />
-                  Online Consultation
-                </h4>
-                <div className="bg-gray-50/50 p-2 md:p-3 rounded-lg">
-                  <p className="text-gray-700 text-xs md:text-sm">{onlineTiming}</p>
-                </div>
               </div>
             </div>
 
@@ -385,23 +378,34 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
               </div>
             </div>
 
-            {/* Awards */}
+            {/* Awards - Mobile Optimized with Dropdown */}
             {awards.length > 0 && (
-              <div className={`${colorScheme.cardBg} backdrop-blur-sm rounded-2xl p-6 shadow-lg ${colorScheme.borderColor} border`}>
-                <div className="flex items-center mb-6">
-                  <div className={`w-8 h-8 bg-gradient-to-r ${colorScheme.gradientFrom} ${colorScheme.gradientTo} rounded-lg flex items-center justify-center mr-3`}>
-                    <Award className="w-4 h-4 text-white" />
+              <div className={`${colorScheme.cardBg} backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg ${colorScheme.borderColor} border`}>
+                <div className="flex items-center mb-4 md:mb-6">
+                  <div className={`w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r ${colorScheme.gradientFrom} ${colorScheme.gradientTo} rounded-lg flex items-center justify-center mr-3 md:mr-4`}>
+                    <Award className="w-4 h-4 md:w-5 md:h-5 text-white" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900">Awards</h3>
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-900">Awards & Recognition</h2>
                 </div>
-                <div className="space-y-4">
-                  {awards.map((award, index) => (
-                    <div key={index} className="bg-gray-50/50 rounded-xl p-4 border border-gray-200/50">
-                      <h4 className="font-medium text-gray-900 mb-2">{award.title}</h4>
-                      <p className={`${colorScheme.secondaryText} font-medium text-sm mb-1`}>{award.year}</p>
-                      {award.category && <p className="text-gray-500 text-sm">{award.category}</p>}
+
+                <div>
+                  <button
+                    onClick={() => setActiveTab(activeTab === 'awards' ? '' : 'awards')}
+                    className="w-full flex items-center justify-between p-3 md:p-4 bg-gray-50/50 rounded-xl border border-gray-200/50 hover:bg-gray-100/50 transition-all duration-300"
+                  >
+                    <h3 className="text-base md:text-lg font-semibold text-gray-900">Awards & Honors</h3>
+                    <ChevronRight className={`w-4 h-4 md:w-5 md:h-5 text-gray-600 transition-transform duration-300 ${activeTab === 'awards' ? 'rotate-90' : ''}`} />
+                  </button>
+                  {activeTab === 'awards' && (
+                    <div className="mt-3 md:mt-4 space-y-3 md:space-y-4">
+                      {awards.map((award, index) => (
+                        <div key={index} className="bg-white/80 rounded-xl p-4 md:p-6 border border-gray-200/50 shadow-sm">
+                          <h4 className="font-semibold text-gray-900 mb-2 text-sm md:text-base">{award.title}</h4>
+                         
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             )}

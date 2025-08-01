@@ -215,7 +215,7 @@ export const services: Service[] = [
   },
   {
     id: "anupam4",
-    slug: "adult-pediatric-congenital-heart-surgeries",
+    slug: "adult-and-pediatric-congenital-heart-surgeries",
     subdomain: "dranupam",
     title: "Adult and Pediatric Congenital Heart Surgeries",
     description:
@@ -252,7 +252,7 @@ export const services: Service[] = [
   },
   {
     id: "anupam7",
-    slug: "heart-failure-mechanical-circulatory-support",
+    slug: "heart-failure-and-mechanical-circulatory-support",
     subdomain: "dranupam",
     title: "Heart Failure and Mechanical Circulatory Support",
     description:

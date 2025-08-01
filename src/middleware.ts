@@ -1,6 +1,8 @@
 // middleware.ts 
 // this file is used to handle the subdomain routing for the doctor's  
 // it will redirect the request to the 
+// subdomain: drjay.hearthealers.in && dranupam.hearthealers.in
+
 
 import {NextRequest, NextResponse} from 'next/server';
 

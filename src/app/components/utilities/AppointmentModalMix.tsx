@@ -202,19 +202,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
                   placeholder="Enter your full name"
                 />
               </div>
-              <div>
-                <label htmlFor="email" className={`block text-sm font-semibold ${styles.accent} mb-2`}>Email Address</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className={`w-full border-2 ${styles.border} rounded-lg px-4 py-3 bg-white/90 text-zinc-800 placeholder-zinc-500 focus:border-transparent focus:ring-2 ${styles.ring} transition-all duration-200`}
-                  placeholder="Enter your email"
-                />
-              </div>
+ 
             </div>
 
             <div>

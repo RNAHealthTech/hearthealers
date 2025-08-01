@@ -202,7 +202,7 @@ const Footer: React.FC<FooterProps> = ({ doctorId }) => {
             </div>
 
             {/* Contact Info */}
-            <div className="sm:col-span-2 lg:col-span-1">
+            <div className="sm:col-span-2 lg:col-span-1 font-raleway">
               <h4 className="text-lg font-semibold mb-6">Contact Info</h4>
               <div className="space-y-4">
                 {doctor.contactDetails.address && (

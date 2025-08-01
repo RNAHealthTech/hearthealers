@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useForm, ValidationError } from '@formspree/react';
-import  Doctor  from '@/data/doctors';
+import Doctor from '@/data/doctors';
 
 interface HomeContactSectionProps {
   doctor: Doctor;
@@ -71,11 +71,11 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ doctor, formspr
       y: 0,
       transition: {
         duration: 0.6,
-        ease: "easeOut" as const 
+        ease: "easeOut" as const
       }
     }
   };
- 
+
 
   // For demo purposes, using a generic map URL - replace with actual API key
   const mapUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14042.308553553954!2d77.32582385857022!3d28.371631393795468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdd78a06fe98f%3A0x5c7eaa85fa52d93!2sSarvodaya%20Hospital%20and%20Research%20Center%20%7C%20Dental%20and%20Maxillofacial%20Surgery%20%7C%20Faridabad!5e0!3m2!1sen!2sin!4v1752063408927!5m2!1sen!2sin`;
@@ -95,15 +95,15 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ doctor, formspr
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-white/10 rounded-full blur-2xl"></div>
       </div> */}
-       <motion.div
-                        className="absolute inset-0 z-0 shadow-xl"
-                        style={{
-                            backgroundImage: "url('https://hearthealers.in/images/contact.jpg')",
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            filter: "brightness(0.7)"
-                        }}
-                    />
+      <motion.div
+        className="absolute inset-0 z-0 shadow-xl"
+        style={{
+          backgroundImage: "url('https://hearthealers.in/images/contact.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "brightness(0.7)"
+        }}
+      />
 
       {/* Content Container */}
       <motion.div
@@ -126,7 +126,7 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ doctor, formspr
 
         <motion.div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Form Section */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className={`${colors.cardBg} backdrop-blur-sm ring-1 ${colors.ringColor} rounded-2xl shadow-xl overflow-hidden order-1 lg:order-1`}
           >
@@ -174,20 +174,7 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ doctor, formspr
                     />
                   </motion.div>
 
-                  <motion.div variants={itemVariants}>
-                    <label htmlFor="email" className={`block text-sm font-medium ${colors.accentColor} mb-2`}>
-                      Email Address *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      placeholder="your.email@domain.com"
-                      className={`w-full border ${colors.borderColor} rounded-xl shadow-sm p-3 bg-white text-gray-900 ${colors.focusRing} focus:ring-2 focus:border-transparent transition-all duration-200`}
-                    />
-                    <ValidationError prefix="Email" field="email" errors={state.errors} />
-                  </motion.div>
+
 
                   <motion.div variants={itemVariants}>
                     <label htmlFor="phone" className={`block text-sm font-medium ${colors.accentColor} mb-2`}>
@@ -256,7 +243,7 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ doctor, formspr
           </motion.div>
 
           {/* Map & Contact Info Section */}
-          <motion.div 
+          <motion.div
             variants={itemVariants}
             className={`${colors.cardBg} backdrop-blur-sm ring-1 ${colors.ringColor} rounded-2xl shadow-xl overflow-hidden order-2 lg:order-2`}
           >
@@ -274,12 +261,12 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ doctor, formspr
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">Phone</p>
-                      <p className="font-semibold text-gray-900">{doctor.contactDetails.phone}</p>
+                      <p className="text-sm font-semibold text-gray-600">Phone</p>
+                      <p className=" text-gray-900">{doctor.contactDetails.phone}</p>
                     </div>
                   </div>
                 )}
-                
+
                 {doctor.contactDetails.email && (
                   <div className="flex items-center space-x-4">
                     <div className={`w-10 h-10 bg-${colors.primaryColor}-100 rounded-full flex items-center justify-center`}>
@@ -288,30 +275,57 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ doctor, formspr
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm text-gray-600">Email</p>
-                      <p className="font-semibold text-gray-900">{doctor.contactDetails.email}</p>
+                      <p className="font-semibold text-sm text-gray-600">Email</p>
+                      <p className=" text-gray-900">{doctor.contactDetails.email}</p>
                     </div>
                   </div>
                 )}
 
-                {doctor.offline[0] && (
-                  <div className="flex items-start space-x-4">
-                    <div className={`w-10 h-10 bg-${colors.primaryColor}-100 rounded-full flex items-center justify-center mt-1`}>
-                      <svg className={`w-5 h-5 text-${colors.primaryColor}-600`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-600">Clinic</p>
-                      <p className="font-semibold text-gray-900">{doctor.offline[0].hospital}</p>
-                      <p className="text-sm text-gray-600 mt-1">{doctor.offline[0].schedules[0]?.timing}</p>
-                    </div>
+                {/* All Hospitals - Only for Dr Jay */}
+                <div className="flex items-start space-x-4">
+                  <div className={`w-10 h-10 bg-${colors.primaryColor}-100 rounded-full flex items-center justify-center mt-1`}>
+                    <svg className={`w-5 h-5 text-${colors.primaryColor}-600`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
                   </div>
-                )}
+                  <div className="flex-1">
+                    <p className="text-sm font-semibold text-gray-600 mb-2">Practice Locations</p>
+
+                    {/* Primary Hospital */}
+                    {doctor.offline[0] && (
+                      <div className="mb-3">
+                        <p className="text-gray-900">{doctor.offline[0].hospital}</p>
+                        <p className="text-sm text-gray-600">{doctor.offline[0].schedules[0]?.timing}</p>
+                      </div>
+                    )}
+
+                    {/* Additional Hospitals - Only for Dr Jay */}
+                    {doctor.id === 'drjay' && (
+                      <div className="space-y-3 text-sm ">
+                        <p className="text-xs text-gray-500 italic">Available at following hospitals on prior appointment:</p>
+                        <div className="space-y-2">
+                          <div>
+                            <p className="font-medium text-gray-800">Madhukar Rainbow Children&apos;s Hospital</p>
+                            <p className="text-gray-600">Malviya Nagar, Delhi</p>
+                          </div>
+
+                          <div>
+                            <p className="font-medium text-gray-800">Sitaram Bhartia Institute of Science and Research</p>
+                            <p className="text-gray-600">Qutab Institutional Area, Delhi</p>
+                          </div>
+
+                          <div>
+                            <p className="font-medium text-gray-800">Apollo Cradle Maternity & Child Hospital</p>
+                            <p className="text-gray-600">Greater Kailash, Delhi</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
-
             {/* Google Map */}
             <motion.div className="h-80 md:h-96">
               <iframe
