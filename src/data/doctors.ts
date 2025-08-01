@@ -18,6 +18,13 @@ export interface Experience {
   };
 }
 
+export interface Reviews {
+  name: string;
+  review: string;
+  pic: string;
+  star: number;
+}
+
 export interface CurrentWorkExperience {
   role: string;
   department: string;
@@ -37,7 +44,6 @@ export interface Publication {
 }
 
 export interface Research {
-  
   publications: Publication[];
 }
 
@@ -94,6 +100,7 @@ export default interface Doctor {
   }[];
   onlineTiming: string;
   days: string[];
+  reviews: Reviews[];
 }
 
 export const drjayData: Doctor = {
@@ -198,7 +205,7 @@ export const drjayData: Doctor = {
   ],
   research: [
     {
-         publications: [
+      publications: [
         {
           title:
             "Right superior caval vein to the left atrium in a child with vein of Galen malformation",
@@ -438,7 +445,6 @@ export const drjayData: Doctor = {
           year: 2024,
           authors: ["Agarwal M", "Relan J", "Aggarwal N", "Joshi R"],
         },
-      
       ],
     },
   ],
@@ -494,13 +500,12 @@ export const drjayData: Doctor = {
     "Echocardiography",
     "Cardiac Catheterization",
     "Heart Failure Management",
-    
   ],
   contactDetails: {
     address:
       "1071, Mother & Child Care Center, Sarvodaya Hospital, Sector-8, YMCA Rd, near Escorts Mujesar Metro Station, Faridabad, Haryana 121006",
-    phone: "+91 9868700886",  
-    email: "jay.relan@gmail.com", 
+    phone: "+91 9868700886",
+    email: "jay.relan@gmail.com",
   },
   socialLinks: {
     linkedin: "", // Not provided in CV
@@ -517,10 +522,46 @@ export const drjayData: Doctor = {
         },
       ],
     },
-   
   ],
   onlineTiming: "10:00 AM - 4:00 PM",
   days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+  reviews: [
+    {
+      name: "Mohit Sharma",
+      review:
+        "We are deeply grateful to Dr. Jay Relan for the care and expertise he provided to our newborn daughter at Sir Ganga Ram Hospital. From the very first consultation, Dr. Relan demonstrated exceptional knowledge, compassion, and a calm presence that gave us much-needed reassurance during a very anxious time.",
+      pic: "https://hearthealers.in/images/reviews/jay-review-1.png",
+      star: 5,
+    },
+    {
+      name: "Akanksha Harjai",
+      review:
+        "If I have to describe in two words, Best Doctor. I had my ASD surgery done under Dr. Jay’s care in January, and I can’t thank him enough for the experience. He explains the diagnosis clearly and is very warm and easy to talk to. I’ve always had a lot of hesitation and anxiety around needles and medical procedures, but Dr. Jay was gentle and reassuring throughout, and made sure everything went as smoothly and comfortably as possible",
+      pic: "https://hearthealers.in/images/reviews/jay-review-2.png",
+      star: 5,
+    },
+    {
+      name: "Amit Agarwal",
+      review:
+        "Dr. Jay is an amazing cardiac specialist and doctor, in medical terminology he is an interventional pediatric cardiologist. He has got great diagnostic skill, great operating skills. And his command over the functioning of the human heart, veins , arteries etc. etc. is really impressive. He has treated my heart so well. I truly owe my life and peace to him.",
+      pic: "https://hearthealers.in/images/reviews/jay-review-3.png",
+      star: 5,
+    },
+    {
+      name: "Manish Tiwari",
+      review:
+        "Dr jay Relan sir is an amazing doctor. One year ago I got my 6 Months son treated .he explained everything clearly and made me feel comfortable as I was very panic at that time. He is very soft spoken and calm person .i highly recommend him.",
+      pic: "https://hearthealers.in/images/reviews/jay-review-4.png",
+      star: 5,
+    },
+    {
+      name: "Sandeep Gadhwal",
+      review:
+        "He is a very good doctor and a very nice person.🤝 I got my son treated. At that time, I had lost all hope. After that, I met Dr Jay Relan ji and my son was cured within 3 days. I thank him. He understands very well and consults very well.🤝",
+      pic: "https://hearthealers.in/images/reviews/jay-review-5.png",
+      star: 5,
+    },
+  ],
 };
 
 // Dr. Anupam Das data structured according to Doctor interface
@@ -696,7 +737,7 @@ export const dranupamData: Doctor = {
   ],
   research: [
     {
-       publications: [
+      publications: [
         {
           title:
             "Reviving Duran's Approach to Pericardial Valve Reconstruction in the Pulmonary Position Within the Right Ventricle-to-Pulmonary Artery Conduit: A Compelling Case Report",
@@ -992,4 +1033,41 @@ export const dranupamData: Doctor = {
   ],
   onlineTiming: "10:00 PM - 4:00 PM",
   days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+  reviews: [
+    {
+      name: "Rajesh Bishnoi",
+      review:
+        "My son was having a large hole in his heart, so I visited Dr. Anupam for surgery. He was so polite and in detail explained to me the surgery, that I was relaxed, my son underwent the surgery and recovered so well. I am so thankful to him, he took care of my son so well. I would recommend Anupam sir for all kids suffering with heart diseases. He is such a good surgeon and human being.",
+      pic: "https://hearthealers.in/images/reviews/anupam-review-1.png",
+      star: 5,
+    },
+    {
+      name: "Akash Sikarwar",
+      review:
+        "Dr. anupam sir is the best surgeon of the india........ And Amazing treatment by the Dr. Anupam sir! Thank you sir.....for the my new life...",
+      pic: "https://hearthealers.in/images/reviews/anupam-review-2.png",
+      star: 5,
+    },
+    {
+      name: "Jatin Bansal",
+      review:
+        "I Sanjay Bansal, Dr Anupam Das ji did my Cardiothoracic and vascular surgery. Ayr doctor and Dr Sweta both are very best surgeons in Sarvodaya hospital. I was happy with the treatment.",
+      pic: "https://hearthealers.in/images/reviews/anupam-review-3.png",
+      star: 5,
+    },
+    {
+      name: "Dennis Alexander",
+      review:
+        "He is the best Surgeon. He did my heart surgery very well. He saved my life and he treated me like his own family member. Thanks a lot sir.🙏🙏",
+      pic: "https://hearthealers.in/images/reviews/anupam-review-4.png",
+      star: 5,
+    },
+    {
+      name: "Anitta John",
+      review:
+        "Dr. Anupam Das, an extraordinary cardiovascular surgeon with unmatched skill in pediatric cardiac surgeries and off-pump CABG. His speed, precision, and deep dedication to patient care make him nothing short of a real-life superhero. Truly admirable in both talent and character.",
+      pic: "https://hearthealers.in/images/reviews/anupam-review-5.png",
+      star: 5,
+    },
+  ],
 };

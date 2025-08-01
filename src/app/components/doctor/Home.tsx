@@ -7,6 +7,7 @@ import HomeAbout from '../utilities/HomeAbout';
 import HomeContactSection from '../utilities/HomeContact';
 import Image from 'next/image';
 import BookAppointmentModal from '../utilities/BookAppointment';
+import HomeReviews from '../utilities/HomeReviews';
 
 
 interface HomeProps {
@@ -148,7 +149,9 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
       </section>
       <HomeAbout doctor={doctor} />
       <HomeServicesSection subdomain={doctor.subdomain} />
+      <HomeReviews doctor={doctor} />
       <HomeContactSection doctor={doctor} formspreeId={doctor.id === 'drjay' ? 'xovwobnv' : 'mgvyjqlo'} />
+
       <BookAppointmentModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
