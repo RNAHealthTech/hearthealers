@@ -53,16 +53,7 @@ Diagnostic angiography & catheterization
 
 
 
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 
@@ -109,7 +100,7 @@ About page
 Remove timing from online consultation [done]
  
 Add more addresses to contact info
-Both in pages and appointment form (Address to be provided)
+Both in pages [done] and appointment form [done]  (Address to be provided)
  
  
 hospital: Madhukar Rainbow Children's Hospital, Malviya Nagar, Delhi

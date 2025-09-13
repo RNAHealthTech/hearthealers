@@ -8,6 +8,7 @@ import HomeContactSection from '../utilities/HomeContact';
 import Image from 'next/image';
 import BookAppointmentModal from '../utilities/BookAppointment';
 import HomeReviews from '../utilities/HomeReviews';
+import WhyChooseDoctor from '../utilities/WhyChooseDoctor';
 
 
 interface HomeProps {
@@ -149,6 +150,7 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
       </section>
       <HomeAbout doctor={doctor} />
       <HomeServicesSection subdomain={doctor.subdomain} />
+      <WhyChooseDoctor doctor={doctor} />
       <HomeReviews doctor={doctor} />
       <HomeContactSection doctor={doctor} formspreeId={doctor.id === 'drjay' ? 'xovwobnv' : 'mgvyjqlo'} />
 

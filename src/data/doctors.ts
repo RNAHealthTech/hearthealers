@@ -101,10 +101,22 @@ export default interface Doctor {
   onlineTiming: string;
   days: string[];
   reviews: Reviews[];
+  researchArticles: number;
+  linkedin: string;
+  googleScholar: string;
+  reviewLink: string;
+  patient1: string; 
+  patient2: string; 
+  patient3?: string; 
+  patient4?: string; 
+ 
 }
 
 export const drjayData: Doctor = {
   id: "drjay",
+  linkedin: 'https://in.linkedin.com/in/jay-relan-46165421b', 
+  googleScholar: 'https://scholar.google.com/citations?user=ZuEs5-gAAAAJ&hl=en',
+  reviewLink: 'https://www.google.com/search?sca_esv=97ae6d3e0a80ce36&sxsrf=AE3TifN-jtsVSQ_Ygem_x9lq22b2C9pqxA:1757735084068&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E6pWoa17lt6MO6nSG6sKRtu505PGA3F2ZKTsBe-SYkf5QLrDDVDK-HTthhHuUsbRC4ELs7mwozXA1o4rL8MoZfq9AzkOnxll55mDK3QbEAjr7oGR2oRW7iDI6EtXzhcEw-XxenHjOGB3RiUJkqNFF9yexYBH&q=Dr+Jay+Relan+%7C+Senior+Consultant+Pediatric+%26+Fetal+Cardiologist+Reviews&sa=X&ved=2ahUKEwiA-q266dSPAxWGRmwGHXOZPX4Q0bkNegQIKRAE&biw=968&bih=853&dpr=1#lrd=0x390cdd3e8880491b:0xc547ae995b28e8c,3,,,,',
   personalDetails: {
     name: "Dr. Jay Relan",
     speciality: "Pediatric Cardiologist",
@@ -120,7 +132,7 @@ export const drjayData: Doctor = {
   subdomain: "drjay",
   totalExp: "10+",
   bgVideo: "https://hearthealers.in/images/drjay-bg.mp4",
-  bio: "Dr. Jay Relan is a highly accomplished Pediatric Cardiologist with specialized training from AIIMS, New Delhi. He has completed his DM in Pediatric Cardiology (Gold Medalist), MD in Pediatrics (Gold Medalist), and MBBS (Gold Medalist). With over 31 published research articles and multiple national awards, Dr. Relan brings extensive expertise in managing complex congenital heart diseases, fetal cardiac screening, and pediatric cardiac interventions. He has completed advanced fellowships in fetal echocardiography and holds certifications from the Fetal Medicine Foundation, UK.",
+  bio: "Dr. Jay Relan is a highly accomplished Pediatric Cardiologist with specialized training from AIIMS, New Delhi. He has completed his DM in Pediatric Cardiology, MD in Pediatrics, and MBBS. With over 31 published research articles and multiple national awards, Dr. Relan brings extensive expertise in managing complex congenital heart diseases, fetal cardiac screening, and pediatric cardiac interventions. He has completed advanced fellowships in fetal echocardiography and holds certifications from the Fetal Medicine Foundation, UK.",
   h1: "Best Care for Your Baby's Heart",
   span: "Dedicated Pediatric Cardiologist in Delhi NCR Dr Jay Relan",
   education: [
@@ -562,12 +574,19 @@ export const drjayData: Doctor = {
       star: 5,
     },
   ],
+  researchArticles: 30,
+  patient1: 'https://hearthealers.in/images/reviews/j1.webp', 
+  patient2: 'https://hearthealers.in/images/reviews/j2.webp'
+
 };
 
 // Dr. Anupam Das data structured according to Doctor interface
 
 export const dranupamData: Doctor = {
   id: "dranupam",
+  researchArticles: 25,
+  linkedin: 'https://in.linkedin.com/in/anupam-das-04816a274', 
+  googleScholar: '', 
   personalDetails: {
     name: "Dr. Anupam Das",
     speciality: "Cardiothoracic & Vascular Surgeon",
@@ -1070,4 +1089,9 @@ export const dranupamData: Doctor = {
       star: 5,
     },
   ],
+  reviewLink: 'https://www.google.com/search?sca_esv=97ae6d3e0a80ce36&sxsrf=AE3TifNCY76aWqQBVQ_tbYxvTTeRwlOplA:1757735199836&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E4vLgIhtPkswzsLWZKHYi96fSpCSQwn40cH9FoqNXbdroFBC6fc8I5W9Ax02uw6MZKss1HrlSTAp080gb-4_AwBEo0bJvKIMZeIgFEeMtNFsnpe90Age7ObSV4SLgBJniAwCGI48Fdm0x0Wlgw_uWqa4QpcxnpO4OKdEET_0mpaahS4cXtyTIssRbCXrWPV8GCjVak8xJsG-OCuX9s6SQbD5t1gscYUqrnqFlKuTCOU3gyY6dQ%3D%3D&q=Dr.+Anupam+Das+%7C+Senior+Consultant-+Cardiothoracic+%26+Vascular+Surgery+%7C+Adult+%26+Pediatric+Cardiovascular+Surgeon+Reviews&sa=X&ved=2ahUKEwiY78fx6dSPAxVOT2cHHbrfIEQQ0bkNegQIMRAE&biw=968&bih=853&dpr=1#lrd=0x390cdd796840b293:0xf53b0483478851f4,3,,,,',
+  patient1: 'https://hearthealers.in/images/reviews/a1.webp', 
+  patient2: 'https://hearthealers.in/images/reviews/a2.webp', 
+  patient3: 'https://hearthealers.in/images/reviews/a3.webp', 
+  patient4: 'https://hearthealers.in/images/reviews/a4.png'
 };

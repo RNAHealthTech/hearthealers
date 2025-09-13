@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
-import { ArrowRight, Heart, Stethoscope, Award, MapPin, Phone, Menu, X, Calendar, User, CheckCircle,  Activity, Shield, Scan, Pill, Gauge, Zap } from 'lucide-react';
+import { ArrowRight, Heart, Stethoscope, Award, MapPin, Phone, Menu, X, Calendar, User, CheckCircle, Activity, Shield, Scan, Pill, Gauge, Zap } from 'lucide-react';
 import Doctor, { drjayData, dranupamData } from '@/data/doctors'; // Adjust path as needed
 //import { services, Service } from '@/data/services'; // Adjust path as needed
 import Image from 'next/image';
@@ -9,7 +9,7 @@ import AppointmentModal from './components/utilities/AppointmentModalMix';
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
- 
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const navigateToSubdomain = (subdomain: string) => {
@@ -45,7 +45,7 @@ const Home = () => {
     }
     setIsMenuOpen(false);
   };
- 
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Header */}
@@ -62,7 +62,7 @@ const Home = () => {
                   HeartHealers
                 </span>
               </div>
-              
+
               {/* Desktop Navigation */}
               <nav className="hidden md:flex items-center space-x-8">
                 <button onClick={() => handleScroll('doctors')} className="text-white/90 hover:text-red-400 transition-all duration-300 font-medium relative group">
@@ -73,15 +73,15 @@ const Home = () => {
                   Services
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-400 transition-all duration-300 group-hover:w-full"></span>
                 </button>
-                 
-                <button 
+
+                <button
                   onClick={() => setIsModalOpen(true)}
                   className="bg-gradient-to-r from-red-600 to-red-500 text-white px-6 py-3 rounded-xl hover:from-red-700 hover:to-red-600 transition-all duration-300 shadow-lg hover:shadow-xl font-medium cursor-pointer"
                 >
                   Book Appointment
                 </button>
               </nav>
-              
+
               {/* Mobile Menu Button */}
               <div className="md:hidden">
                 <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-slate-800 focus:outline-none">
@@ -100,12 +100,12 @@ const Home = () => {
                   <button onClick={() => handleScroll('services')} className="text-zinc-800 hover:text-red-400 transition-colors text-lg font-medium">
                     Services
                   </button>
-                  
-                  <button 
+
+                  <button
                     onClick={() => setIsModalOpen(true)}
                     className="bg-gradient-to-r from-red-600 to-red-500 text-white px-6 py-4 rounded-xl font-medium"
                   >
-                    Book Appointment 
+                    Book Appointment
                   </button>
                 </div>
               </div>
@@ -119,25 +119,25 @@ const Home = () => {
       <section className="relative min-h-screen flex items-center px-4 sm:px-6 lg:px-8 overflow-hidden">
         {/* Curved Background */}
         <div className="absolute inset-0 z-0">
-  <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-slate-800 to-blue-900"></div>
-  <div className="absolute inset-0 bg-gradient-to-r from-gray-600/20 via-transparent to-blue-600/20"></div>
-  
-  <div className="absolute top-0 right-0 w-3/5 h-full">
-    <svg viewBox="0 0 100 100" className="w-full h-full" preserveAspectRatio="none">
-      <path d="M30,0 C60,0 100,40 100,100 L100,0 Z" fill="url(#heroGradient)" />
-      <defs>
-        <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="rgba(71, 85, 105, 0.15)" />
-          <stop offset="100%" stopColor="rgba(59, 130, 246, 0.15)" />
-        </linearGradient>
-      </defs>
-    </svg>
-  </div>
-</div>
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-slate-800 to-blue-900"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-600/20 via-transparent to-blue-600/20"></div>
+
+          <div className="absolute top-0 right-0 w-3/5 h-full">
+            <svg viewBox="0 0 100 100" className="w-full h-full" preserveAspectRatio="none">
+              <path d="M30,0 C60,0 100,40 100,100 L100,0 Z" fill="url(#heroGradient)" />
+              <defs>
+                <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="rgba(71, 85, 105, 0.15)" />
+                  <stop offset="100%" stopColor="rgba(59, 130, 246, 0.15)" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+        </div>
 
         <div className="relative z-20 max-w-7xl mx-auto w-full mt-38 md:mt-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
+
             {/* Left Content */}
             <div className="text-center lg:text-left order-1 lg:order-1">
               <div className="mb-8">
@@ -145,30 +145,30 @@ const Home = () => {
                   <Heart className="h-4 w-4 mr-2 text-red-400" />
                   Expert Cardiac Care
                 </div>
-                
+
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
                   Your Heart
                   <div className="text-red-300 font-extrabold mt-2">
                     Our Expertise
                   </div>
                 </h1>
-                
+
                 <p className="text-xl text-white/80 mb-8 max-w-lg mx-auto lg:mx-0 leading-relaxed">
                   Leading cardiac specialists providing comprehensive heart care with cutting-edge technology and personalized treatment approaches.
                 </p>
-                
+
                 <div className="w-32 h-1 bg-gradient-to-r from-red-400 to-white mx-auto lg:mx-0 mb-8"></div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <button 
+                <button
                   onClick={() => setIsModalOpen(true)}
                   className="group cursor-pointer bg-gradient-to-r from-red-600 to-red-500 text-white px-8 py-4 rounded-2xl hover:from-red-700 hover:to-red-600 transition-all duration-300 shadow-2xl hover:shadow-red-500/30 hover:scale-105 text-md md:text-lg font-semibold flex items-center justify-center"
                 >
                   Book Consultation
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button 
+                <button
                   onClick={() => handleScroll('doctors')}
                   className="group border-2 cursor-pointer border-white/40 text-white px-8 py-4 rounded-2xl hover:bg-white/10 backdrop-blur-sm transition-all duration-300 hover:scale-105 text-md md:text-lg font-semibold flex items-center justify-center"
                 >
@@ -181,9 +181,9 @@ const Home = () => {
             {/* Right Image */}
             <div className="order-2 lg:order-2">
               <div className="relative">
-             
-                
-              <div className="relative w-full h-96 lg:h-[700px] rounded-3xl overflow-hidden">
+
+
+                <div className="relative w-full h-96 lg:h-[700px] rounded-3xl overflow-hidden">
                   <Image
                     src="https://hearthealers.in/images/landing.png"
                     alt="Expert cardiac care"
@@ -192,7 +192,7 @@ const Home = () => {
                     height={700}
                   />
                 </div>
-                
+
                 {/* Floating Stats */}
                 <div className="absolute -bottom-4 -right-4 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-2xl border border-white/30">
                   <div className="flex items-center space-x-3">
@@ -210,208 +210,193 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-      {/* Doctors Section */}
       <section id="doctors" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20" >
             <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent mb-6">
-              Meet Our Heart Experts 
+              Meet Our Heart Experts
             </h2>
             <div className="w-32 h-1 bg-gradient-to-r from-red-600 to-red-500 mx-auto mb-8"></div>
-           
           </div>
- 
-<div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-  {doctors.map((doctor: Doctor, index) => {
-    const theme = getDoctorTheme(doctor.subdomain);
-    console.log(index);
-    return (
-      <div key={doctor.id}  className="group relative bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gray-200 hover:-translate-y-2">
-        {/* Gradient Background Accent */}
-        <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r ${theme.gradient}`}></div>
-        
-        <div className="p-10">
-          <div className="flex flex-col items-center text-center mb-8">
-            <div className="relative mb-6">
-              {doctor.personalDetails.imageUrl ? (
-               <div className="relative w-34 h-34">
-               <Image
-                 src={doctor.personalDetails.imageUrl}
-                 alt={doctor.personalDetails.name}
-                 className="rounded-full object-contain shadow-2xl ring-4 ring-white group-hover:scale-105 transition-transform duration-300"
-                 fill
-                 sizes="144px"
-               />
-             
-               <div className={`absolute inset-0 rounded-full bg-gradient-to-t ${theme.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {doctors.map((doctor: Doctor) => {
+              const theme = getDoctorTheme(doctor.subdomain);
+              return (
+                <div key={doctor.id} className="group relative bg-white rounded-3xl shadow-xl overflow-hidden transition-all duration-500 border border-gray-100">
+                  {/* ⚠️ BEGIN: New Design for Bigger Image ⚠️ */}
+                  <div className="relative w-full aspect-[4/5] overflow-hidden">
+                    <Image
+                      src={doctor.personalDetails.imageUrl}
+                      alt={doctor.personalDetails.name}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
+                    {/* Subtle Gradient Overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-t ${theme.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+                    {/* Glowing Edge Effect */}
+                    <div className={`absolute inset-0 bg-gradient-to-br from-white/20 to-transparent blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
+                  </div>
+                  {/* ⚠️ END: New Design for Bigger Image ⚠️ */}
+
+                  <div className="p-10">
+                    <div className="text-center mb-8">
+                      <h3 className="text-3xl font-bold text-gray-900 mb-2 transition-colors">
+                        {doctor.personalDetails.name}
+                      </h3>
+                    </div>
+
+                    <div className="space-y-6">
+                      <div className="text-center">
+                        <h4 className={`text-2xl font-bold mb-2 bg-gradient-to-r ${theme.gradient} bg-clip-text text-transparent`}>
+                          {doctor.h1}
+                        </h4>
+                      </div>
+
+                      {/* Shortened bio - 2 lines */}
+                      <div className="text-center">
+                        <p className="text-gray-700 leading-relaxed text-base">
+                          {doctor.bio.split('.').slice(0, 2).join('.') + (doctor.bio.split('.').length > 2 ? '.' : '')}
+                        </p>
+                      </div>
+
+                      <div className={`bg-gradient-to-r ${theme.secondary} rounded-2xl p-6 border border-gray-100 hidden md:block`}>
+                        <h4 className="font-bold text-gray-900 mb-4 text-center flex items-center justify-center">
+                          <Award className="h-5 w-5 mr-2" />
+                          Key Specializations
+                        </h4>
+                        <div className="flex flex-wrap gap-2 justify-center">
+                          {doctor.skills.slice(0, 4).map((skill, skillIndex) => (
+                            <span key={skillIndex} className={`px-4 py-2 bg-white text-gray-700 rounded-full text-sm font-medium shadow-sm border border-gray-200 hover:shadow-md transition-shadow`}>
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => navigateToSubdomain(doctor.subdomain)}
+                        className={`group flex items-center justify-center cursor-pointer w-full bg-gradient-to-r ${theme.gradient} text-white px-8 py-4 rounded-2xl hover:shadow-lg transition-all duration-300 font-semibold text-lg hover:scale-105`}
+                      >
+                        View Profile
+                        <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              ) : (
-                <div className={`w-36 h-36 ${theme.secondary} rounded-full flex items-center justify-center shadow-2xl ring-4 ring-white group-hover:scale-105 transition-transform duration-300`}>
-                  <Stethoscope className={`h-16 w-16 ${theme.text}`} />
-                </div>
-              )}
-           
-            </div>
-            
-            <h3 className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors">
-              {doctor.personalDetails.name}
-            </h3>
-            
-            
+              );
+            })}
           </div>
-          
-          <div className="space-y-6">
-            <div className="text-center">
-              <h4 className={`text-2xl font-bold mb-2 bg-gradient-to-r ${theme.gradient} bg-clip-text text-transparent`}>
-                {doctor.h1}
-              </h4>
-             </div>
-            
-            {/* Shortened bio - only 2 lines */}
-            <div className="text-center">
-              <p className="text-gray-700 leading-relaxed text-base">
-                {doctor.bio.split('.').slice(0, 2).join('.') + (doctor.bio.split('.').length > 2 ? '.' : '')}
-              </p>
-            </div>
-            
-            <div className={`bg-gradient-to-r ${theme.secondary} to-gray-50 rounded-2xl p-6 border border-gray-100 hidden md:block`}>
-              <h4 className="font-bold text-gray-900 mb-4 text-center flex items-center justify-center">
-                <Award className="h-5 w-5 mr-2" />
-                Key Specializations
-              </h4>
-              <div className="flex flex-wrap gap-2 justify-center">
-                {doctor.skills.slice(0, 4).map((skill, skillIndex) => (
-                  <span key={skillIndex} className={`px-4 py-2 bg-white ${theme.text} rounded-full text-sm font-medium shadow-sm border border-gray-200 hover:shadow-md transition-shadow`}>
-                    {skill}
-                  </span>
-                ))}
+        </div>
+      </section>
+
+      <section id="services" className="py-24 bg-gradient-to-b from-gray-50 to-white px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-teal-600 to-teal-500 bg-clip-text text-transparent mb-6">
+              Our Services
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-teal-600 to-teal-500 mx-auto mb-8"></div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Comprehensive cardiac care services with state-of-the-art technology and personalized treatment approaches
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            {/* Dr. Jay's Services */}
+            <div>
+              <div className="text-center mb-12">
+                <h3 className="text-3xl font-bold text-red-600 mb-4">Dr. Jay&#39;s Services</h3>
+                <div className="w-20 h-1 bg-red-600 mx-auto"></div>
+              </div>
+              <div className="space-y-4">
+                <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-red-200 flex items-center space-x-4">
+                  <div className="bg-red-100 p-3 rounded-lg group-hover:bg-red-200 transition-colors flex-shrink-0">
+                    <Heart className="h-6 w-6 text-red-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900">Congenital Heart Defects</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-red-200 flex items-center space-x-4">
+                  <div className="bg-red-100 p-3 rounded-lg group-hover:bg-red-200 transition-colors flex-shrink-0">
+                    <Stethoscope className="h-6 w-6 text-red-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900">Acquired Heart Diseases</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-red-200 flex items-center space-x-4">
+                  <div className="bg-red-100 p-3 rounded-lg group-hover:bg-red-200 transition-colors flex-shrink-0">
+                    <Activity className="h-6 w-6 text-red-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900">Hypertension Care</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-red-200 flex items-center space-x-4">
+                  <div className="bg-red-100 p-3 rounded-lg group-hover:bg-red-200 transition-colors flex-shrink-0">
+                    <Zap className="h-6 w-6 text-red-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900">Cardiac Arrhythmias</h4>
+                  </div>
+                </div>
               </div>
             </div>
-            
-           
-            <button
-              onClick={() => navigateToSubdomain(doctor.subdomain)}
-              className={`group flex items-center justify-center cursor-pointer w-full bg-gradient-to-r ${theme.gradient} text-white px-8 py-4 rounded-2xl hover:shadow-lg transition-all duration-300 font-semibold text-lg hover:scale-105`}
-            >
-               View Profile
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  })}
-</div>
-</div>
-</section>
 
-<section id="services" className="py-24 bg-gradient-to-b from-gray-50 to-white px-4 sm:px-6 lg:px-8">
-  <div className="max-w-7xl mx-auto">
-    <div className="text-center mb-20">
-      <h2 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-teal-600 to-teal-500 bg-clip-text text-transparent mb-6">
-        Our Services
-      </h2>
-      <div className="w-32 h-1 bg-gradient-to-r from-teal-600 to-teal-500 mx-auto mb-8"></div>
-      <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        Comprehensive cardiac care services with state-of-the-art technology and personalized treatment approaches
-      </p>
-    </div>
+            {/* Dr. Anupam's Services */}
+            <div>
+              <div className="text-center mb-12">
+                <h3 className="text-3xl font-bold text-teal-600 mb-4">Dr. Anupam&#39;s Services</h3>
+                <div className="w-20 h-1 bg-teal-600 mx-auto"></div>
+              </div>
+              <div className="space-y-4">
+                <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-teal-200 flex items-center space-x-4">
+                  <div className="bg-teal-100 p-3 rounded-lg group-hover:bg-teal-200 transition-colors flex-shrink-0">
+                    <Shield className="h-6 w-6 text-teal-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900">Adult and Pediatric Congenital Heart Surgeries</h4>
+                  </div>
+                </div>
 
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-      {/* Dr. Jay's Services */}
-      <div>
-        <div className="text-center mb-12">
-          <h3 className="text-3xl font-bold text-red-600 mb-4">Dr. Jay&#39;s Services</h3>
-          <div className="w-20 h-1 bg-red-600 mx-auto"></div>
-        </div>
-        <div className="space-y-4">
-          <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-red-200 flex items-center space-x-4">
-            <div className="bg-red-100 p-3 rounded-lg group-hover:bg-red-200 transition-colors flex-shrink-0">
-              <Heart className="h-6 w-6 text-red-600" />
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900">Congenital Heart Defects</h4>
-            </div>
-          </div>
-          
-          <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-red-200 flex items-center space-x-4">
-            <div className="bg-red-100 p-3 rounded-lg group-hover:bg-red-200 transition-colors flex-shrink-0">
-              <Stethoscope className="h-6 w-6 text-red-600" />
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900">Acquired Heart Diseases</h4>
-            </div>
-          </div>
-          
-          <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-red-200 flex items-center space-x-4">
-            <div className="bg-red-100 p-3 rounded-lg group-hover:bg-red-200 transition-colors flex-shrink-0">
-              <Activity className="h-6 w-6 text-red-600" />
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900">Hypertension Care</h4>
-            </div>
-          </div>
-          
-          <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-red-200 flex items-center space-x-4">
-            <div className="bg-red-100 p-3 rounded-lg group-hover:bg-red-200 transition-colors flex-shrink-0">
-              <Zap className="h-6 w-6 text-red-600" />
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900">Cardiac Arrhythmias</h4>
-            </div>
-          </div>
-        </div>
-      </div>
+                <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-teal-200 flex items-center space-x-4">
+                  <div className="bg-teal-100 p-3 rounded-lg group-hover:bg-teal-200 transition-colors flex-shrink-0">
+                    <Scan className="h-6 w-6 text-teal-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900">Aortic Surgeries</h4>
+                  </div>
+                </div>
 
-      {/* Dr. Anupam's Services */}
-      <div>
-        <div className="text-center mb-12">
-          <h3 className="text-3xl font-bold text-teal-600 mb-4">Dr. Anupam&#39;s Services</h3>
-          <div className="w-20 h-1 bg-teal-600 mx-auto"></div>
-        </div>
-        <div className="space-y-4">
-          <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-teal-200 flex items-center space-x-4">
-            <div className="bg-teal-100 p-3 rounded-lg group-hover:bg-teal-200 transition-colors flex-shrink-0">
-              <Shield className="h-6 w-6 text-teal-600" />
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900">Adult and Pediatric Congenital Heart Surgeries</h4>
-            </div>
-          </div>
-          
-          <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-teal-200 flex items-center space-x-4">
-            <div className="bg-teal-100 p-3 rounded-lg group-hover:bg-teal-200 transition-colors flex-shrink-0">
-              <Scan className="h-6 w-6 text-teal-600" />
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900">Aortic Surgeries</h4>
-            </div>
-          </div>
-          
-          <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-teal-200 flex items-center space-x-4">
-            <div className="bg-teal-100 p-3 rounded-lg group-hover:bg-teal-200 transition-colors flex-shrink-0">
-              <Pill className="h-6 w-6 text-teal-600" />
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900">Vascular Surgeries</h4>
-            </div>
-          </div>
-          
-          <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-teal-200 flex items-center space-x-4">
-            <div className="bg-teal-100 p-3 rounded-lg group-hover:bg-teal-200 transition-colors flex-shrink-0">
-              <Gauge className="h-6 w-6 text-teal-600" />
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold text-gray-900">Heart Failure and Mechanical Circulatory Support</h4>
+                <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-teal-200 flex items-center space-x-4">
+                  <div className="bg-teal-100 p-3 rounded-lg group-hover:bg-teal-200 transition-colors flex-shrink-0">
+                    <Pill className="h-6 w-6 text-teal-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900">Vascular Surgeries</h4>
+                  </div>
+                </div>
+
+                <div className="group bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-teal-200 flex items-center space-x-4">
+                  <div className="bg-teal-100 p-3 rounded-lg group-hover:bg-teal-200 transition-colors flex-shrink-0">
+                    <Gauge className="h-6 w-6 text-teal-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900">Heart Failure and Mechanical Circulatory Support</h4>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section> 
-<section className="py-24 bg-gradient-to-r from-teal-600 to-teal-800 px-4 sm:px-6 lg:px-8">
+      </section>
+      <section className="py-24 bg-gradient-to-r from-teal-600 to-teal-800 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
@@ -421,9 +406,9 @@ const Home = () => {
               Don&#39;t wait for tomorrow. Book your consultation today with our expert cardiologists and take the first step towards a healthier heart.
             </p>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button 
+            <button
               onClick={() => setIsModalOpen(true)}
               className="group bg-white text-zinc-600 px-8 py-4 rounded-2xl cursor-pointer hover:bg-red-50 transition-all duration-300 shadow-2xl hover:shadow-white/20 hover:scale-105 text-lg font-semibold flex items-center justify-center"
             >
@@ -431,7 +416,7 @@ const Home = () => {
               Book Appointment Now
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            
+
             <div className="flex items-center text-red-100">
               <CheckCircle className="h-5 w-5 mr-2" />
               <span>Available for Online & Offline Consultations</span>
@@ -439,12 +424,12 @@ const Home = () => {
           </div>
         </div>
       </section>
-   <AppointmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <AppointmentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
-   <footer className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
+      <footer className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            
+
             {/* Brand Section */}
             <div className="lg:col-span-1">
               <div className="flex items-center mb-4">
@@ -454,7 +439,7 @@ const Home = () => {
               <p className="text-gray-400 mb-6 leading-relaxed">
                 Expert cardiac care with cutting-edge technology and personalized treatment approaches for your heart health.
               </p>
-            
+
             </div>
 
             {/* Our Doctors Section */}
@@ -462,9 +447,9 @@ const Home = () => {
               <h3 className="text-lg font-semibold mb-6 text-white">Our Doctors</h3>
               <ul className="space-y-3">
                 <li>
-                  <a 
-                    href="https://drjay.hearthealers.in" 
-                    target="_blank" 
+                  <a
+                    href="https://drjay.hearthealers.in"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-red-400 transition-colors duration-300 flex items-center group"
                   >
@@ -474,9 +459,9 @@ const Home = () => {
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="https://dranupam.hearthealers.in" 
-                    target="_blank" 
+                  <a
+                    href="https://dranupam.hearthealers.in"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-400 hover:text-teal-400 transition-colors duration-300 flex items-center group"
                   >
@@ -550,9 +535,9 @@ const Home = () => {
               </div>
               <div className="flex items-center text-sm text-gray-400">
                 <span>Powered by </span>
-                <a 
-                  href="https://rnahealthtech.com" 
-                  target="_blank" 
+                <a
+                  href="https://rnahealthtech.com"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-red-400 hover:text-red-300 transition-colors ml-1 font-medium"
                 >

@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 
 export interface BlogContent {
     id: string;
-    
     subdomain: 'drjay' | 'dranupam';
     title: string;
     slug: string;
