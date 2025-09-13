@@ -123,8 +123,8 @@ export const drjayData: Doctor = {
     description:
       "Pediatric Cardiologist with extensive experience in congenital heart diseases, fetal echocardiography, and pediatric cardiac interventions.",
     imageUrl: "https://hearthealers.in/images/drjay-1.jpg",
-    imageUrl2: "https://hearthealers.in/images/drjay-2.jpg", // To be added
-    imageUrl3: "https://hearthealers.in/images/drjay-3.jpg", // To be added
+    imageUrl2: "https://hearthealers.in/images/drjay-3.jpg", // To be added
+    imageUrl3: "https://hearthealers.in/images/drjay-2.jpg", // To be added
     backgroundImageUrl: "https://hearthealers.in/images/bg1.jpg", // To be added
     age: 35, // Estimated based on graduation timeline
     gender: "Male",
