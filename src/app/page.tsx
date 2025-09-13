@@ -6,6 +6,7 @@ import Doctor, { drjayData, dranupamData } from '@/data/doctors'; // Adjust path
 //import { services, Service } from '@/data/services'; // Adjust path as needed
 import Image from 'next/image';
 import AppointmentModal from './components/utilities/AppointmentModalMix';
+import MediaCarousel from './components/utilities/MediaCarousel';
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,6 +46,14 @@ const Home = () => {
     }
     setIsMenuOpen(false);
   };
+
+  const images = [
+  { src: 'https://hearthealers.in/images/reviews/j1.webp', alt: 'Patient 1', width: 800, height: 600 },
+  { src: 'https://hearthealers.in/images/reviews/j2.webp', alt: 'Patient 2', width: 600, height: 900 },
+  { src: 'https://hearthealers.in/images/reviews/a1.webp', alt: 'Patient 3', width: 1024, height: 768 },
+  { src: 'https://hearthealers.in/images/reviews/a2.webp', alt: 'Patient 3', width: 1024, height: 768 },
+
+];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
@@ -290,6 +299,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <MediaCarousel images={images} />
 
       <section id="services" className="py-24 bg-gradient-to-b from-gray-50 to-white px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
