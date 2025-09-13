@@ -1,3 +1,4 @@
+
 // components/doctor/TimelineShowcaseList.tsx
 import { RefObject, useRef } from "react";
 import Link from "next/link";
@@ -122,7 +123,7 @@ function TimelineShowcaseListItem({ data, colorScheme, icon }: TimelineShowcaseL
           duration: 0.6,
           delay: 0.1
         }}
-        className={`${colorScheme.cardBg} backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-lg ${colorScheme.borderColor} border hover:shadow-xl transition-all duration-300`}
+        className={`${colorScheme.cardBg} backdrop-blur-sm rounded-xl p-4 md:p-6 shadow-lg ${colorScheme.borderColor} border hover:shadow-xl transition-all duration-300 ml-6 md:ml-0`}
       >
         <h3 className="text-base font-bold text-gray-900 sm:text-lg md:text-xl mb-2">
           {data.title}{" "}
@@ -186,7 +187,7 @@ export function TimelineShowcaseList({ title, details, colorScheme, icon }: Time
   const lineGradient = getLineGradient();
   
   return (
-    <div className="mx-auto my-20 md:my-32 max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto my-20 md:my-32 max-w-7xl px-4 md:px-8 lg:px-8">
       {/* Section Title */}
       <motion.h2 
         initial={{ y: 50, opacity: 0 }}
