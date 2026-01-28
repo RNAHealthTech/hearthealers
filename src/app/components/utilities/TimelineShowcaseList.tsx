@@ -45,7 +45,7 @@ function TimelineIcon({ iconRef, colorScheme, icon }: TimelineListIconProps) {
     offset: ["center end", "center center"],
     layoutEffect: false,
   });
-  
+
   // Get colors from the colorScheme object
   const getProgressColor = () => {
     if (colorScheme.primary === 'red') return '#ef4444'; // red-500
@@ -63,7 +63,7 @@ function TimelineIcon({ iconRef, colorScheme, icon }: TimelineListIconProps) {
 
   const progressColor = getProgressColor();
   const outerColor = getOuterColor();
-  
+
   return (
     <figure className="absolute left-0">
       <svg width="75" height="75" viewBox="0 0 100 100">
@@ -88,10 +88,10 @@ function TimelineIcon({ iconRef, colorScheme, icon }: TimelineListIconProps) {
           strokeDasharray="1 1"
         />
         {/* Inner circle with icon */}
-        <circle 
-          cx="50" 
-          cy="27" 
-          r="12" 
+        <circle
+          cx="50"
+          cy="27"
+          r="12"
           fill={progressColor}
         />
       </svg>
@@ -111,7 +111,7 @@ export interface TimelineShowcaseListItemProps {
 
 function TimelineShowcaseListItem({ data, colorScheme, icon }: TimelineShowcaseListItemProps) {
   const ref = useRef<HTMLLIElement>(null);
-  
+
   return (
     <li ref={ref} className="mx-auto mb-14 flex w-[90%] md:w-[70%] flex-col gap-1">
       <TimelineIcon iconRef={ref} colorScheme={colorScheme} icon={icon} />
@@ -131,7 +131,7 @@ function TimelineShowcaseListItem({ data, colorScheme, icon }: TimelineShowcaseL
             href={data.organisation.href}
             className={`cursor-pointer ${colorScheme.primaryText} hover:underline text-sm md:text-base`}
             target="_blank"
-            rel="nofollow"
+            rel="noopener noreferrer"
           >
             @{data.organisation.name}
           </Link>
@@ -169,7 +169,7 @@ export function TimelineShowcaseList({ title, details, colorScheme, icon }: Time
     target: ref,
     offset: ["start end", "center start"],
   });
-  
+
   // Dynamic gradient colors based on theme
   const getLineGradient = () => {
     if (colorScheme.primary === 'red') {
@@ -183,13 +183,13 @@ export function TimelineShowcaseList({ title, details, colorScheme, icon }: Time
     }
     return 'linear-gradient(180deg, #14b8a6, #134e4a)'; // default
   };
-  
+
   const lineGradient = getLineGradient();
-  
+
   return (
     <div className="mx-auto my-20 md:my-32 max-w-7xl px-4 md:px-8 lg:px-8">
       {/* Section Title */}
-      <motion.h2 
+      <motion.h2
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 }}
@@ -199,23 +199,23 @@ export function TimelineShowcaseList({ title, details, colorScheme, icon }: Time
           {title}
         </span>
       </motion.h2>
-      
+
       {/* Timeline Container */}
       <div ref={ref} className="relative w-full md:mx-auto md:w-[85%]">
         {/* Animated Timeline Line */}
         <motion.div
-          style={{ 
+          style={{
             scaleY: scrollYProgress,
             background: lineGradient
           }}
           className="absolute left-9 top-5 h-full w-1 origin-top rounded-full shadow-sm"
         />
-        
+
         {/* Timeline Items */}
         <ul className="ml-4 w-full items-center space-y-8">
           {details.map((item, index) => (
-            <TimelineShowcaseListItem 
-              key={index} 
+            <TimelineShowcaseListItem
+              key={index}
               data={item}
               colorScheme={colorScheme}
               icon={icon}
@@ -228,4 +228,3 @@ export function TimelineShowcaseList({ title, details, colorScheme, icon }: Time
 }
 
 export default TimelineShowcaseList;
- 

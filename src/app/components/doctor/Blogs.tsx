@@ -1,9 +1,9 @@
 // app/components/doctor/Blogs.tsx
 
-'use client';  
+'use client';
 
 import React from 'react';
- 
+
 import { BlogContent } from '@/data/blogs';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -16,52 +16,27 @@ interface BlogsProps {
 
 const Blogs: React.FC<BlogsProps> = ({ blogs, doctor = 'all' }) => {
   // Debug the doctor parameter
-  console.log('=== BLOGS COMPONENT DEBUG START ===');
-  console.log('Doctor prop received:', doctor);
-  console.log('Doctor type:', typeof doctor);
-  console.log('Doctor exact value:', JSON.stringify(doctor));
-  console.log('Blogs received:', blogs?.length || 0, 'items');
 
   // Filter blogs based on doctor prop
   const filteredBlogs = doctor === 'all'
     ? blogs
     : blogs.filter(blog => blog.subdomain === doctor);
 
-  console.log('Filtered blogs count:', filteredBlogs?.length || 0);
-  console.log('Filter condition - doctor === "all":', doctor === 'all');
-  if (doctor !== 'all') {
-    console.log('Filtering by subdomain:', doctor);
-    console.log('Available subdomains in blogs:', blogs?.map(blog => blog.subdomain) || []);
-  }
 
   // Get doctor name for page title
   const getDoctorName = (doctorCode: string) => {
-    console.log('Getting doctor name for:', JSON.stringify(doctorCode));
+
     switch (doctorCode) {
       case 'drjay':
-        console.log('Matched drjay case for doctor name');
-        return 'Dr. Jay Relan';
-      case 'dranupam':
-        console.log('Matched dranupam case for doctor name');
-        return 'Dr. Anupam';
-      default:
-        console.log('Matched default case for doctor name with value:', JSON.stringify(doctorCode));
         return 'Medical Experts';
     }
   };
 
   // Get page description
   const getPageDescription = (doctorCode: string) => {
-    console.log('Getting page description for:', JSON.stringify(doctorCode));
+
     switch (doctorCode) {
       case 'drjay':
-        console.log('Matched drjay case for description');
-        return 'Expert insights on pediatric cardiology, congenital heart defects, and children\'s heart health from our medical experts.';
-      case 'dranupam':
-        console.log('Matched dranupam case for description');
-        return 'Expert perspectives on coronary artery bypass grafting, minimally invasive cardiac surgeries and medical breakthroughs.';
-      default:
-        console.log('Matched default case for description with value:', JSON.stringify(doctorCode));
         return 'Expert insights from our medical professionals on cardiology, heart health, and medical breakthroughs.';
     }
   };
@@ -142,7 +117,6 @@ interface BlogCardProps {
 }
 
 const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
-  console.log('Rendering blog card:', blog.title, 'subdomain:', blog.subdomain);
 
   return (
     <div className="group bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
@@ -193,24 +167,5 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
   );
 };
 
-// REMOVE THIS BLOCK:
-// export const getStaticProps: GetStaticProps = async ({ params }) => {
-//   // Get doctor from params or default to 'all'
-//   const doctor = params?.doctor as string || 'all';
-//   console.log('Doctor extracted from params:', doctor);
-//   console.log('Doctor type:', typeof doctor);
-
-//   // Validate doctor parameter
-//   const validDoctors = ['drjay', 'dranupam', 'all'];
-//   const selectedDoctor = validDoctors.includes(doctor) ? doctor : 'all';
-
-
-//   return {
-//     props: {
-//       blogs: blogs,
-//       doctor: selectedDoctor,
-//     },
-//   };
-// };
 
 export default Blogs;

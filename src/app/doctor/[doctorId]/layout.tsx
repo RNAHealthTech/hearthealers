@@ -1,5 +1,5 @@
 // subdomain's layout here
- 
+
 import { notFound } from 'next/navigation';
 import { drjayData, dranupamData } from '@/data/doctors';
 import Doctor from '@/data/doctors';
@@ -20,24 +20,25 @@ function getDoctorById(id: string): Doctor | null {
 
 interface Props {
   children: React.ReactNode;
-  params: { doctorId: string };
+  params: Promise<{ doctorId: string }>;
 }
 
-export default function DoctorLayout({ children, params }: Props) {
-  const doctor = getDoctorById(params.doctorId);
-   
-  
+export default async function DoctorLayout({ children, params }: Props) {
+  const { doctorId } = await params;
+  const doctor = getDoctorById(doctorId);
+
+
   if (!doctor) {
     notFound();
   }
 
   return (
-    <div className={`min-h-screen doctor-theme-${params.doctorId}`}>
-       <Header doctorId={params.doctorId} />
-       <main className='flex-grow'>
+    <div className={`min-h-screen doctor-theme-${doctorId}`}>
+      <Header doctorId={doctorId} />
+      <main className='flex-grow'>
         {children}
-       </main>
-      <Footer doctorId={params.doctorId} />
+      </main>
+      <Footer doctorId={doctorId} />
     </div>
   );
 }

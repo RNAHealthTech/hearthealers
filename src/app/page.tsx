@@ -5,8 +5,14 @@ import { ArrowRight, Heart, Stethoscope, Award, MapPin, Phone, Menu, X, Calendar
 import Doctor, { drjayData, dranupamData } from '@/data/doctors'; // Adjust path as needed
 //import { services, Service } from '@/data/services'; // Adjust path as needed
 import Image from 'next/image';
-import AppointmentModal from './components/utilities/AppointmentModalMix';
-import MediaCarousel from './components/utilities/MediaCarousel';
+import dynamic from 'next/dynamic';
+
+const AppointmentModal = dynamic(() => import('./components/utilities/AppointmentModalMix'), {
+  ssr: false,
+});
+const MediaCarousel = dynamic(() => import('./components/utilities/MediaCarousel'), {
+  ssr: false,
+});
 
 const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,12 +54,12 @@ const Home = () => {
   };
 
   const images = [
-  { src: 'https://hearthealers.in/images/reviews/j1.webp', alt: 'Patient 1', width: 800, height: 600 },
-  { src: 'https://hearthealers.in/images/reviews/j2.webp', alt: 'Patient 2', width: 600, height: 900 },
-  { src: 'https://hearthealers.in/images/reviews/a1.webp', alt: 'Patient 3', width: 1024, height: 768 },
-  { src: 'https://hearthealers.in/images/reviews/a2.webp', alt: 'Patient 3', width: 1024, height: 768 },
+    { src: 'https://hearthealers.in/images/reviews/j1.webp', alt: 'Patient 1', width: 800, height: 600 },
+    { src: 'https://hearthealers.in/images/reviews/j2.webp', alt: 'Patient 2', width: 600, height: 900 },
+    { src: 'https://hearthealers.in/images/reviews/a1.webp', alt: 'Patient 3', width: 1024, height: 768 },
+    { src: 'https://hearthealers.in/images/reviews/a2.webp', alt: 'Patient 3', width: 1024, height: 768 },
 
-];
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
@@ -84,7 +90,7 @@ const Home = () => {
                 </button>
 
                 <button
-                  onClick={() => setIsModalOpen(true)}
+                  aria-label="Book an Appointment"
                   className="bg-gradient-to-r from-red-600 to-red-500 text-white px-6 py-3 rounded-xl hover:from-red-700 hover:to-red-600 transition-all duration-300 shadow-lg hover:shadow-xl font-medium cursor-pointer"
                 >
                   Book Appointment
@@ -93,7 +99,11 @@ const Home = () => {
 
               {/* Mobile Menu Button */}
               <div className="md:hidden">
-                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-slate-800 focus:outline-none">
+                <button
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  className="text-slate-800 focus:outline-none"
+                  aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                >
                   {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
                 </button>
               </div>
@@ -111,7 +121,7 @@ const Home = () => {
                   </button>
 
                   <button
-                    onClick={() => setIsModalOpen(true)}
+                    aria-label="Book an Appointment (Mobile)"
                     className="bg-gradient-to-r from-red-600 to-red-500 text-white px-6 py-4 rounded-xl font-medium"
                   >
                     Book Appointment
@@ -172,6 +182,7 @@ const Home = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button
                   onClick={() => setIsModalOpen(true)}
+                  aria-label="Book Consultation now"
                   className="group cursor-pointer bg-gradient-to-r from-red-600 to-red-500 text-white px-8 py-4 rounded-2xl hover:from-red-700 hover:to-red-600 transition-all duration-300 shadow-2xl hover:shadow-red-500/30 hover:scale-105 text-md md:text-lg font-semibold flex items-center justify-center"
                 >
                   Book Consultation
@@ -195,10 +206,12 @@ const Home = () => {
                 <div className="relative w-full h-96 lg:h-[700px] rounded-3xl overflow-hidden">
                   <Image
                     src="https://hearthealers.in/images/landing.png"
-                    alt="Expert cardiac care"
+                    alt="Expert cardiac care - HeartHealers Landing"
                     className="w-full h-full object-contain"
                     width={600}
                     height={700}
+                    priority
+                    sizes="(max-width: 768px) 100vw, 600px"
                   />
                 </div>
 

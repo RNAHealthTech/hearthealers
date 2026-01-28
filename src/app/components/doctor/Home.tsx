@@ -1,14 +1,16 @@
 'use client'
 
 import React, { useState } from 'react';
-import Doctor from '@/data/doctors';
-import HomeServicesSection from '../utilities/HomeServices';
-import HomeAbout from '../utilities/HomeAbout';
-import HomeContactSection from '../utilities/HomeContact';
 import Image from 'next/image';
-import BookAppointmentModal from '../utilities/BookAppointment';
-import HomeReviews from '../utilities/HomeReviews';
-import WhyChooseDoctor from '../utilities/WhyChooseDoctor';
+import Doctor from '@/data/doctors';
+import dynamic from 'next/dynamic';
+
+const HomeServicesSection = dynamic(() => import('../utilities/HomeServices'), { ssr: false });
+const HomeAbout = dynamic(() => import('../utilities/HomeAbout'), { ssr: false });
+const HomeContactSection = dynamic(() => import('../utilities/HomeContact'), { ssr: false });
+const HomeReviews = dynamic(() => import('../utilities/HomeReviews'), { ssr: false });
+const WhyChooseDoctor = dynamic(() => import('../utilities/WhyChooseDoctor'), { ssr: false });
+const BookAppointmentModal = dynamic(() => import('../utilities/BookAppointment'), { ssr: false });
 
 
 interface HomeProps {
@@ -92,6 +94,8 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
                     className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-contain border-4 border-white/30 shadow-xl"
                     width={96}
                     height={96}
+                    priority
+                    sizes="(max-width: 640px) 80px, 96px"
                   />
                 </div>
               </div>
@@ -134,6 +138,7 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
               min-w-[200px]
               cursor-pointer
             `}
+              aria-label={`Book Appointment with ${doctor.personalDetails.name}`}
               onClick={() => setIsModalOpen(true)}
             >
               Book Appointment

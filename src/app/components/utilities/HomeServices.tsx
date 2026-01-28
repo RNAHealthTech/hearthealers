@@ -15,8 +15,8 @@ const HomeServicesSection: React.FC<HomeServicesSectionProps> = ({ subdomain }) 
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current){
-      const {scrollLeft, clientWidth} = scrollRef.current;
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
       const scrollAmount = clientWidth * 0.8; // adjust as needed
       scrollRef.current.scrollTo({
         left: direction === 'left' ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
@@ -38,7 +38,7 @@ const HomeServicesSection: React.FC<HomeServicesSectionProps> = ({ subdomain }) 
           {/* Section Header */}
           <div className="text-center space-y-4">
             <h3 className="text-gray-700 uppercase tracking-wider text-sm font-medium">
-             Our Treatments 
+              Our Treatments
             </h3>
             <h2 className="text-4xl lg:text-5xl font-light text-gray-900">
               Advanced Cardiac
@@ -48,91 +48,91 @@ const HomeServicesSection: React.FC<HomeServicesSectionProps> = ({ subdomain }) 
             </h2>
           </div>
           <div className='relative'>
-            <button 
-            className='absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-2 shadow hover:bg-white'
-            onClick={() => scroll('left')}
-    aria-label="Scroll left"
-    type="button"
-    >
+            <button
+              className='absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-2 shadow hover:bg-white'
+              onClick={() => scroll('left')}
+              aria-label="Scroll left"
+              type="button"
+            >
 
-      <ArrowLeft className='w-6 h-6 text-gray-700' />
-    </button>
+              <ArrowLeft className='w-6 h-6 text-gray-700' />
+            </button>
 
-          {/* Cards Container */}
-          <div
-          /// <reference path=" />
-          ref={scrollRef}
-            className="overflow-x-auto scrollbar-hide flex gap-6 py-8 px-4"
-            style={{
-              scrollSnapType: 'x mandatory',
-              msOverflowStyle: 'none',
-              scrollbarWidth: 'none'
-            }}
-          >
-            {filteredServices.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                className="no-underline"
-              >
-                <motion.div
-                  className="relative flex-none w-[300px] h-[400px] rounded-xl overflow-hidden cursor-pointer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  style={{ scrollSnapAlign: 'center' }}
+            {/* Cards Container */}
+            <div
+              /// <reference path=" />
+              ref={scrollRef}
+              className="overflow-x-auto scrollbar-hide flex gap-6 py-8 px-4"
+              style={{
+                scrollSnapType: 'x mandatory',
+                msOverflowStyle: 'none',
+                scrollbarWidth: 'none'
+              }}
+            >
+              {filteredServices.map((service) => (
+                <Link
+                  key={service.slug}
+                  href={`/services/${service.slug}`}
+                  className="no-underline"
                 >
-                  {/* Background Image */}
-                  <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url(${service.image})` }}
+                  <motion.div
+                    className="relative flex-none w-[300px] h-[400px] rounded-xl overflow-hidden cursor-pointer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    style={{ scrollSnapAlign: 'center' }}
                   >
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20" />
-                  </div>
-
-                  {/* Content */}
-                  <div className="relative h-full flex flex-col justify-end p-6 text-white">
-                    <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                    <p className="text-sm opacity-90 line-clamp-3">
-                      {service.description}
-                    </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {service.symptoms?.slice(0, 2).map((symptom) => (
-                        <span
-                          key={symptom}
-                          className="text-xs px-3 py-1 bg-white/20 rounded-full"
-                        >
-                          {symptom}
-                        </span>
-                      ))}
-
+                    {/* Background Image */}
+                    <div
+                      className="absolute inset-0 bg-cover bg-center"
+                      style={{ backgroundImage: `url(${service.image})` }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20" />
                     </div>
-                  </div>
-                </motion.div>
-              </Link>
-            ))}
-          </div>
-          <button 
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-2 shadow hover:bg-white"
-          onClick={() => scroll('right')}
-          aria-label="Scroll right"
-          type="button"
-          >
-    <ArrowRight className="w-6 h-6 text-gray-700" />
 
-          </button>
+                    {/* Content */}
+                    <div className="relative h-full flex flex-col justify-end p-6 text-white">
+                      <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                      <p className="text-sm opacity-90 line-clamp-3">
+                        {service.description}
+                      </p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {service.symptoms?.slice(0, 2).map((symptom) => (
+                          <span
+                            key={symptom}
+                            className="text-xs px-3 py-1 bg-white/20 rounded-full"
+                          >
+                            {symptom}
+                          </span>
+                        ))}
+
+                      </div>
+                    </div>
+                  </motion.div>
+                </Link>
+              ))}
+            </div>
+            <button
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/80 rounded-full p-2 shadow hover:bg-white"
+              onClick={() => scroll('right')}
+              aria-label="Scroll right"
+              type="button"
+            >
+              <ArrowRight className="w-6 h-6 text-gray-700" />
+
+            </button>
           </div>
         </motion.div>
-     </div>
+      </div>
       <div className="flex items-center justify-center">
         <button
           onClick={() => router.push("/services")}
           className={`mt-8 rounded-xl px-12 py-4 font-bold text-md md:text-lg transition duration-300 text-white cursor-pointer ${subdomain === 'drjay' ? 'bg-red-500 hover:bg-red-900' : subdomain === 'dranupam' ? 'bg-teal-700 hover:bg-teal-800' : 'bg-gray-400 hover:bg-gray-500'}`}
         >
-          Explore All Services 
+          Explore All Services
         </button>
       </div>
-      </section>
-  
+    </section>
+
   );
 };
 

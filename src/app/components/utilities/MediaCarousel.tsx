@@ -19,6 +19,7 @@ const MediaCarousel: React.FC<MediaCarouselProps> = ({ images }) => {
           style={{ border: 'none', overflow: 'hidden' }}
           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
           allowFullScreen
+          loading="lazy"
           title="Facebook Video"
         ></iframe>
       </div>

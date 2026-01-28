@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { motion } from 'framer-motion';
 import { useForm } from '@formspree/react';
- 
+
 
 interface AppointmentModalProps {
   isOpen: boolean;
@@ -33,8 +33,8 @@ const variantStyles = {
 };
 
 const doctorFormIds = {
-   drjay: 'xovwobnv', 
-    dranupam: 'mgvyjqlo'
+  drjay: 'xovwobnv',
+  dranupam: 'mgvyjqlo'
 };
 
 const doctorWhatsAppNumbers = {
@@ -54,7 +54,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
     message: '',
     doctorName: '',
   });
-  console.log(appointmentType)
+
 
   useEffect(() => {
     if (state.succeeded) {
@@ -131,7 +131,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
         ) : (
           <form onSubmit={handleFinalSubmit} className="space-y-6 font-work-sans">
             <input type="hidden" name="doctor" value={formData.doctorName} />
-            
+
             <motion.div className='bg-white/60 rounded-lg p-4 border border-white/40'>
               <label className={`block text-lg font-semibold ${styles.accent} mb-3`}>Choose Doctor</label>
               <motion.div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6">
@@ -202,7 +202,7 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
                   placeholder="Enter your full name"
                 />
               </div>
- 
+
             </div>
 
             <div>

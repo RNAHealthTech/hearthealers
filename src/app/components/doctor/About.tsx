@@ -13,11 +13,11 @@ interface AboutProps {
 
 const About: React.FC<AboutProps> = ({ doctor }) => {
   const [activeTab, setActiveTab] = useState('bio');
-  console.log(activeTab, setActiveTab)
+
   const [scrollY, setScrollY] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log(scrollY)
+
   const {
     personalDetails,
     currentWorkExperience,
@@ -26,7 +26,7 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
     research,
     awards,
     id,
-    
+
     bio,
   } = doctor;
 
@@ -182,7 +182,7 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
                     </span>
                   </h1>
 
-                  
+
 
                   <p className="text-gray-600 leading-relaxed text-base md:text-md lg:text-lg max-w-2xl mx-auto lg:mx-0 hidden md:block mb-6">
                     {personalDetails.description}

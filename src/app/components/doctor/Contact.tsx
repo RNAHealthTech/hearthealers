@@ -3,13 +3,13 @@
 import React, { useState } from "react";
 import Doctor from '@/data/doctors';
 import Image from 'next/image';
-import {  motion } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   FaMapMarkerAlt,
   FaEnvelope,
   FaPhone,
   FaClock,
-    
+
   FaArrowRight,
 } from "react-icons/fa";
 import { useForm, ValidationError } from "@formspree/react";
@@ -30,8 +30,8 @@ interface FormData {
 }
 
 const doctorFormIds = {
-    drjay: 'xovwobnv', 
-    dranupam: 'mgvyjqlo'
+  drjay: 'xovwobnv',
+  dranupam: 'mgvyjqlo'
 }
 
 const Contact: React.FC<ContactProps> = ({ doctor }) => {
@@ -101,7 +101,7 @@ Message: ${formData.message}`;
           <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Column - Text Content */}
@@ -119,7 +119,7 @@ Message: ${formData.message}`;
               <div className="text-gray-500 text-lg mb-8">
                 {doctor.personalDetails.speciality}
               </div>
-              
+
               {/* Quick Actions */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.button
@@ -163,7 +163,7 @@ Message: ${formData.message}`;
             backgroundSize: '40px 40px'
           }}></div>
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             className="text-4xl font-light text-center mb-16 text-gray-900"
@@ -227,7 +227,7 @@ Message: ${formData.message}`;
                 </div>
               </FadeUp>
             ))}
- 
+
             {/* {doctor.onlineTiming && (
               <FadeUp duration={0.8}>
                 <div className="bg-gradient-to-br from-indigo-600 to-purple-600 text-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -257,7 +257,7 @@ Message: ${formData.message}`;
           </div>
 
           {/* Social Links */}
-          
+
         </div>
       </section>
 
@@ -266,7 +266,7 @@ Message: ${formData.message}`;
         {/* Decorative Elements */}
         <div className="absolute top-0 right-0 w-72 h-72 bg-gradient-to-br from-blue-100/50 to-purple-100/50 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-br from-purple-100/50 to-pink-100/50 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
-        
+
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -297,7 +297,7 @@ Message: ${formData.message}`;
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900 mb-4">Thank You!</h3>
                 <p className="text-gray-600 text-lg">
-                  Your appointment request has been submitted successfully. 
+                  Your appointment request has been submitted successfully.
                   Dr. {doctor.personalDetails.name} will contact you soon.
                 </p>
               </motion.div>
@@ -321,7 +321,7 @@ Message: ${formData.message}`;
                       />
                       <ValidationError prefix="Name" field="name" errors={state.errors} />
                     </div>
-                    
+
                     {/* <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-3">
                         Email Address
@@ -357,7 +357,7 @@ Message: ${formData.message}`;
                       />
                       <ValidationError prefix="Phone" field="phone" errors={state.errors} />
                     </div>
-                    
+
                     <div>
                       <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-3">
                         Preferred Date
@@ -432,7 +432,7 @@ Message: ${formData.message}`;
           >
             Find <span className="font-semibold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Our Location</span>
           </motion.h2>
-          
+
           <div className="rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14042.308553553954!2d77.32582385857022!3d28.371631393795468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdd78a06fe98f%3A0x5c7eaa85fa52d93!2sSarvodaya%20Hospital%20and%20Research%20Center%20%7C%20Dental%20and%20Maxillofacial%20Surgery%20%7C%20Faridabad!5e0!3m2!1sen!2sin!4v1752063408927!5m2!1sen!2sin"
@@ -452,4 +452,3 @@ Message: ${formData.message}`;
 };
 
 export default Contact;
- 

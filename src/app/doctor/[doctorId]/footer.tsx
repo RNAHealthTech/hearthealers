@@ -24,7 +24,7 @@ function getDoctorById(id: string): Doctor | null {
 const Footer: React.FC<FooterProps> = ({ doctorId }) => {
   const [doctor, setDoctor] = useState<Doctor | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  console.log(showScrollTop);
+
 
   useEffect(() => {
     const doctorData = getDoctorById(doctorId);
@@ -153,12 +153,12 @@ const Footer: React.FC<FooterProps> = ({ doctorId }) => {
               </p>
               <div className="flex items-center gap-4 flex-wrap">
                 {doctor.socialLinks.linkedin && (
-                  <a href={doctor.socialLinks.linkedin} className="text-gray-400 hover:text-white transition-colors text-sm">
+                  <a href={doctor.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">
                     LinkedIn
                   </a>
                 )}
                 {doctor.socialLinks.instagram && (
-                  <a href={doctor.socialLinks.instagram} className="text-gray-400 hover:text-white transition-colors text-sm">
+                  <a href={doctor.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors text-sm">
                     Instagram
                   </a>
                 )}
@@ -271,7 +271,7 @@ const Footer: React.FC<FooterProps> = ({ doctorId }) => {
               </p>
               <div className="flex items-center gap-2 text-gray-400 text-sm">
                 <Heart className="w-4 h-4 text-red-500 flex-shrink-0" />
-                <span>powered by <a className='underline hover:text-white transition-colors' href='https://rnahealthtech.com'>RNA HealthTech</a></span>
+                <span>powered by <a className='underline hover:text-white transition-colors' href='https://rnahealthtech.com' target="_blank" rel="noopener noreferrer">RNA HealthTech</a></span>
               </div>
             </div>
           </div>

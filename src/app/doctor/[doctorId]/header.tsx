@@ -11,15 +11,16 @@ interface HeaderProps {
   doctorId: string;
 }
 
-function getDoctorById(id: string): Doctor | null {   
-    switch (id) {     
-        case 'drjay':       
-           return drjayData;     
-        case 'dranupam':       
-            return dranupamData;     
-        default:       
-            return null;   
-        }} 
+function getDoctorById(id: string): Doctor | null {
+  switch (id) {
+    case 'drjay':
+      return drjayData;
+    case 'dranupam':
+      return dranupamData;
+    default:
+      return null;
+  }
+}
 const Header: React.FC<HeaderProps> = ({ doctorId }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
   const [doctor, setDoctor] = useState<Doctor | null>(null);
   const [activeSection, setActiveSection] = useState('home');
 
-  console.log(setActiveSection)
+
   useEffect(() => {
     const doctorData = getDoctorById(doctorId);
     setDoctor(doctorData);
@@ -67,29 +68,29 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
   if (!doctor) return null;
 
   const isJayRelan = doctorId === 'drjay';
-  const colorScheme = isJayRelan 
+  const colorScheme = isJayRelan
     ? {
-        primary: 'bg-red-600',
-        primaryHover: 'hover:bg-red-700',
-        accent: 'text-red-600',
-        accentHover: 'hover:text-red-700',
-        gradient: 'from-red-600 to-red-700',
-        border: 'border-red-200',
-        bg: 'bg-red-50',
-        light: 'bg-red-100',
-        glass: 'bg-red-500/10 backdrop-blur-xl border-red-200/20'
-      }
+      primary: 'bg-red-600',
+      primaryHover: 'hover:bg-red-700',
+      accent: 'text-red-600',
+      accentHover: 'hover:text-red-700',
+      gradient: 'from-red-600 to-red-700',
+      border: 'border-red-200',
+      bg: 'bg-red-50',
+      light: 'bg-red-100',
+      glass: 'bg-red-500/10 backdrop-blur-xl border-red-200/20'
+    }
     : {
-        primary: 'bg-teal-600',
-        primaryHover: 'hover:bg-teal-700',
-        accent: 'text-teal-600',
-        accentHover: 'hover:text-teal-700',
-        gradient: 'from-teal-600 to-teal-700',
-        border: 'border-teal-200',
-        bg: 'bg-teal-50',
-        light: 'bg-teal-100',
-        glass: 'bg-teal-500/10 backdrop-blur-xl border-teal-200/20'
-      };
+      primary: 'bg-teal-600',
+      primaryHover: 'hover:bg-teal-700',
+      accent: 'text-teal-600',
+      accentHover: 'hover:text-teal-700',
+      gradient: 'from-teal-600 to-teal-700',
+      border: 'border-teal-200',
+      bg: 'bg-teal-50',
+      light: 'bg-teal-100',
+      glass: 'bg-teal-500/10 backdrop-blur-xl border-teal-200/20'
+    };
 
   // Dr. Jay's Services
   const jayServices = [
@@ -126,12 +127,12 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
     { title: 'Home', href: '/', icon: Home },
     { title: 'About', href: '/about', icon: User },
     { title: 'Services', href: '/services', icon: Briefcase, hasSubmenu: true, submenuType: 'services' },
-    ...(isJayRelan ? [{ 
-      title: 'Procedures', 
-      href: '/services', 
-      icon: Stethoscope, 
-      hasSubmenu: true, 
-      submenuType: 'procedures' 
+    ...(isJayRelan ? [{
+      title: 'Procedures',
+      href: '/services',
+      icon: Stethoscope,
+      hasSubmenu: true,
+      submenuType: 'procedures'
     }] : []),
     { title: 'Blogs', href: '/blogs', icon: FileText },
     { title: 'Contact', href: '/contact', icon: MessageSquare }
@@ -140,7 +141,7 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
   // Function to render dropdown content based on type
   const renderDropdownContent = (submenuType: string, isOpen: boolean) => {
     const data = submenuType === 'procedures' ? jayProcedures : servicesData;
-    
+
     return (
       <AnimatePresence>
         {isOpen && (
@@ -172,17 +173,16 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
   return (
     <>
       {/* Desktop Header - Floating & Glassy */}
-      <header className={`fixed top-4 left-4 right-4 z-50 transition-all duration-500 ${
-        scrolled 
-          ? `bg-white/80 backdrop-blur-xl shadow-2xl border border-white/20 rounded-2xl` 
-          : 'bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl'
-      }`}>
-        
+      <header className={`fixed top-4 left-4 right-4 z-50 transition-all duration-500 ${scrolled
+        ? `bg-white/80 backdrop-blur-xl shadow-2xl border border-white/20 rounded-2xl`
+        : 'bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl'
+        }`}>
+
         {/* Main Navigation */}
         <nav className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo - Mobile Center, Desktop Left */}
-            <motion.div 
+            <motion.div
               className="flex items-center gap-3 cursor-pointer lg:flex-initial flex-1 lg:justify-start justify-center"
               whileHover={{ scale: 1.02 }}
             >
@@ -210,21 +210,19 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
                       onMouseLeave={item.submenuType === 'procedures' ? handleProceduresClose : handleServicesClose}
                     >
                       <motion.button
-                        className={`flex items-center gap-1 font-medium px-4 py-2 rounded-full transition-all duration-200 ${
-                          scrolled 
-                            ? `text-gray-700 ${colorScheme.accentHover} hover:bg-white/50` 
-                            : 'text-zinc-800 hover:text-zinc/80 hover:bg-white/20'
-                        }`}
+                        className={`flex items-center gap-1 font-medium px-4 py-2 rounded-full transition-all duration-200 ${scrolled
+                          ? `text-gray-700 ${colorScheme.accentHover} hover:bg-white/50`
+                          : 'text-zinc-800 hover:text-zinc/80 hover:bg-white/20'
+                          }`}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
                         {item.title}
-                        <ChevronDown className={`w-4 h-4 transition-transform ${
-                          (item.submenuType === 'procedures' && isProceduresOpen) || 
+                        <ChevronDown className={`w-4 h-4 transition-transform ${(item.submenuType === 'procedures' && isProceduresOpen) ||
                           (item.submenuType === 'services' && isServicesOpen) ? 'rotate-180' : ''
-                        }`} />
+                          }`} />
                       </motion.button>
-                      
+
                       {/* Render appropriate dropdown */}
                       {renderDropdownContent(
                         item.submenuType || 'services',
@@ -234,11 +232,10 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
                   ) : (
                     <motion.a
                       href={item.href}
-                      className={`font-medium px-4 py-2 rounded-full transition-all duration-200 relative ${
-                        scrolled 
-                          ? `text-gray-700 ${colorScheme.accentHover} hover:bg-white/50` 
-                          : 'text-zinc-800 hover:text-zinc/80 hover:bg-white/20'
-                      }`}
+                      className={`font-medium px-4 py-2 rounded-full transition-all duration-200 relative ${scrolled
+                        ? `text-gray-700 ${colorScheme.accentHover} hover:bg-white/50`
+                        : 'text-zinc-800 hover:text-zinc/80 hover:bg-white/20'
+                        }`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -262,21 +259,20 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
 
             {/* Book Appointment Button */}
             <div className="flex items-center gap-4">
-              <motion.button 
+              <motion.button
                 className={`hidden md:flex items-center gap-2 ${colorScheme.primary} ${colorScheme.primaryHover} text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl backdrop-blur-sm cursor-pointer`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={()=>setIsModalOpen(true)}
+                onClick={() => setIsModalOpen(true)}
               >
                 <Calendar className="w-4 h-4" />
                 Book Appointment
               </motion.button>
-              
+
               {/* Mobile Menu Button */}
-              <motion.button 
-                className={`hidden p-2 rounded-full transition-colors backdrop-blur-sm cursor-pointer ${
-                  scrolled ? `text-gray-700 ${colorScheme.accentHover} hover:bg-white/50` : 'text-zinc-800 hover:text-zinc/80 hover:bg-white/20'
-                }`}
+              <motion.button
+                className={`hidden p-2 rounded-full transition-colors backdrop-blur-sm cursor-pointer ${scrolled ? `text-gray-700 ${colorScheme.accentHover} hover:bg-white/50` : 'text-zinc-800 hover:text-zinc/80 hover:bg-white/20'
+                  }`}
                 onClick={toggleMobileMenu}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -324,7 +320,7 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
                     <div key={index}>
                       {item.hasSubmenu ? (
                         <div>
-                          <motion.button 
+                          <motion.button
                             className={`flex items-center gap-2 font-medium ${colorScheme.accentHover} transition-colors w-full text-left py-2`}
                             onClick={() => setIsServicesOpen(!isServicesOpen)}
                             whileHover={{ x: 5 }}
@@ -342,7 +338,7 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
                                 className="mt-3 ml-7 flex flex-col gap-3"
                               >
                                 {servicesData.map((service, subIndex) => (
-                                  <motion.a 
+                                  <motion.a
                                     key={subIndex}
                                     href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-')}`}
                                     className={`flex items-start gap-3 text-gray-600 ${colorScheme.accentHover} transition-colors py-2 hover:bg-white/50 rounded-lg px-2`}
@@ -351,7 +347,7 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
                                     <service.icon className="w-4 h-4 mt-1 flex-shrink-0" />
                                     <div>
                                       <div className="font-medium text-sm">{service.title}</div>
-                                      
+
                                     </div>
                                   </motion.a>
                                 ))}
@@ -360,8 +356,8 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
                           </AnimatePresence>
                         </div>
                       ) : (
-                        <motion.a 
-                          href={item.href} 
+                        <motion.a
+                          href={item.href}
                           className={`flex items-center gap-2 font-medium ${colorScheme.accentHover} transition-colors py-2 hover:bg-white/50 rounded-lg px-2`}
                           whileHover={{ x: 5 }}
                         >
@@ -371,11 +367,11 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
                       )}
                     </div>
                   ))}
-                  <motion.button 
+                  <motion.button
                     className={`${colorScheme.primary} text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 justify-center shadow-lg mt-4`}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    onClick={()=>setIsModalOpen(true)}
+                    onClick={() => setIsModalOpen(true)}
                   >
                     <Calendar className="w-4 h-4" />
                     Book Appointment
@@ -389,7 +385,7 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
 
       {/* New Unique Mobile Bottom Navigation */}
       <div className="lg:hidden fixed bottom-6 left-4 right-4 z-50">
-        <motion.div 
+        <motion.div
           className="bg-white/95 backdrop-blur-xl shadow-2xl border border-white/20 rounded-2xl p-2"
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -400,11 +396,10 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
               <motion.a
                 key={index}
                 href={item.href}
-                className={`flex flex-col items-center gap-1 p-3 rounded-xl transition-all duration-200 relative ${
-                  activeSection === item.href.replace('#', '') 
-                    ? `${colorScheme.accent} ${colorScheme.light}` 
-                    : `text-gray-600 ${colorScheme.accentHover}`
-                }`}
+                className={`flex flex-col items-center gap-1 p-3 rounded-xl transition-all duration-200 relative ${activeSection === item.href.replace('#', '')
+                  ? `${colorScheme.accent} ${colorScheme.light}`
+                  : `text-gray-600 ${colorScheme.accentHover}`
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -421,31 +416,30 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
                 )}
               </motion.a>
             ))}
-            
+
             {/* Floating Action Button in Bottom Nav */}
             <motion.button
               className={`${colorScheme.primary} text-white p-3 rounded-full shadow-lg relative`}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              onClick={()=>setIsModalOpen(true)}
+              onClick={() => setIsModalOpen(true)}
             >
               <Calendar className="w-6 h-6" />
-               
+
             </motion.button>
           </div>
         </motion.div>
 
       </div>
       <BookAppointmentModal
-  isOpen={isModalOpen}
-  onClose={() => setIsModalOpen(false)}
-  variant={ isJayRelan ? "drjay" : "dranupam" }// or "dranupam"
-  doctorName={doctor.personalDetails.name}
-/>
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        variant={isJayRelan ? "drjay" : "dranupam"}// or "dranupam"
+        doctorName={doctor.personalDetails.name}
+      />
     </>
   );
 };
 
 export default Header;
 
- 

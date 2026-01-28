@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import Doctor  from '@/data/doctors';
+import Doctor from '@/data/doctors';
 
 interface HomeAboutProps {
   doctor: Doctor;
@@ -65,18 +65,18 @@ const HomeAbout: React.FC<HomeAboutProps> = ({ doctor }) => {
     }
   };
 
-//   const imageVariants = {
-//     hidden: { opacity: 0, scale: 0.8, x: 50 },
-//     visible: {
-//       opacity: 1,
-//       scale: 1,
-//       x: 0,
-//       transition: {
-//         duration: 0.8,
-//         ease: "easeOut" as const
-//       }
-//     }
-//   };
+  //   const imageVariants = {
+  //     hidden: { opacity: 0, scale: 0.8, x: 50 },
+  //     visible: {
+  //       opacity: 1,
+  //       scale: 1,
+  //       x: 0,
+  //       transition: {
+  //         duration: 0.8,
+  //         ease: "easeOut" as const
+  //       }
+  //     }
+  //   };
 
   return (
     <section className={`relative py-16 md:py-24 bg-gradient-to-br ${colors.background} overflow-hidden`}>
@@ -161,77 +161,77 @@ const HomeAbout: React.FC<HomeAboutProps> = ({ doctor }) => {
 
           {/* Images Section */}
           <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
-            >
-              {/* Desktop Layout */}
-              <div className="hidden md:grid grid-cols-3 gap-4 h-[700px]">
-                {/* Standing Image - Takes full height */}
-                <div className="col-span-2 relative h-full rounded-3xl overflow-hidden">
-                  <Image
-                    src={doctor.personalDetails.imageUrl3}
-                    alt={`${doctor.personalDetails.name} - Main`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                
-                {/* Two Vertical Images */}
-                <div className="col-span-1 flex flex-col gap-4 h-full">
-                  <div className="relative h-1/2 rounded-2xl overflow-hidden">
-                    <Image
-                      src={doctor.personalDetails.imageUrl || doctor.personalDetails.imageUrl3}
-                      alt={`${doctor.personalDetails.name} - Portrait 1`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="relative h-1/2 rounded-2xl overflow-hidden">
-                    <Image
-                      src={doctor.personalDetails.imageUrl2 || doctor.personalDetails.imageUrl3}
-                      alt={`${doctor.personalDetails.name} - Portrait 2`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            {/* Desktop Layout */}
+            <div className="hidden md:grid grid-cols-3 gap-4 h-[700px]">
+              {/* Standing Image - Takes full height */}
+              <div className="col-span-2 relative h-full rounded-3xl overflow-hidden">
+                <Image
+                  src={doctor.personalDetails.imageUrl3}
+                  alt={`${doctor.personalDetails.name} - Main`}
+                  fill
+                  className="object-cover"
+                />
               </div>
 
-              {/* Mobile Layout */}
-              <div className="md:hidden space-y-4">
-                {/* Main Standing Image */}
-                <div className="relative w-full h-96 rounded-3xl overflow-hidden">
+              {/* Two Vertical Images */}
+              <div className="col-span-1 flex flex-col gap-4 h-full">
+                <div className="relative h-1/2 rounded-2xl overflow-hidden">
                   <Image
-                    src={doctor.personalDetails.imageUrl3}
-                    alt={`${doctor.personalDetails.name} - Main`}
+                    src={doctor.personalDetails.imageUrl || doctor.personalDetails.imageUrl3}
+                    alt={`${doctor.personalDetails.name} - Portrait 1`}
                     fill
                     className="object-cover"
                   />
                 </div>
-                
-                {/* Two Horizontal Images Below */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="relative h-48 rounded-2xl overflow-hidden">
-                    <Image
-                      src={doctor.personalDetails.imageUrl || doctor.personalDetails.imageUrl3}
-                      alt={`${doctor.personalDetails.name} - Portrait 1`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="relative h-48 rounded-2xl overflow-hidden">
-                    <Image
-                      src={doctor.personalDetails.imageUrl2 || doctor.personalDetails.imageUrl3}
-                      alt={`${doctor.personalDetails.name} - Portrait 2`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+                <div className="relative h-1/2 rounded-2xl overflow-hidden">
+                  <Image
+                    src={doctor.personalDetails.imageUrl2 || doctor.personalDetails.imageUrl3}
+                    alt={`${doctor.personalDetails.name} - Portrait 2`}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
-            </motion.div>
+            </div>
+
+            {/* Mobile Layout */}
+            <div className="md:hidden space-y-4">
+              {/* Main Standing Image */}
+              <div className="relative w-full h-96 rounded-3xl overflow-hidden">
+                <Image
+                  src={doctor.personalDetails.imageUrl3}
+                  alt={`${doctor.personalDetails.name} - Main`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Two Horizontal Images Below */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative h-48 rounded-2xl overflow-hidden">
+                  <Image
+                    src={doctor.personalDetails.imageUrl || doctor.personalDetails.imageUrl3}
+                    alt={`${doctor.personalDetails.name} - Portrait 1`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="relative h-48 rounded-2xl overflow-hidden">
+                  <Image
+                    src={doctor.personalDetails.imageUrl2 || doctor.personalDetails.imageUrl3}
+                    alt={`${doctor.personalDetails.name} - Portrait 2`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

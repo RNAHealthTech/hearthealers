@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useParams  } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Service, getServiceBySlug } from '@/data/services';
@@ -9,12 +9,12 @@ import BookAppointmentModal from '../utilities/BookAppointment';
 
 const ServiceTemplate = () => {
   const params = useParams();
-   const [service, setService] = useState<Service | null>(null);
+  const [service, setService] = useState<Service | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  
+
   const doctorId = params.doctorId as 'drjay' | 'dranupam';
   const slug = params.slug as string;
 
@@ -22,7 +22,7 @@ const ServiceTemplate = () => {
     const fetchService = async () => {
       try {
         const foundService = getServiceBySlug(slug);
-        
+
         if (!foundService) {
           setError('Service not found');
           return;
@@ -68,41 +68,41 @@ const ServiceTemplate = () => {
   }
 
   const isDrJay = doctorId === 'drjay';
-  const colorScheme = isDrJay 
+  const colorScheme = isDrJay
     ? {
-        primary: 'bg-gradient-to-br from-amber-50 to-red-50',
-        secondary: 'bg-white',
-        accent: 'text-amber-600',
-        accentHover: 'hover:text-amber-700',
-        border: 'border-amber-200',
-        button: 'bg-gradient-to-r from-amber-600 to-red-600 hover:from-amber-700 hover:to-red-700',
-        buttonOutline: 'border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white',
-        gradient: 'from-amber-50 to-red-50',
-        heroGradient: 'from-amber-600/10 to-red-600/10',
-        text: 'text-slate-800',
-        subtext: 'text-slate-600',
-        iconColor: 'text-amber-600',
-        dotColor: 'bg-amber-500',
-        cardHover: 'hover:bg-amber-50',
-        ctaSection: 'bg-gradient-to-r from-amber-50 via-white to-red-50'
-      }
+      primary: 'bg-gradient-to-br from-amber-50 to-red-50',
+      secondary: 'bg-white',
+      accent: 'text-amber-600',
+      accentHover: 'hover:text-amber-700',
+      border: 'border-amber-200',
+      button: 'bg-gradient-to-r from-amber-600 to-red-600 hover:from-amber-700 hover:to-red-700',
+      buttonOutline: 'border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white',
+      gradient: 'from-amber-50 to-red-50',
+      heroGradient: 'from-amber-600/10 to-red-600/10',
+      text: 'text-slate-800',
+      subtext: 'text-slate-600',
+      iconColor: 'text-amber-600',
+      dotColor: 'bg-amber-500',
+      cardHover: 'hover:bg-amber-50',
+      ctaSection: 'bg-gradient-to-r from-amber-50 via-white to-red-50'
+    }
     : {
-        primary: 'bg-gradient-to-br from-teal-50 to-yellow-50',
-        secondary: 'bg-white',
-        accent: 'text-teal-600',
-        accentHover: 'hover:text-teal-700',
-        border: 'border-teal-200',
-        button: 'bg-gradient-to-r from-teal-600 to-yellow-600 hover:from-teal-700 hover:to-yellow-700',
-        buttonOutline: 'border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white',
-        gradient: 'from-teal-50 to-yellow-50',
-        heroGradient: 'from-teal-600/10 to-yellow-600/10',
-        text: 'text-slate-800',
-        subtext: 'text-slate-600',
-        iconColor: 'text-teal-600',
-        dotColor: 'bg-teal-500',
-        cardHover: 'hover:bg-teal-50',
-        ctaSection: 'bg-gradient-to-r from-teal-50 via-white to-yellow-50'
-      };
+      primary: 'bg-gradient-to-br from-teal-50 to-yellow-50',
+      secondary: 'bg-white',
+      accent: 'text-teal-600',
+      accentHover: 'hover:text-teal-700',
+      border: 'border-teal-200',
+      button: 'bg-gradient-to-r from-teal-600 to-yellow-600 hover:from-teal-700 hover:to-yellow-700',
+      buttonOutline: 'border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white',
+      gradient: 'from-teal-50 to-yellow-50',
+      heroGradient: 'from-teal-600/10 to-yellow-600/10',
+      text: 'text-slate-800',
+      subtext: 'text-slate-600',
+      iconColor: 'text-teal-600',
+      dotColor: 'bg-teal-500',
+      cardHover: 'hover:bg-teal-50',
+      ctaSection: 'bg-gradient-to-r from-teal-50 via-white to-yellow-50'
+    };
 
   const doctorName = isDrJay ? 'Dr. Jay Relan' : 'Dr. Anupam Das';
 
@@ -119,7 +119,7 @@ const ServiceTemplate = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
         <div className={`absolute inset-0 bg-gradient-to-b ${colorScheme.heroGradient}`}></div>
-        
+
         {/* Content Overlay */}
         <div className="relative h-full flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -146,20 +146,20 @@ const ServiceTemplate = () => {
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
                 {service.title}
               </h1>
-              
+
               <p className="text-xl md:text-2xl text-white/95 mb-10 leading-relaxed max-w-3xl">
                 {service.description}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="inline-flex items-center px-8 py-4 bg-white text-slate-900 rounded-xl font-semibold transition-all duration-300 hover:bg-slate-50 hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 cursor-pointer" onClick={()=>setIsModalOpen(true)}>
+                <button className="inline-flex items-center px-8 py-4 bg-white text-slate-900 rounded-xl font-semibold transition-all duration-300 hover:bg-slate-50 hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 cursor-pointer" onClick={() => setIsModalOpen(true)}>
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                   Book Consultation
                 </button>
-                
-                
+
+
               </div>
             </div>
           </div>
@@ -278,7 +278,7 @@ const ServiceTemplate = () => {
                 </div>
               </div>
 
-              <button className={`w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 ${colorScheme.button} text-white hover:shadow-lg transform hover:-translate-y-1 cursor-pointer`} onClick={()=>setIsModalOpen(true)}>
+              <button className={`w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 ${colorScheme.button} text-white hover:shadow-lg transform hover:-translate-y-1 cursor-pointer`} onClick={() => setIsModalOpen(true)}>
                 Schedule Appointment
               </button>
             </div>
@@ -313,23 +313,23 @@ const ServiceTemplate = () => {
             Don&#39;t wait to address your cardiac health concerns. Schedule a consultation with {doctorName} today and take the first step towards better heart health.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button onClick={()=>setIsModalOpen(true)}
-            className={`inline-flex items-center px-10 py-5 rounded-xl font-bold text-lg transition-all duration-300 ${colorScheme.button} text-white hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 cursor-pointer`}>
+            <button onClick={() => setIsModalOpen(true)}
+              className={`inline-flex items-center px-10 py-5 rounded-xl font-bold text-lg transition-all duration-300 ${colorScheme.button} text-white hover:shadow-xl transform hover:-translate-y-1 hover:scale-105 cursor-pointer`}>
               <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
               Book Appointment Now
             </button>
-            
+
           </div>
         </div>
       </div>
       <BookAppointmentModal
-  isOpen={isModalOpen}
-  onClose={() => setIsModalOpen(false)}
-  variant={ isDrJay ? "drjay" : "dranupam" } 
-  doctorName={doctorName}
-/>
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        variant={isDrJay ? "drjay" : "dranupam"}
+        doctorName={doctorName}
+      />
     </div>
   );
 };

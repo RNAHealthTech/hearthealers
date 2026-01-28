@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useParams  } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Service, getServicesBySubdomain } from '@/data/services';
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 import BookAppointmentModal from '../utilities/BookAppointment';
 
 
@@ -16,7 +16,7 @@ const Services = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const doctorId = params.doctorId as 'drjay' | 'dranupam';
-  
+
 
   useEffect(() => {
     const fetchServices = async () => {
@@ -42,23 +42,23 @@ const Services = () => {
   }
 
   const isDrJay = doctorId === 'drjay';
-  const colorScheme = isDrJay 
+  const colorScheme = isDrJay
     ? {
-        primary: 'bg-blue-50',
-        secondary: 'bg-white',
-        accent: 'text-blue-600',
-        border: 'border-blue-200',
-        button: 'bg-blue-600 hover:bg-blue-700',
-        gradient: 'from-blue-50 to-white'
-      }
+      primary: 'bg-blue-50',
+      secondary: 'bg-white',
+      accent: 'text-blue-600',
+      border: 'border-blue-200',
+      button: 'bg-blue-600 hover:bg-blue-700',
+      gradient: 'from-blue-50 to-white'
+    }
     : {
-        primary: 'bg-teal-500',
-        secondary: 'bg-zinc-100',
-        accent: 'text-slate-100',
-        border: 'border-slate-700',
-        button: 'bg-slate-700 hover:bg-slate-600',
-        gradient: 'from-slate-900 to-slate-800'
-      };
+      primary: 'bg-teal-500',
+      secondary: 'bg-zinc-100',
+      accent: 'text-slate-100',
+      border: 'border-slate-700',
+      button: 'bg-slate-700 hover:bg-slate-600',
+      gradient: 'from-slate-900 to-slate-800'
+    };
 
   const doctorName = isDrJay ? 'Dr. Jay Relan' : 'Dr. Anupam';
   const serviceType = isDrJay ? 'Services' : 'Procedures';
@@ -67,22 +67,22 @@ const Services = () => {
     <div className={`min-h-screen ${isDrJay ? 'bg-gradient-to-br from-blue-50 to-white' : 'bg-gradient-to-br from-teal-50 to-white'}`}>
       {/* Hero Section */}
       <div className="relative overflow-hidden mt-10">
-      <motion.div
-                        className="absolute inset-0 z-0 shadow-xl"
-                        style={{
-                            backgroundImage: "url('https://hearthealers.in/images/services-landing.jpg')",
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            filter: "brightness(0.7)"
-                        }}
-                    />
+        <motion.div
+          className="absolute inset-0 z-0 shadow-xl"
+          style={{
+            backgroundImage: "url('https://hearthealers.in/images/services-landing.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "brightness(0.7)"
+          }}
+        />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
             <h1 className={`text-4xl md:text-6xl font-bold mb-6 ${isDrJay ? 'text-slate-800' : 'text-white'}`}>
               {serviceType}
             </h1>
             <p className={`text-xl md:text-2xl mb-8 max-w-3xl mx-auto ${isDrJay ? 'text-slate-600' : 'text-slate-300'}`}>
-              {isDrJay 
+              {isDrJay
                 ? 'Comprehensive cardiac care with expertise in congenital and acquired heart conditions'
                 : 'Advanced interventional cardiology procedures with minimally invasive techniques'
               }
@@ -166,9 +166,9 @@ const Services = () => {
           <p className={`text-lg mb-8 ${isDrJay ? 'text-slate-600' : 'text-slate-300'}`}>
             Schedule a consultation to discuss your cardiac health needs
           </p>
-          <button 
-          className={`inline-flex items-center px-8 py-4 rounded-lg font-semibold transition-all duration-200 ${colorScheme.button} text-white hover:shadow-lg transform hover:-translate-y-0.5`}
-          onClick={()=>setIsModalOpen(true)}
+          <button
+            className={`inline-flex items-center px-8 py-4 rounded-lg font-semibold transition-all duration-200 ${colorScheme.button} text-white hover:shadow-lg transform hover:-translate-y-0.5`}
+            onClick={() => setIsModalOpen(true)}
           >
             <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -178,11 +178,11 @@ const Services = () => {
         </div>
       </div>
       <BookAppointmentModal
-  isOpen={isModalOpen}
-  onClose={() => setIsModalOpen(false)}
-  variant={ isDrJay ? "drjay" : "dranupam" }// or "dranupam"
-  doctorName={doctorName}
-/>
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        variant={isDrJay ? "drjay" : "dranupam"}// or "dranupam"
+        doctorName={doctorName}
+      />
     </div>
   );
 };
