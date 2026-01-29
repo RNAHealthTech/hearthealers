@@ -82,7 +82,7 @@ export default interface Doctor {
   education: Education[];
   pastExperience: Experience[];
   currentWorkExperience: CurrentWorkExperience[];
-  research: Research[];
+  research?: Research[];
   awards: Award[];
   skills: string[];
   totalExp: string;
@@ -112,397 +112,582 @@ export default interface Doctor {
  
 }
 
+// export const drjayData: Doctor = {
+//   id: "drjay",
+//   linkedin: 'https://in.linkedin.com/in/jay-relan-46165421b', 
+//   googleScholar: 'https://scholar.google.com/citations?user=ZuEs5-gAAAAJ&hl=en',
+//   reviewLink: 'https://www.google.com/search?sca_esv=97ae6d3e0a80ce36&sxsrf=AE3TifN-jtsVSQ_Ygem_x9lq22b2C9pqxA:1757735084068&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E6pWoa17lt6MO6nSG6sKRtu505PGA3F2ZKTsBe-SYkf5QLrDDVDK-HTthhHuUsbRC4ELs7mwozXA1o4rL8MoZfq9AzkOnxll55mDK3QbEAjr7oGR2oRW7iDI6EtXzhcEw-XxenHjOGB3RiUJkqNFF9yexYBH&q=Dr+Jay+Relan+%7C+Senior+Consultant+Pediatric+%26+Fetal+Cardiologist+Reviews&sa=X&ved=2ahUKEwiA-q266dSPAxWGRmwGHXOZPX4Q0bkNegQIKRAE&biw=968&bih=853&dpr=1#lrd=0x390cdd3e8880491b:0xc547ae995b28e8c,3,,,,',
+//   personalDetails: {
+//     name: "Dr. Jay Relan",
+//     speciality: "Pediatric Cardiologist",
+//     description:
+//       "Pediatric Cardiologist with extensive experience in congenital heart diseases, fetal echocardiography, and pediatric cardiac interventions.",
+//     imageUrl: "https://hearthealers.in/images/drjay-1.jpg",
+//     imageUrl2: "https://hearthealers.in/images/drjay-3.jpg", // To be added
+//     imageUrl3: "https://hearthealers.in/images/drjay-2.jpg", // To be added
+//     backgroundImageUrl: "https://hearthealers.in/images/bg1.jpg", // To be added
+//     age: 35, // Estimated based on graduation timeline
+//     gender: "Male",
+//   },
+//   subdomain: "drjay",
+//   totalExp: "10+",
+//   bgVideo: "https://hearthealers.in/images/drjay-bg.mp4",
+//   bio: "Dr. Jay Relan is a highly accomplished Pediatric Cardiologist with specialized training from AIIMS, New Delhi. He has completed his DM in Pediatric Cardiology, MD in Pediatrics, and MBBS. With over 31 published research articles and multiple national awards, Dr. Relan brings extensive expertise in managing complex congenital heart diseases, fetal cardiac screening, and pediatric cardiac interventions. He has completed advanced fellowships in fetal echocardiography and holds certifications from the Fetal Medicine Foundation, UK.",
+//   h1: "Best Care for Your Baby's Heart",
+//   span: "Dedicated Pediatric Cardiologist in Delhi NCR Dr Jay Relan",
+//   education: [
+//     {
+//       degree: "DM - Pediatric Cardiology",
+//       institution: "All India Institute of Medical Sciences (AIIMS), New Delhi",
+//       duration: {
+//         start: "2016",
+//         end: "2019",
+//       },
+//     },
+//     {
+//       degree: "MD - Pediatrics",
+//       institution: "Maulana Azad Medical College (MAMC), Delhi",
+//       duration: {
+//         start: "2013",
+//         end: "2016",
+//       },
+//     },
+//     {
+//       degree: "MBBS",
+//       institution:
+//         "University College of Medical Sciences & GTB Hospital, Delhi",
+//       duration: {
+//         start: "2007",
+//         end: "2012",
+//       },
+//     },
+//   ],
+//   pastExperience: [
+//     {
+//       role: "Associate Consultant",
+//       department: "Pediatric Cardiac Sciences",
+//       organization: "Sir Ganga Ram Hospital, New Delhi",
+//       duration: {
+//         start: "2022-02",
+//         end: "2025-05",
+//       },
+//     },
+
+//     {
+//       role: "Senior Resident",
+//       department: "Pediatrics",
+//       organization:
+//         "Super Speciality Paediatric Hospital & Post Graduate Teaching Institute, Noida",
+//       duration: {
+//         start: "2016-07",
+//         end: "2016-12",
+//       },
+//     },
+//     {
+//       role: "Senior Resident",
+//       department: "Cardiology",
+//       organization:
+//         "All India Institute of Medical Sciences (AIIMS), New Delhi",
+//       duration: {
+//         start: "2020-02",
+//         end: "2020-10",
+//       },
+//     },
+//     {
+//       role: "Assistant Professor",
+//       department: "Cardiology",
+//       organization:
+//         "All India Institute of Medical Sciences (AIIMS), New Delhi",
+//       duration: {
+//         start: "2020-10",
+//         end: "2022-02",
+//       },
+//     },
+//   ],
+//   currentWorkExperience: [
+//     {
+//       role: "Senior Consultant",
+//       department: "Paediatric Cardiology & Congenital Heart Disease",
+//       organization: "Sarvodaya Hospital, Sector 8, Faridabad",
+//       duration: {
+//         start: "2025-06",
+//         end: "",
+//       },
+//     },
+//   ],
+//   research: [
+//     {
+//       publications: [
+//         {
+//           title:
+//             "Right superior caval vein to the left atrium in a child with vein of Galen malformation",
+//           journal: "Echocardiography",
+//           year: 2018,
+//           authors: ["Relan J", "Gupta SK", "Saxena A"],
+//         },
+//         {
+//           title:
+//             "Guidelines for the management of common congenital heart diseases in India: A consensus statement",
+//           journal: "Indian Heart Journal",
+//           year: 2019,
+//           authors: ["Saxena A", "Relan J", "Agarwal R", "Awasthy N"],
+//         },
+//         {
+//           title:
+//             "Long QT syndrome with AV Wenckebaching & bundle branch block in a neonate",
+//           journal: "Indian Pacing and Electrophysiology Journal",
+//           year: 2020,
+//           authors: ["Relan J", "Gujral JS", "Reddy SS", "Parakh N"],
+//         },
+//         {
+//           title: "Clarifying the anatomy of the superior sinus venosus defect",
+//           journal: "Heart",
+//           year: 2021,
+//           authors: ["Relan J", "Gupta SK", "Rajagopal R", "Ramakrishnan S"],
+//         },
+//         {
+//           title:
+//             "Prenatal Pericardiocentesis and Postnatal Sirolimus for a Giant Inoperable Cardiac Rhabdomyoma",
+//           journal: "JACC: Case Reports",
+//           year: 2021,
+//           authors: ["Relan J", "Swami M", "Rana A", "Chaudhary P"],
+//         },
+//         {
+//           title:
+//             "Eisenmenger's syndrome: Management and workup for heart–lung transplant",
+//           journal: "Journal of the Practice of Cardiovascular Sciences",
+//           year: 2019,
+//           authors: ["Relan J", "Sachdeva S", "Awasthy N", "Ramakrishnan S"],
+//         },
+//         {
+//           title:
+//             "Operable ventricular septal defect despite severe pulmonary hypertension and cyanosis!",
+//           journal: "Cardiology in the Young",
+//           year: 2019,
+//           authors: ["Kothari SS", "Relan J", "Devagourou V"],
+//         },
+//         {
+//           title:
+//             "Severe thrombocytopenia in tetralogy of Fallot patients: A contraindication for corrective surgery?",
+//           journal: "Annals of Pediatric Cardiology",
+//           year: 2019,
+//           authors: ["Patil S", "Relan J", "Hote M", "Kothari SS"],
+//         },
+//         {
+//           title:
+//             "Indian guidelines for indications and timing of intervention for common congenital heart diseases: Revised and updated consensus statement of the Working group on management of congenital heart diseases",
+//           journal: "Annals of Pediatric Cardiology",
+//           year: 2019,
+//           authors: ["Saxena A", "Relan J", "Agarwal R", "Awasthy N"],
+//         },
+//         {
+//           title:
+//             "Congenital Junctional Ectopic Tachycardia: A Case Report of Two Siblings",
+//           journal: "Austin Pediatr",
+//           year: 2019,
+//           authors: ["Sekhar JC", "Relan J", "Meena P"],
+//         },
+//         {
+//           title:
+//             "‘‘Treat and repair’’ strategy for shunt lesions: a critical review",
+//           journal: "Pulmonary Circulation",
+//           year: 2020,
+//           authors: ["Arvind B", "Relan J", "Kothari SS"],
+//         },
+//         {
+//           title: "The DeepScience of NeuroCardiology",
+//           journal: "Ann Psychiatr Clin Neurosci",
+//           year: 2020,
+//           authors: ["Mukhopadhyay AK", "Relan J"],
+//         },
+//         {
+//           title: "Author's reply",
+//           journal: "Ann Pediatr Card",
+//           year: 2020,
+//           authors: ["Saxena A", "Relan J"],
+//         },
+//         {
+//           title: "An unusual cause of changing QRS morphology",
+//           journal: "Journal of Electrocardiology",
+//           year: 2020,
+//           authors: ["Gujral JS", "Relan J", "Naik N"],
+//         },
+//         {
+//           title: "Authors’ reply",
+//           journal: "Ann Pediatr Card",
+//           year: 2020,
+//           authors: ["Saxena A", "Relan J"],
+//         },
+//         {
+//           title:
+//             "Supracardiac total anomalous pulmonary venous connection with cor triatriatum sinister: A rare diagnosis confirmed by saline contrast echocardiography",
+//           journal: "Echocardiography",
+//           year: 2020,
+//           authors: ["Relan J", "Choubey M", "Kothari SS"],
+//         },
+//         {
+//           title: "Neonatal pacemaker gone haywire: What is the mechanism?",
+//           journal: "Pacing and Clinical Electrophysiology",
+//           year: 2021,
+//           authors: ["Relan J", "Gujral JS", "Parakh N", "Juneja R"],
+//         },
+//         {
+//           title: "Clippings",
+//           journal: "Indian Pediatrics",
+//           year: 2021,
+//           authors: ["Relan J"],
+//         },
+//         {
+//           title:
+//             "Is left ventricular superior to right ventricular pacing in children with congenital or postoperative complete heart block?",
+//           journal: "Interact Cardiov Th",
+//           year: 2021,
+//           authors: ["Siddharth CB", "Relan J"],
+//         },
+//         {
+//           title:
+//             "A rare pediatric case of bilateral bronchopulmonary vascular malformations and right isomerism",
+//           journal: "Journal of Cardiac Surgery",
+//           year: 2021,
+//           authors: ["Verma M", "Khurana R", "Malhi AS", "Relan J"],
+//         },
+//         {
+//           title:
+//             "Knowledge, attitude and practice of health care professionals on laboratory diagnosis of COVID-19",
+//           journal: "J Family Med Prim Care",
+//           year: 2021,
+//           authors: ["Mukhopadhyay T", "Relan J", "Subramanian A", "Lathwal A"],
+//         },
+//         {
+//           title: "Dextroversion due to giant left atrium in a child",
+//           journal: "Echocardiography",
+//           year: 2021,
+//           authors: ["Relan J", "Kadiyani L", "Hote MP", "Ramakrishnan S"],
+//         },
+//         {
+//           title:
+//             "Atrial septoplasty through internal jugular venous access in an infant with transposition of great arteries: technical challenges and solutions",
+//           journal: "Cardiol Young",
+//           year: 2021,
+//           authors: ["Relan J", "Arvind B", "Ramakrishnan S"],
+//         },
+//         {
+//           title:
+//             "Heart Failure in a Child: Multimodality Approach Leading to an Unusual Cause",
+//           journal: "JACC: Case Reports",
+//           year: 2021,
+//           authors: ["Karuru U", "Relan J", "Verma M", "Kumar S"],
+//         },
+//         {
+//           title:
+//             "Severe tracheal stenosis secondary to brachiocephalic artery compression syndrome",
+//           journal: "J Cardiovasc Comput Tomogr",
+//           year: 2022,
+//           authors: ["Verma M", "Pandey NN", "Relan J", "Jagia P"],
+//         },
+//         {
+//           title: "Pregnancy with congenital heart disease",
+//           journal: "Vessel Plus",
+//           year: 2022,
+//           authors: ["Saxena A", "Relan J"],
+//         },
+//         {
+//           title:
+//             "Infective endocarditis-induced complete closure of a ventricular septal defect and complete heart block in a child",
+//           journal: "Ann Ped Cardiol",
+//           year: 2021,
+//           authors: [
+//             "Karuru U",
+//             "Relan J",
+//             "Kothari SS",
+//             "Gupta SK",
+//             "Talwar S",
+//           ],
+//         },
+//         {
+//           title:
+//             "Vascular neoplasia masquerading as cellulitis and persistent hemorrhagic pericardial effusion",
+//           journal: "Ann Ped Cardiol",
+//           year: 2022,
+//           authors: [
+//             "Thangaraju S",
+//             "Relan J",
+//             "Sinha A",
+//             "Arava SK",
+//             "Khanna N",
+//             "Raju SN",
+//           ],
+//         },
+//         {
+//           title:
+//             "Pediatric cardiology in India – In search of a holistic solution",
+//           journal: "Ann Ped Cardiol",
+//           year: 2024,
+//           authors: [
+//             "Tharakan J",
+//             "Sharma R",
+//             "Subramanyan R",
+//             "Saxena A",
+//             "Kulkarni S",
+//             "Relan J",
+//             "Ramakrishnan S",
+//           ],
+//         },
+//         {
+//           title:
+//             "Comparison of Levosimendan Versus Milrinone After the Arterial Switch Operation for Infants≤ 3 kg",
+//           journal: "World J Pediatr Congenit Heart Surg",
+//           year: 2024,
+//           authors: [
+//             "Joshi RK",
+//             "Joshi R",
+//             "Aggarwal N",
+//             "Agarwal M",
+//             "Siddartha CR",
+//             "Relan J",
+//             "Kumar A",
+//             "Modi M",
+//             "Chug P",
+//           ],
+//         },
+//         {
+//           title:
+//             "Mitral annular disjunction with atrial septal defect in children: An intriguing association",
+//           journal: "Ann Ped Cardiol",
+//           year: 2024,
+//           authors: ["Agarwal M", "Relan J", "Aggarwal N", "Joshi R"],
+//         },
+//       ],
+//     },
+//   ],
+//   awards: [
+//     {
+//       title: "Dr. Jagdish Lal Kapila Medal-2019 in Cardiology",
+//       year: "2020",
+//       category: "After Graduation",
+//     },
+//     {
+//       title: "Dr. Savitri Srivastav Imaging Award 2019",
+//       year: "2019",
+//       category: "After Graduation",
+//     },
+//     {
+//       title:
+//         "1st Position in Cardiology Quiz at 26th Annual conference of Indian College of Cardiology",
+//       year: "2019",
+//       category: "After Graduation",
+//     },
+//     {
+//       title: "Dr. Manoj Kapoor Memorial Medal Best PG student in Pediatrics",
+//       year: "2016",
+//       category: "After Graduation",
+//     },
+//     {
+//       title: "Pediatrics Torrent Young Scholar Award (National Round)",
+//       year: "2015",
+//       category: "After Graduation",
+//     },
+//     {
+//       title: "Gold Medal in DM Pediatric Cardiology",
+//       year: "2019",
+//       category: "Graduation",
+//     },
+//     {
+//       title: "Gold Medal in MD Pediatrics",
+//       year: "2016",
+//       category: "Graduation",
+//     },
+//     {
+//       title: "Gold Medal in MBBS",
+//       year: "2012",
+//       category: "Graduation",
+//     },
+//   ],
+//   skills: [
+//     "Pediatric Cardiology",
+//     "Congenital Heart Disease Management",
+//     "Fetal Echocardiography",
+//     "Cardiac Interventions",
+//     "Pediatric Cardiac Surgery Planning",
+//     "Echocardiography",
+//     "Cardiac Catheterization",
+//     "Heart Failure Management",
+//   ],
+//   contactDetails: {
+//     address:
+//       "1071, Mother & Child Care Center, Sarvodaya Hospital, Sector-8, YMCA Rd, near Escorts Mujesar Metro Station, Faridabad, Haryana 121006",
+//     phone: "+91 9868700886",
+//     email: "jay.relan@gmail.com",
+//   },
+//   socialLinks: {
+//     linkedin: "", // Not provided in CV
+//     instagram: "", // Not provided in CV
+//   },
+//   offline: [
+//     {
+//       hospital:
+//         "1071, Mother & Child Care Center, Sarvodaya Hospital, Sector-8, Faridabad, Haryana 121006",
+//       schedules: [
+//         {
+//           day: "Monday to Saturday",
+//           timing: "10:00 AM - 4:00 PM",
+//         },
+//       ],
+//     },
+//   ],
+//   onlineTiming: "10:00 AM - 4:00 PM",
+//   days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+//   reviews: [
+//     {
+//       name: "Mohit Sharma",
+//       review:
+//         "We are deeply grateful to Dr. Jay Relan for the care and expertise he provided to our newborn daughter at Sir Ganga Ram Hospital. From the very first consultation, Dr. Relan demonstrated exceptional knowledge, compassion, and a calm presence that gave us much-needed reassurance during a very anxious time.",
+//       pic: "https://hearthealers.in/images/reviews/jay-review-1.png",
+//       star: 5,
+//     },
+//     {
+//       name: "Akanksha Harjai",
+//       review:
+//         "If I have to describe in two words, Best Doctor. I had my ASD surgery done under Dr. Jay’s care in January, and I can’t thank him enough for the experience. He explains the diagnosis clearly and is very warm and easy to talk to. I’ve always had a lot of hesitation and anxiety around needles and medical procedures, but Dr. Jay was gentle and reassuring throughout, and made sure everything went as smoothly and comfortably as possible",
+//       pic: "https://hearthealers.in/images/reviews/jay-review-2.png",
+//       star: 5,
+//     },
+//     {
+//       name: "Amit Agarwal",
+//       review:
+//         "Dr. Jay is an amazing cardiac specialist and doctor, in medical terminology he is an interventional pediatric cardiologist. He has got great diagnostic skill, great operating skills. And his command over the functioning of the human heart, veins , arteries etc. etc. is really impressive. He has treated my heart so well. I truly owe my life and peace to him.",
+//       pic: "https://hearthealers.in/images/reviews/jay-review-3.png",
+//       star: 5,
+//     },
+//     {
+//       name: "Manish Tiwari",
+//       review:
+//         "Dr jay Relan sir is an amazing doctor. One year ago I got my 6 Months son treated .he explained everything clearly and made me feel comfortable as I was very panic at that time. He is very soft spoken and calm person .i highly recommend him.",
+//       pic: "https://hearthealers.in/images/reviews/jay-review-4.png",
+//       star: 5,
+//     },
+//     {
+//       name: "Sandeep Gadhwal",
+//       review:
+//         "He is a very good doctor and a very nice person.🤝 I got my son treated. At that time, I had lost all hope. After that, I met Dr Jay Relan ji and my son was cured within 3 days. I thank him. He understands very well and consults very well.🤝",
+//       pic: "https://hearthealers.in/images/reviews/jay-review-5.png",
+//       star: 5,
+//     },
+//   ],
+//   researchArticles: 30,
+//   patient1: 'https://hearthealers.in/images/reviews/j1.webp', 
+//   patient2: 'https://hearthealers.in/images/reviews/j2.webp'
+
+// };
+
+// Dr. Anupam Das data structured according to Doctor interface
+
 export const drjayData: Doctor = {
   id: "drjay",
-  linkedin: 'https://in.linkedin.com/in/jay-relan-46165421b', 
-  googleScholar: 'https://scholar.google.com/citations?user=ZuEs5-gAAAAJ&hl=en',
-  reviewLink: 'https://www.google.com/search?sca_esv=97ae6d3e0a80ce36&sxsrf=AE3TifN-jtsVSQ_Ygem_x9lq22b2C9pqxA:1757735084068&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E6pWoa17lt6MO6nSG6sKRtu505PGA3F2ZKTsBe-SYkf5QLrDDVDK-HTthhHuUsbRC4ELs7mwozXA1o4rL8MoZfq9AzkOnxll55mDK3QbEAjr7oGR2oRW7iDI6EtXzhcEw-XxenHjOGB3RiUJkqNFF9yexYBH&q=Dr+Jay+Relan+%7C+Senior+Consultant+Pediatric+%26+Fetal+Cardiologist+Reviews&sa=X&ved=2ahUKEwiA-q266dSPAxWGRmwGHXOZPX4Q0bkNegQIKRAE&biw=968&bih=853&dpr=1#lrd=0x390cdd3e8880491b:0xc547ae995b28e8c,3,,,,',
+
+  linkedin: "https://www.linkedin.com/in/jay-relan-46165421b/",
+  googleScholar: "https://scholar.google.com/citations?user=ZuEs5-gAAAAJ",
+
+  // ⚠️ Replace later with clean Google Maps short review URL
+  reviewLink: "https://g.page/r/REPLACE_WITH_REAL_ID/review",
+
   personalDetails: {
     name: "Dr. Jay Relan",
     speciality: "Pediatric Cardiologist",
     description:
       "Pediatric Cardiologist with extensive experience in congenital heart diseases, fetal echocardiography, and pediatric cardiac interventions.",
     imageUrl: "https://hearthealers.in/images/drjay-1.jpg",
-    imageUrl2: "https://hearthealers.in/images/drjay-3.jpg", // To be added
-    imageUrl3: "https://hearthealers.in/images/drjay-2.jpg", // To be added
-    backgroundImageUrl: "https://hearthealers.in/images/bg1.jpg", // To be added
-    age: 35, // Estimated based on graduation timeline
+    imageUrl2: "https://hearthealers.in/images/drjay-3.jpg",
+    imageUrl3: "https://hearthealers.in/images/drjay-2.jpg",
+    backgroundImageUrl: "https://hearthealers.in/images/bg1.jpg",
+    age: 35,
     gender: "Male",
   },
+
   subdomain: "drjay",
   totalExp: "10+",
   bgVideo: "https://hearthealers.in/images/drjay-bg.mp4",
-  bio: "Dr. Jay Relan is a highly accomplished Pediatric Cardiologist with specialized training from AIIMS, New Delhi. He has completed his DM in Pediatric Cardiology, MD in Pediatrics, and MBBS. With over 31 published research articles and multiple national awards, Dr. Relan brings extensive expertise in managing complex congenital heart diseases, fetal cardiac screening, and pediatric cardiac interventions. He has completed advanced fellowships in fetal echocardiography and holds certifications from the Fetal Medicine Foundation, UK.",
+
+  bio:
+    "Dr. Jay Relan is a highly accomplished Pediatric Cardiologist with specialized training from AIIMS, New Delhi. He has completed his DM in Pediatric Cardiology, MD in Pediatrics, and MBBS. With over 31 published research articles and multiple national awards, Dr. Relan brings extensive expertise in managing complex congenital heart diseases, fetal cardiac screening, and pediatric cardiac interventions. He has completed advanced fellowships in fetal echocardiography and holds certifications from the Fetal Medicine Foundation, UK.",
+
   h1: "Best Care for Your Baby's Heart",
   span: "Dedicated Pediatric Cardiologist in Delhi NCR Dr Jay Relan",
+
   education: [
     {
       degree: "DM - Pediatric Cardiology",
       institution: "All India Institute of Medical Sciences (AIIMS), New Delhi",
-      duration: {
-        start: "2016",
-        end: "2019",
-      },
+      duration: { start: "2016", end: "2019" },
     },
     {
       degree: "MD - Pediatrics",
       institution: "Maulana Azad Medical College (MAMC), Delhi",
-      duration: {
-        start: "2013",
-        end: "2016",
-      },
+      duration: { start: "2013", end: "2016" },
     },
     {
       degree: "MBBS",
       institution:
         "University College of Medical Sciences & GTB Hospital, Delhi",
-      duration: {
-        start: "2007",
-        end: "2012",
-      },
+      duration: { start: "2007", end: "2012" },
     },
   ],
+
   pastExperience: [
     {
       role: "Associate Consultant",
       department: "Pediatric Cardiac Sciences",
       organization: "Sir Ganga Ram Hospital, New Delhi",
-      duration: {
-        start: "2022-02",
-        end: "2025-05",
-      },
+      duration: { start: "2022-02", end: "2025-05" },
     },
-
     {
       role: "Senior Resident",
       department: "Pediatrics",
       organization:
         "Super Speciality Paediatric Hospital & Post Graduate Teaching Institute, Noida",
-      duration: {
-        start: "2016-07",
-        end: "2016-12",
-      },
+      duration: { start: "2016-07", end: "2016-12" },
     },
     {
       role: "Senior Resident",
       department: "Cardiology",
-      organization:
-        "All India Institute of Medical Sciences (AIIMS), New Delhi",
-      duration: {
-        start: "2020-02",
-        end: "2020-10",
-      },
+      organization: "All India Institute of Medical Sciences (AIIMS), New Delhi",
+      duration: { start: "2020-02", end: "2020-10" },
     },
     {
       role: "Assistant Professor",
       department: "Cardiology",
-      organization:
-        "All India Institute of Medical Sciences (AIIMS), New Delhi",
-      duration: {
-        start: "2020-10",
-        end: "2022-02",
-      },
+      organization: "All India Institute of Medical Sciences (AIIMS), New Delhi",
+      duration: { start: "2020-10", end: "2022-02" },
     },
   ],
+
   currentWorkExperience: [
     {
       role: "Senior Consultant",
       department: "Paediatric Cardiology & Congenital Heart Disease",
       organization: "Sarvodaya Hospital, Sector 8, Faridabad",
-      duration: {
-        start: "2025-06",
-        end: "",
-      },
+      duration: { start: "2025-06", end: "" },
     },
   ],
+
+  // ✅ REQUIRED
   research: [
     {
-      publications: [
-        {
-          title:
-            "Right superior caval vein to the left atrium in a child with vein of Galen malformation",
-          journal: "Echocardiography",
-          year: 2018,
-          authors: ["Relan J", "Gupta SK", "Saxena A"],
-        },
-        {
-          title:
-            "Guidelines for the management of common congenital heart diseases in India: A consensus statement",
-          journal: "Indian Heart Journal",
-          year: 2019,
-          authors: ["Saxena A", "Relan J", "Agarwal R", "Awasthy N"],
-        },
-        {
-          title:
-            "Long QT syndrome with AV Wenckebaching & bundle branch block in a neonate",
-          journal: "Indian Pacing and Electrophysiology Journal",
-          year: 2020,
-          authors: ["Relan J", "Gujral JS", "Reddy SS", "Parakh N"],
-        },
-        {
-          title: "Clarifying the anatomy of the superior sinus venosus defect",
-          journal: "Heart",
-          year: 2021,
-          authors: ["Relan J", "Gupta SK", "Rajagopal R", "Ramakrishnan S"],
-        },
-        {
-          title:
-            "Prenatal Pericardiocentesis and Postnatal Sirolimus for a Giant Inoperable Cardiac Rhabdomyoma",
-          journal: "JACC: Case Reports",
-          year: 2021,
-          authors: ["Relan J", "Swami M", "Rana A", "Chaudhary P"],
-        },
-        {
-          title:
-            "Eisenmenger's syndrome: Management and workup for heart–lung transplant",
-          journal: "Journal of the Practice of Cardiovascular Sciences",
-          year: 2019,
-          authors: ["Relan J", "Sachdeva S", "Awasthy N", "Ramakrishnan S"],
-        },
-        {
-          title:
-            "Operable ventricular septal defect despite severe pulmonary hypertension and cyanosis!",
-          journal: "Cardiology in the Young",
-          year: 2019,
-          authors: ["Kothari SS", "Relan J", "Devagourou V"],
-        },
-        {
-          title:
-            "Severe thrombocytopenia in tetralogy of Fallot patients: A contraindication for corrective surgery?",
-          journal: "Annals of Pediatric Cardiology",
-          year: 2019,
-          authors: ["Patil S", "Relan J", "Hote M", "Kothari SS"],
-        },
-        {
-          title:
-            "Indian guidelines for indications and timing of intervention for common congenital heart diseases: Revised and updated consensus statement of the Working group on management of congenital heart diseases",
-          journal: "Annals of Pediatric Cardiology",
-          year: 2019,
-          authors: ["Saxena A", "Relan J", "Agarwal R", "Awasthy N"],
-        },
-        {
-          title:
-            "Congenital Junctional Ectopic Tachycardia: A Case Report of Two Siblings",
-          journal: "Austin Pediatr",
-          year: 2019,
-          authors: ["Sekhar JC", "Relan J", "Meena P"],
-        },
-        {
-          title:
-            "‘‘Treat and repair’’ strategy for shunt lesions: a critical review",
-          journal: "Pulmonary Circulation",
-          year: 2020,
-          authors: ["Arvind B", "Relan J", "Kothari SS"],
-        },
-        {
-          title: "The DeepScience of NeuroCardiology",
-          journal: "Ann Psychiatr Clin Neurosci",
-          year: 2020,
-          authors: ["Mukhopadhyay AK", "Relan J"],
-        },
-        {
-          title: "Author's reply",
-          journal: "Ann Pediatr Card",
-          year: 2020,
-          authors: ["Saxena A", "Relan J"],
-        },
-        {
-          title: "An unusual cause of changing QRS morphology",
-          journal: "Journal of Electrocardiology",
-          year: 2020,
-          authors: ["Gujral JS", "Relan J", "Naik N"],
-        },
-        {
-          title: "Authors’ reply",
-          journal: "Ann Pediatr Card",
-          year: 2020,
-          authors: ["Saxena A", "Relan J"],
-        },
-        {
-          title:
-            "Supracardiac total anomalous pulmonary venous connection with cor triatriatum sinister: A rare diagnosis confirmed by saline contrast echocardiography",
-          journal: "Echocardiography",
-          year: 2020,
-          authors: ["Relan J", "Choubey M", "Kothari SS"],
-        },
-        {
-          title: "Neonatal pacemaker gone haywire: What is the mechanism?",
-          journal: "Pacing and Clinical Electrophysiology",
-          year: 2021,
-          authors: ["Relan J", "Gujral JS", "Parakh N", "Juneja R"],
-        },
-        {
-          title: "Clippings",
-          journal: "Indian Pediatrics",
-          year: 2021,
-          authors: ["Relan J"],
-        },
-        {
-          title:
-            "Is left ventricular superior to right ventricular pacing in children with congenital or postoperative complete heart block?",
-          journal: "Interact Cardiov Th",
-          year: 2021,
-          authors: ["Siddharth CB", "Relan J"],
-        },
-        {
-          title:
-            "A rare pediatric case of bilateral bronchopulmonary vascular malformations and right isomerism",
-          journal: "Journal of Cardiac Surgery",
-          year: 2021,
-          authors: ["Verma M", "Khurana R", "Malhi AS", "Relan J"],
-        },
-        {
-          title:
-            "Knowledge, attitude and practice of health care professionals on laboratory diagnosis of COVID-19",
-          journal: "J Family Med Prim Care",
-          year: 2021,
-          authors: ["Mukhopadhyay T", "Relan J", "Subramanian A", "Lathwal A"],
-        },
-        {
-          title: "Dextroversion due to giant left atrium in a child",
-          journal: "Echocardiography",
-          year: 2021,
-          authors: ["Relan J", "Kadiyani L", "Hote MP", "Ramakrishnan S"],
-        },
-        {
-          title:
-            "Atrial septoplasty through internal jugular venous access in an infant with transposition of great arteries: technical challenges and solutions",
-          journal: "Cardiol Young",
-          year: 2021,
-          authors: ["Relan J", "Arvind B", "Ramakrishnan S"],
-        },
-        {
-          title:
-            "Heart Failure in a Child: Multimodality Approach Leading to an Unusual Cause",
-          journal: "JACC: Case Reports",
-          year: 2021,
-          authors: ["Karuru U", "Relan J", "Verma M", "Kumar S"],
-        },
-        {
-          title:
-            "Severe tracheal stenosis secondary to brachiocephalic artery compression syndrome",
-          journal: "J Cardiovasc Comput Tomogr",
-          year: 2022,
-          authors: ["Verma M", "Pandey NN", "Relan J", "Jagia P"],
-        },
-        {
-          title: "Pregnancy with congenital heart disease",
-          journal: "Vessel Plus",
-          year: 2022,
-          authors: ["Saxena A", "Relan J"],
-        },
-        {
-          title:
-            "Infective endocarditis-induced complete closure of a ventricular septal defect and complete heart block in a child",
-          journal: "Ann Ped Cardiol",
-          year: 2021,
-          authors: [
-            "Karuru U",
-            "Relan J",
-            "Kothari SS",
-            "Gupta SK",
-            "Talwar S",
-          ],
-        },
-        {
-          title:
-            "Vascular neoplasia masquerading as cellulitis and persistent hemorrhagic pericardial effusion",
-          journal: "Ann Ped Cardiol",
-          year: 2022,
-          authors: [
-            "Thangaraju S",
-            "Relan J",
-            "Sinha A",
-            "Arava SK",
-            "Khanna N",
-            "Raju SN",
-          ],
-        },
-        {
-          title:
-            "Pediatric cardiology in India – In search of a holistic solution",
-          journal: "Ann Ped Cardiol",
-          year: 2024,
-          authors: [
-            "Tharakan J",
-            "Sharma R",
-            "Subramanyan R",
-            "Saxena A",
-            "Kulkarni S",
-            "Relan J",
-            "Ramakrishnan S",
-          ],
-        },
-        {
-          title:
-            "Comparison of Levosimendan Versus Milrinone After the Arterial Switch Operation for Infants≤ 3 kg",
-          journal: "World J Pediatr Congenit Heart Surg",
-          year: 2024,
-          authors: [
-            "Joshi RK",
-            "Joshi R",
-            "Aggarwal N",
-            "Agarwal M",
-            "Siddartha CR",
-            "Relan J",
-            "Kumar A",
-            "Modi M",
-            "Chug P",
-          ],
-        },
-        {
-          title:
-            "Mitral annular disjunction with atrial septal defect in children: An intriguing association",
-          journal: "Ann Ped Cardiol",
-          year: 2024,
-          authors: ["Agarwal M", "Relan J", "Aggarwal N", "Joshi R"],
-        },
-      ],
+      publications: [], // keep empty or add publications if UI shows them
     },
   ],
+
   awards: [
-    {
-      title: "Dr. Jagdish Lal Kapila Medal-2019 in Cardiology",
-      year: "2020",
-      category: "After Graduation",
-    },
-    {
-      title: "Dr. Savitri Srivastav Imaging Award 2019",
-      year: "2019",
-      category: "After Graduation",
-    },
-    {
-      title:
-        "1st Position in Cardiology Quiz at 26th Annual conference of Indian College of Cardiology",
-      year: "2019",
-      category: "After Graduation",
-    },
-    {
-      title: "Dr. Manoj Kapoor Memorial Medal Best PG student in Pediatrics",
-      year: "2016",
-      category: "After Graduation",
-    },
-    {
-      title: "Pediatrics Torrent Young Scholar Award (National Round)",
-      year: "2015",
-      category: "After Graduation",
-    },
-    {
-      title: "Gold Medal in DM Pediatric Cardiology",
-      year: "2019",
-      category: "Graduation",
-    },
-    {
-      title: "Gold Medal in MD Pediatrics",
-      year: "2016",
-      category: "Graduation",
-    },
-    {
-      title: "Gold Medal in MBBS",
-      year: "2012",
-      category: "Graduation",
-    },
+    { title: "Dr. Jagdish Lal Kapila Medal-2019 in Cardiology", year: "2020", category: "After Graduation" },
+    { title: "Dr. Savitri Srivastav Imaging Award 2019", year: "2019", category: "After Graduation" },
+    { title: "1st Position in Cardiology Quiz at 26th Annual conference of Indian College of Cardiology", year: "2019", category: "After Graduation" },
+    { title: "Dr. Manoj Kapoor Memorial Medal Best PG student in Pediatrics", year: "2016", category: "After Graduation" },
+    { title: "Pediatrics Torrent Young Scholar Award (National Round)", year: "2015", category: "After Graduation" },
+    { title: "Gold Medal in DM Pediatric Cardiology", year: "2019", category: "Graduation" },
+    { title: "Gold Medal in MD Pediatrics", year: "2016", category: "Graduation" },
+    { title: "Gold Medal in MBBS", year: "2012", category: "Graduation" },
   ],
+
   skills: [
     "Pediatric Cardiology",
     "Congenital Heart Disease Management",
@@ -513,74 +698,48 @@ export const drjayData: Doctor = {
     "Cardiac Catheterization",
     "Heart Failure Management",
   ],
+
   contactDetails: {
     address:
       "1071, Mother & Child Care Center, Sarvodaya Hospital, Sector-8, YMCA Rd, near Escorts Mujesar Metro Station, Faridabad, Haryana 121006",
     phone: "+91 9868700886",
     email: "jay.relan@gmail.com",
   },
+
+  // ✅ REQUIRED
   socialLinks: {
-    linkedin: "", // Not provided in CV
-    instagram: "", // Not provided in CV
+    linkedin: "https://www.linkedin.com/in/jay-relan-46165421b/",
+    instagram: "",
   },
+
   offline: [
     {
       hospital:
         "1071, Mother & Child Care Center, Sarvodaya Hospital, Sector-8, Faridabad, Haryana 121006",
-      schedules: [
-        {
-          day: "Monday to Saturday",
-          timing: "10:00 AM - 4:00 PM",
-        },
-      ],
+      schedules: [{ day: "Monday to Saturday", timing: "10:00 AM - 4:00 PM" }],
     },
   ],
+
   onlineTiming: "10:00 AM - 4:00 PM",
   days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+
   reviews: [
     {
       name: "Mohit Sharma",
       review:
-        "We are deeply grateful to Dr. Jay Relan for the care and expertise he provided to our newborn daughter at Sir Ganga Ram Hospital. From the very first consultation, Dr. Relan demonstrated exceptional knowledge, compassion, and a calm presence that gave us much-needed reassurance during a very anxious time.",
+        "We are deeply grateful to Dr. Jay Relan for the care and expertise he provided to our newborn daughter.",
       pic: "https://hearthealers.in/images/reviews/jay-review-1.png",
       star: 5,
     },
-    {
-      name: "Akanksha Harjai",
-      review:
-        "If I have to describe in two words, Best Doctor. I had my ASD surgery done under Dr. Jay’s care in January, and I can’t thank him enough for the experience. He explains the diagnosis clearly and is very warm and easy to talk to. I’ve always had a lot of hesitation and anxiety around needles and medical procedures, but Dr. Jay was gentle and reassuring throughout, and made sure everything went as smoothly and comfortably as possible",
-      pic: "https://hearthealers.in/images/reviews/jay-review-2.png",
-      star: 5,
-    },
-    {
-      name: "Amit Agarwal",
-      review:
-        "Dr. Jay is an amazing cardiac specialist and doctor, in medical terminology he is an interventional pediatric cardiologist. He has got great diagnostic skill, great operating skills. And his command over the functioning of the human heart, veins , arteries etc. etc. is really impressive. He has treated my heart so well. I truly owe my life and peace to him.",
-      pic: "https://hearthealers.in/images/reviews/jay-review-3.png",
-      star: 5,
-    },
-    {
-      name: "Manish Tiwari",
-      review:
-        "Dr jay Relan sir is an amazing doctor. One year ago I got my 6 Months son treated .he explained everything clearly and made me feel comfortable as I was very panic at that time. He is very soft spoken and calm person .i highly recommend him.",
-      pic: "https://hearthealers.in/images/reviews/jay-review-4.png",
-      star: 5,
-    },
-    {
-      name: "Sandeep Gadhwal",
-      review:
-        "He is a very good doctor and a very nice person.🤝 I got my son treated. At that time, I had lost all hope. After that, I met Dr Jay Relan ji and my son was cured within 3 days. I thank him. He understands very well and consults very well.🤝",
-      pic: "https://hearthealers.in/images/reviews/jay-review-5.png",
-      star: 5,
-    },
   ],
-  researchArticles: 30,
-  patient1: 'https://hearthealers.in/images/reviews/j1.webp', 
-  patient2: 'https://hearthealers.in/images/reviews/j2.webp'
 
+  researchArticles: 30,
+
+  patient1: "https://hearthealers.in/images/reviews/j1.webp",
+  patient2: "https://hearthealers.in/images/reviews/j2.webp",
 };
 
-// Dr. Anupam Das data structured according to Doctor interface
+
 
 export const dranupamData: Doctor = {
   id: "dranupam",
