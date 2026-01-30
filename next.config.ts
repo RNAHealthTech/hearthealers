@@ -40,8 +40,9 @@
 
 import type { NextConfig } from "next";
 
+const isDev = process.env.NODE_ENV !== "production";
+
 const nextConfig: NextConfig = {
-  // ✅ Allow external images safely
   images: {
     remotePatterns: [
       {
@@ -51,47 +52,40 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  // ✅ Security headers for Lighthouse Best Practices
   async headers() {
     return [
       {
         source: "/(.*)",
         headers: [
-          // Prevent clickjacking
           { key: "X-Frame-Options", value: "DENY" },
-
-          // Prevent MIME sniffing
           { key: "X-Content-Type-Options", value: "nosniff" },
-
-          // Enforce HTTPS (only if deployed on HTTPS)
-          {
-            key: "Strict-Transport-Security",
-            value: "max-age=63072000; includeSubDomains; preload",
-          },
-
-          // Control referrer info
           {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
           },
-
-          // Disable unused browser features
           {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=()",
           },
 
-          // Basic Content Security Policy
+          // ✅ SAFE CSP (DEV + PROD)
           {
             key: "Content-Security-Policy",
-            value:
-              "default-src 'self'; " +
-              "img-src 'self' https://hearthealers.in data:; " +
-              "media-src 'self' https://hearthealers.in; " +
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'; " +
-              "style-src 'self' 'unsafe-inline'; " +
-              "connect-src 'self'; " +
-              "frame-ancestors 'none';",
+            value: isDev
+              ? // 🔴 DEV MODE (Next.js needs this)
+                "default-src 'self'; " +
+                "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://connect.facebook.net https://www.facebook.com; " +
+                "style-src 'self' 'unsafe-inline'; " +
+                "img-src 'self' data: https://hearthealers.in https://www.facebook.com; " +
+                "media-src 'self' https://hearthealers.in https://www.facebook.com; " +
+                "frame-src https://www.facebook.com;"
+              : // 🟢 PRODUCTION MODE (SECURE)
+                "default-src 'self'; " +
+                "script-src 'self' 'unsafe-inline' https://connect.facebook.net https://www.facebook.com; " +
+                "style-src 'self' 'unsafe-inline'; " +
+                "img-src 'self' data: https://hearthealers.in https://www.facebook.com; " +
+                "media-src 'self' https://hearthealers.in https://www.facebook.com; " +
+                "frame-src https://www.facebook.com;",
           },
         ],
       },
@@ -100,4 +94,6 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+
 

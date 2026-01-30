@@ -64,16 +64,16 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
           >
             <source src={bgVideo} type="video/mp4" />
             {/* Fallback for browsers that don't support video */}
-            <div className="w-full h-full bg-gradient-to-br from-gray-900 to-gray-700"></div>
+            <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-500"></div>
           </video>
           {/* Video overlay */}
 
         </div>
 
         {/* Content */}
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto  ">
           {/* Main Heading */}
-          <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ${colors.textPrimary} mb-6 leading-tight tracking-tight`}>
+          <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ${colors.textPrimary} sm:pt-20 mb-6 leading-tight tracking-tight`}>
             {h1}
           </h1>
 

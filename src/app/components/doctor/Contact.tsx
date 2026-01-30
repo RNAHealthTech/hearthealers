@@ -95,64 +95,102 @@ Message: ${formData.message}`;
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section - Gradient Background */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden mt-28 md:mt-10">
-        {/* Decorative Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-72 h-72 bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+      <section className="relative overflow-hidden mt-20 md:mt-1 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+  {/* ===== Decorative Background ===== */}
+  <div className="absolute inset-0 pointer-events-none">
+
+    {/* Big Blobs */}
+    <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-gradient-to-br from-blue-300/30 to-purple-300/30 rounded-full blur-[120px]" />
+    <div className="absolute top-1/3 -right-40 w-[520px] h-[520px] bg-gradient-to-br from-purple-300/30 to-pink-300/30 rounded-full blur-[120px]" />
+    <div className="absolute bottom-0 left-1/3 w-[420px] h-[420px] bg-gradient-to-br from-indigo-300/20 to-cyan-300/20 rounded-full blur-[120px]" />
+
+    {/* Dotted Pattern */}
+    <div className="absolute inset-0 bg-[radial-gradient(rgba(0,0,0,0.08)_1px,transparent_1px)] [background-size:22px_22px] opacity-30" />
+  </div>
+
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+    <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+      {/* ===== Left Content ===== */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* Badge */}
+        <div className="inline-flex items-center px-4 py-1.5 mb-6 rounded-full bg-white/70 backdrop-blur border border-white/50 text-sm text-indigo-600 font-medium shadow-sm">
+          👋 Let’s Talk
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left Column - Text Content */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h1 className="text-5xl lg:text-6xl font-light text-gray-900 mb-6">
-                Get in <span className="font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Touch</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Schedule your consultation with {doctor.personalDetails.name}
-              </p>
-              <div className="text-gray-500 text-lg mb-8">
-                {doctor.personalDetails.speciality}
-              </div>
+        {/* Title */}
+        <h1 className="relative text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
+          Get in{" "}
+          <span className="relative font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Touch
+            {/* glow */}
+            <span className="absolute inset-0 bg-gradient-to-r from-blue-400/30 to-purple-400/30 blur-2xl -z-10" />
+          </span>
+        </h1>
 
-              {/* Quick Actions */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-medium flex items-center justify-center group transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer"
-                  onClick={() => document.getElementById('appointment-form')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  Book Appointment
-                  <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </motion.button>
-              </div>
-            </motion.div>
+        {/* Subtitle */}
+        <p className="text-xl text-gray-700 mb-4 leading-relaxed max-w-xl">
+          Schedule your consultation with{" "}
+          <span className="font-semibold text-gray-900">
+            {doctor.personalDetails.name}
+          </span>
+        </p>
 
-            {/* Right Column - Doctor Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="relative w-full h-96 lg:h-[700px] rounded-3xl overflow-hidden">
-                <Image
-                  src={doctor.personalDetails.imageUrl2}
-                  alt={doctor.personalDetails.name}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </motion.div>
-          </div>
+        <div className="text-gray-500 text-lg mb-10">
+          {doctor.personalDetails.speciality}
         </div>
-      </section>
+
+        {/* CTA */}
+        <div className="flex flex-col sm:flex-row gap-4">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="
+              bg-gradient-to-r from-blue-600 to-purple-600
+              text-white px-8 py-4 rounded-2xl font-medium
+              flex items-center justify-center gap-2
+              shadow-lg hover:shadow-xl transition-all
+            "
+            onClick={() =>
+              document
+                .getElementById("appointment-form")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            Book Appointment
+            <FaArrowRight className="transition-transform group-hover:translate-x-1" />
+          </motion.button>
+        </div>
+      </motion.div>
+
+      {/* ===== Right Image ===== */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="relative"
+      >
+        {/* Glow behind image */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20 blur-3xl rounded-full scale-110" />
+
+        <div className="relative w-full h-96 lg:h-[700px] rounded-3xl overflow-hidden">
+          <Image
+            src={doctor.personalDetails.imageUrl2}
+            alt={doctor.personalDetails.name}
+            fill
+            className="object-contain drop-shadow-2xl"
+          />
+        </div>
+      </motion.div>
+
+    </div>
+  </div>
+</section>
+
 
       {/* Contact Information - Subtle Pattern Background */}
       <section className="py-20 bg-gray-50 relative overflow-hidden">
