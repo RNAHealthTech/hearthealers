@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Doctor from '@/data/doctors';
 import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
 
 const HomeServicesSection = dynamic(() => import('../utilities/HomeServices'), { ssr: false });
 const HomeAbout = dynamic(() => import('../utilities/HomeAbout'), { ssr: false });
@@ -25,12 +26,12 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
   const getColorClasses = () => {
     if (isJayRelan) {
       return {
-        gradient: 'from-red-900/80 via-red-800/70 to-red-700/60',
+        gradient: 'from-red-950/80 via-red-900/70 to-red-800/60',
         textPrimary: 'text-white',
-        textSecondary: 'text-red-100',
-        button: 'bg-red-600 hover:bg-red-700 focus:ring-red-500',
+        textSecondary: 'text-red-50/90',
+        button: 'bg-red-600 hover:bg-red-700 focus:ring-red-500 shadow-red-600/20',
         buttonText: 'text-white',
-        accent: 'border-red-400'
+        accent: 'border-red-400/30'
       };
     } else {
       return {
@@ -64,27 +65,42 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
           >
             <source src={bgVideo} type="video/mp4" />
             {/* Fallback for browsers that don't support video */}
-            <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-500"></div>
+            <div className="w-full h-full bg-slate-900"></div>
           </video>
           {/* Video overlay */}
-
+          <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px]"></div>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto  ">
+        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto py-20">
           {/* Main Heading */}
-          <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ${colors.textPrimary} sm:pt-20 mb-6 leading-tight tracking-tight`}>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className={`text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold ${colors.textPrimary} mb-8 sm:pt-20 leading-[1.2] tracking-tight`}
+          >
             {h1}
-          </h1>
+          </motion.h1>
 
           {/* Subtitle */}
-          <p className={`text-lg sm:text-xl md:text-2xl ${colors.textSecondary} mb-8 max-w-3xl mx-auto leading-relaxed font-light`}>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className={`text-lg sm:text-xl md:text-2xl ${colors.textSecondary} mb-12 max-w-3xl mx-auto leading-relaxed font-light`}
+          >
             {span}
-          </p>
+          </motion.p>
 
           {/* Doctor Info Card */}
-          <div className="mb-12 p-6 backdrop-blur-sm bg-white/10 rounded-2xl border border-white/20 shadow-2xl">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-18">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            className="mb-16 p-8 backdrop-blur-md bg-white/10 rounded-[2.5rem] border border-white/20 shadow-2xl transition-all duration-500 hover:bg-white/[0.15]"
+          >
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-24">
               {/*  doctor avatar  */}
               <div className='flex-shrink-0'>
                 <div className='relative'>
@@ -112,30 +128,36 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
             <button
               className={`
               ${colors.button}
               ${colors.buttonText}
-              font-semibold
-              py-5 px-12
-              rounded-2xl
-              text-md md:text-lg
+              font-bold
+              py-6 px-16
+              rounded-full
+              text-base md:text-lg
               transform
               transition-all
               duration-300
               hover:scale-105
+              hover:-translate-y-1
               focus:outline-none
               focus:ring-4
               focus:ring-opacity-50
-              shadow-2xl
-              hover:shadow-3xl
+              shadow-xl
+              hover:shadow-red-600/30
               active:scale-95
               backdrop-blur-sm
-              min-w-[200px]
+              min-w-[240px]
               cursor-pointer
             `}
               aria-label={`Book Appointment with ${doctor.personalDetails.name}`}
@@ -143,9 +165,7 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
             >
               Book Appointment
             </button>
-
-
-          </div>
+          </motion.div>
         </div>
 
         {/* Decorative Elements */}
@@ -165,7 +185,7 @@ const Home: React.FC<HomeProps> = ({ doctor }) => {
         variant={isJayRelan ? "drjay" : "dranupam"}// or "dranupam"
         doctorName={doctor.personalDetails.name}
       />
-    </main>
+    </main >
   );
 };
 

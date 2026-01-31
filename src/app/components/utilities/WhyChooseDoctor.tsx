@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Heart, Shield, Stethoscope, Brain, Baby, Microscope, Users, Clock } from 'lucide-react';
 import BookAppointmentModal from './BookAppointment';
+import { motion } from 'framer-motion';
 
 interface WhyChooseDoctorProps {
   doctor: {
@@ -16,7 +17,7 @@ interface WhyChooseDoctorProps {
 const WhyChooseDoctor: React.FC<WhyChooseDoctorProps> = ({ doctor }) => {
   const isDrJay = doctor.id === 'drjay' || doctor.personalDetails.name.toLowerCase().includes('jay');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   // Color schemes
   const colorScheme = isDrJay ? {
     primary: 'red',
@@ -44,7 +45,7 @@ const WhyChooseDoctor: React.FC<WhyChooseDoctorProps> = ({ doctor }) => {
   const content = isDrJay ? {
     title: `Why Choose ${doctor.personalDetails.name}?`,
     subtitle: "Leading Excellence in Pediatric & Fetal Cardiology",
-    
+
     expertiseAreas: [
       {
         icon: <Heart className="w-6 h-6" />,
@@ -53,7 +54,7 @@ const WhyChooseDoctor: React.FC<WhyChooseDoctorProps> = ({ doctor }) => {
       },
       {
         icon: <Baby className="w-6 h-6" />,
-        title: "Advanced Fetal Cardiology", 
+        title: "Advanced Fetal Cardiology",
         description: "Pioneering prenatal heart diagnosis using cutting-edge ultrasound technology to detect and plan treatment for heart conditions before birth."
       },
       {
@@ -62,12 +63,12 @@ const WhyChooseDoctor: React.FC<WhyChooseDoctorProps> = ({ doctor }) => {
         description: "Expertise in minimally invasive procedures and catheter-based interventions, reducing recovery time and improving outcomes for young patients."
       }
     ],
-    
+
     uniqueValue: "Combining advanced medical expertise with a deep understanding of pediatric psychology, Dr. Relan ensures both medical excellence and emotional comfort for children and families facing heart conditions."
   } : {
     title: `Why Choose ${doctor.personalDetails.name}?`,
     subtitle: "Master Surgeon in Cardiothoracic & Vascular Excellence",
-    
+
     expertiseAreas: [
       {
         icon: <Shield className="w-6 h-6" />,
@@ -85,7 +86,7 @@ const WhyChooseDoctor: React.FC<WhyChooseDoctorProps> = ({ doctor }) => {
         description: "Leading practitioner of robotic and minimally invasive cardiac procedures, reducing surgical trauma and accelerating patient recovery."
       }
     ],
-   
+
     uniqueValue: "Dr. Das combines surgical mastery with innovative techniques and comprehensive patient care, delivering life-saving results with minimal invasiveness and faster recovery times."
   };
 
@@ -98,56 +99,75 @@ const WhyChooseDoctor: React.FC<WhyChooseDoctorProps> = ({ doctor }) => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        
+
         {/* Header Section */}
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
           <div className={`inline-block px-6 py-2 ${colorScheme.lightBg} rounded-full mb-6`}>
             <span className={`${colorScheme.primaryText} font-semibold text-sm uppercase tracking-wide`}>
               Medical Excellence
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
             {content.title}
           </h2>
           <p className={`text-lg md:text-xl ${colorScheme.secondaryText} font-medium max-w-4xl mx-auto leading-relaxed`}>
             {content.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         {/* Main Content Layout */}
         <div className={`grid ${isDrJay ? 'lg:grid-cols-2' : 'lg:grid-cols-1'} gap-16 mb-16`}>
-          
+
           {/* Video Section - Only for Dr. Jay */}
           {isDrJay && (
-            <div className="flex flex-col items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col items-center justify-center"
+            >
               <div className="w-full max-w-[400px] mx-auto">
-                <iframe 
-                  src="https://www.facebook.com/plugins/video.php?height=591&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1439699433977297%2F&show_text=true&width=267&t=0" 
-                  width="100%" 
-                  height="600" 
-                  style={{border:'none', overflow:'hidden', borderRadius:'20px'}} 
-                  scrolling="no" 
-                  frameBorder="0" 
-                  allowFullScreen={true} 
+                <iframe
+                  src="https://www.facebook.com/plugins/video.php?height=591&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1439699433977297%2F&show_text=true&width=267&t=0"
+                  width="100%"
+                  height="600"
+                  style={{ border: 'none', overflow: 'hidden', borderRadius: '2.5rem' }}
+                  scrolling="no"
+                  frameBorder="0"
+                  allowFullScreen={true}
                   allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                  className="rounded-3xl shadow-2xl"
+                  className="rounded-[2.5rem] shadow-2xl"
                 />
               </div>
               <p className={`text-center ${colorScheme.secondaryText} text-sm mt-4 font-medium`}>
                 Watch Dr. Relan share insights about increasing heart attacks among kids
               </p>
-            </div>
+            </motion.div>
           )}
-          
+
           {/* Expertise Content */}
           <div className="space-y-12">
-            
+
             {/* Areas of Expertise */}
             <div>
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">Areas of Expertise</h3>
               <div className="space-y-8">
                 {content.expertiseAreas.map((area, index) => (
-                  <div key={index} className="flex items-start space-x-4 group">
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="flex items-start space-x-4 group"
+                  >
                     <div className={`flex-shrink-0 w-12 h-12 ${colorScheme.iconBg} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                       <div className="text-white">
                         {area.icon}
@@ -157,13 +177,13 @@ const WhyChooseDoctor: React.FC<WhyChooseDoctorProps> = ({ doctor }) => {
                       <h4 className="text-xl font-semibold text-gray-900 mb-2">{area.title}</h4>
                       <p className="text-gray-600 leading-relaxed">{area.description}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
 
             {/* What Makes Different */}
-            <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100">
+            <div className="bg-white/80 backdrop-blur-md rounded-[2.5rem] p-10 shadow-xl border border-gray-100 transition-all duration-500 hover:shadow-2xl">
               <div className="flex items-center mb-6">
                 <div className={`w-12 h-12 ${colorScheme.iconBg} rounded-xl flex items-center justify-center mr-4`}>
                   <Users className="w-6 h-6 text-white" />
@@ -173,12 +193,12 @@ const WhyChooseDoctor: React.FC<WhyChooseDoctorProps> = ({ doctor }) => {
               <p className="text-gray-700 leading-relaxed text-lg mb-6">
                 {content.uniqueValue}
               </p>
-              
+
               {/* Key Differentiators */}
               <div className="grid sm:grid-cols-2 gap-4">
                 {[
                   "Evidence-based treatment protocols",
-                  "Personalized care plans", 
+                  "Personalized care plans",
                   "Multidisciplinary team approach",
                   "Cutting-edge medical technology"
                 ].map((item, index) => (
@@ -200,22 +220,22 @@ const WhyChooseDoctor: React.FC<WhyChooseDoctorProps> = ({ doctor }) => {
             <div className={`absolute inset-0 ${colorScheme.lightBg} opacity-20`}></div>
             <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-current opacity-5 rounded-full -translate-x-32 -translate-y-32"></div>
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-current opacity-5 rounded-full translate-x-32 translate-y-32"></div>
-            
+
             <div className="relative z-10">
-              <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
                 Ready to Take the Next Step in Your Heart Health Journey?
               </h3>
-              <p className="text-gray-600 text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-gray-600 text-base md:text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
                 Schedule a consultation today and experience world-class cardiac care tailored specifically to your needs with personalized treatment plans.
               </p>
-              <button 
-                onClick={() => setIsModalOpen(true)} 
-                className={`bg-gradient-to-r ${colorScheme.gradientFrom} ${colorScheme.gradientTo} text-white px-10 py-5 rounded-2xl font-bold text-lg md:text-xl transition-all duration-500 shadow-2xl hover:shadow-3xl transform hover:scale-105 hover:-translate-y-2 relative overflow-hidden group`}
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className={`bg-gradient-to-r ${colorScheme.gradientFrom} ${colorScheme.gradientTo} text-white px-10 py-5 rounded-full font-bold text-lg transition-all duration-500 shadow-2xl hover:shadow-3xl transform hover:scale-105 hover:-translate-y-2 relative overflow-hidden group`}
               >
                 <span className="relative z-10">Book Your Consultation</span>
                 <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
               </button>
-              
+
               {/* Additional Info */}
               <div className="mt-6 flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8">
                 <div className="flex items-center text-gray-600">

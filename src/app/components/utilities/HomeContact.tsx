@@ -170,7 +170,7 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ doctor, formspr
                       name="name"
                       placeholder="Enter your full name"
                       required
-                      className={`w-full border ${colors.borderColor} rounded-xl shadow-sm p-3 bg-white text-gray-900 ${colors.focusRing} focus:ring-2 focus:border-transparent transition-all duration-200`}
+                      className={`w-full border ${colors.borderColor} rounded-xl shadow-sm p-3 bg-white/80 text-gray-900 ${colors.focusRing} focus:ring-2 focus:border-transparent transition-all duration-300 hover:bg-white focus:bg-white`}
                     />
                   </motion.div>
 
@@ -186,7 +186,7 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ doctor, formspr
                       name="phone"
                       required
                       placeholder="+91 XXXXX XXXXX"
-                      className={`w-full border ${colors.borderColor} rounded-xl shadow-sm p-3 bg-white text-gray-900 ${colors.focusRing} focus:ring-2 focus:border-transparent transition-all duration-200`}
+                      className={`w-full border ${colors.borderColor} rounded-xl shadow-sm p-3 bg-white/80 text-gray-900 ${colors.focusRing} focus:ring-2 focus:border-transparent transition-all duration-300 hover:bg-white focus:bg-white`}
                     />
                   </motion.div>
 
@@ -200,7 +200,7 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ doctor, formspr
                       name="date"
                       required
                       min={new Date().toISOString().split('T')[0]}
-                      className={`w-full border ${colors.borderColor} rounded-xl shadow-sm p-3 bg-white text-gray-900 ${colors.focusRing} focus:ring-2 focus:border-transparent transition-all duration-200`}
+                      className={`w-full border ${colors.borderColor} rounded-xl shadow-sm p-3 bg-white/80 text-gray-900 ${colors.focusRing} focus:ring-2 focus:border-transparent transition-all duration-300 hover:bg-white focus:bg-white`}
                     />
                     <ValidationError prefix="Date" field="date" errors={state.errors} />
                   </motion.div>
@@ -214,7 +214,7 @@ const HomeContactSection: React.FC<HomeContactSectionProps> = ({ doctor, formspr
                       name="message"
                       rows={4}
                       placeholder="Tell us about your health concerns or questions..."
-                      className={`w-full border ${colors.borderColor} rounded-xl shadow-sm p-3 bg-white text-gray-900 ${colors.focusRing} focus:ring-2 focus:border-transparent transition-all duration-200 resize-none`}
+                      className={`w-full border ${colors.borderColor} rounded-xl shadow-sm p-3 bg-white/80 text-gray-900 ${colors.focusRing} focus:ring-2 focus:border-transparent transition-all duration-300 hover:bg-white focus:bg-white resize-none`}
                     ></textarea>
                   </motion.div>
 

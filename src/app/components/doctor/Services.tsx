@@ -52,12 +52,12 @@ const Services = () => {
       gradient: 'from-blue-50 to-white'
     }
     : {
-      primary: 'bg-teal-500',
-      secondary: 'bg-zinc-100',
-      accent: 'text-slate-100',
-      border: 'border-slate-700',
-      button: 'bg-slate-700 hover:bg-slate-600',
-      gradient: 'from-slate-900 to-slate-800'
+      primary: 'bg-teal-950',
+      secondary: 'bg-white/90',
+      accent: 'text-teal-600',
+      border: 'border-teal-100',
+      button: 'bg-teal-600 hover:bg-teal-700 shadow-teal-600/20',
+      gradient: 'from-teal-900 to-teal-800'
     };
 
   const doctorName = isDrJay ? 'Dr. Jay Relan' : 'Dr. Anupam';
@@ -97,10 +97,14 @@ const Services = () => {
       {/* Services Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <div
+          {services.map((service, index) => (
+            <motion.div
               key={service.id}
-              className={`group relative overflow-hidden backdrop-blur-xl rounded-2xl ${colorScheme.secondary}  backdrop-blur-sm transition-all duration-300 hover:shadow-2xl hover:scale-105`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className={`group relative overflow-hidden backdrop-blur-md rounded-[2rem] ${colorScheme.secondary} border border-white/40 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2`}
             >
               {/* Image Section */}
               <div className="relative h-48 overflow-hidden">
@@ -124,22 +128,17 @@ const Services = () => {
 
                 {/* Symptoms/Procedure Info */}
                 {service.symptoms && (
-                  <div className="mb-4">
-                    <h4 className={`text-sm font-semibold mb-2 ${isDrJay ? 'text-slate-700' : 'text-slate-200'}`}>
+                  <div className="mb-6">
+                    <h4 className={`text-sm font-bold mb-3 ${isDrJay ? 'text-slate-800' : 'text-slate-900'}`}>
                       Common Symptoms:
                     </h4>
-                    <ul className={`text-xs space-y-1 ${isDrJay ? 'text-slate-600' : 'text-slate-400'}`}>
+                    <ul className={`grid grid-cols-1 gap-2 ${isDrJay ? 'text-slate-600' : 'text-slate-700'}`}>
                       {service.symptoms.slice(0, 3).map((symptom, index) => (
-                        <li key={index} className="flex items-center">
-                          <span className={`w-1.5 h-1.5 rounded-full mr-2 ${isDrJay ? 'bg-blue-400' : 'bg-slate-500'}`}></span>
+                        <li key={index} className="flex items-center text-xs">
+                          <span className={`w-1.5 h-1.5 rounded-full mr-2 shrink-0 ${isDrJay ? 'bg-blue-500' : 'bg-teal-500'}`}></span>
                           {symptom}
                         </li>
                       ))}
-                      {service.symptoms.length > 3 && (
-                        <li className={`text-xs ${isDrJay ? 'text-blue-600' : 'text-slate-300'}`}>
-                          +{service.symptoms.length - 3} more
-                        </li>
-                      )}
                     </ul>
                   </div>
                 )}
@@ -147,12 +146,12 @@ const Services = () => {
                 {/* CTA Button */}
                 <Link
                   href={`/services/${service.slug}`}
-                  className={`block w-full text-center py-3 px-4 rounded-lg font-semibold transition-all duration-200 ${colorScheme.button} text-white hover:shadow-lg transform hover:-translate-y-0.5`}
+                  className={`block w-full text-center py-4 px-6 rounded-full font-bold transition-all duration-300 ${colorScheme.button} text-white shadow-lg hover:shadow-xl transform hover:-translate-y-0.5`}
                 >
                   Learn More
                 </Link>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

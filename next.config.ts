@@ -57,7 +57,9 @@ const nextConfig: NextConfig = {
       {
         source: "/(.*)",
         headers: [
-          { key: "X-Frame-Options", value: "DENY" },
+          // ❌ REMOVE THIS (iframe kills Google Maps)
+          // { key: "X-Frame-Options", value: "DENY" },
+
           { key: "X-Content-Type-Options", value: "nosniff" },
           {
             key: "Referrer-Policy",
@@ -68,24 +70,46 @@ const nextConfig: NextConfig = {
             value: "camera=(), microphone=(), geolocation=()",
           },
 
-          // ✅ SAFE CSP (DEV + PROD)
+          // ✅ FIXED CSP
           {
             key: "Content-Security-Policy",
             value: isDev
-              ? // 🔴 DEV MODE (Next.js needs this)
-                "default-src 'self'; " +
-                "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://connect.facebook.net https://www.facebook.com; " +
-                "style-src 'self' 'unsafe-inline'; " +
-                "img-src 'self' data: https://hearthealers.in https://www.facebook.com; " +
-                "media-src 'self' https://hearthealers.in https://www.facebook.com; " +
-                "frame-src https://www.facebook.com;"
-              : // 🟢 PRODUCTION MODE (SECURE)
-                "default-src 'self'; " +
-                "script-src 'self' 'unsafe-inline' https://connect.facebook.net https://www.facebook.com; " +
-                "style-src 'self' 'unsafe-inline'; " +
-                "img-src 'self' data: https://hearthealers.in https://www.facebook.com; " +
-                "media-src 'self' https://hearthealers.in https://www.facebook.com; " +
-                "frame-src https://www.facebook.com;",
+              ? `
+                default-src 'self';
+                script-src 'self' 'unsafe-inline' 'unsafe-eval'
+                  https://connect.facebook.net
+                  https://www.facebook.com;
+                style-src 'self' 'unsafe-inline';
+                img-src 'self' data:
+                  https://hearthealers.in
+                  https://www.facebook.com
+                  https://www.google.com;
+                media-src 'self'
+                  https://hearthealers.in
+                  https://www.facebook.com;
+                frame-src
+                  https://www.facebook.com
+                  https://www.google.com
+                  https://maps.google.com;
+              `.replace(/\s+/g, " ")
+              : `
+                default-src 'self';
+                script-src 'self' 'unsafe-inline'
+                  https://connect.facebook.net
+                  https://www.facebook.com;
+                style-src 'self' 'unsafe-inline';
+                img-src 'self' data:
+                  https://hearthealers.in
+                  https://www.facebook.com
+                  https://www.google.com;
+                media-src 'self'
+                  https://hearthealers.in
+                  https://www.facebook.com;
+                frame-src
+                  https://www.facebook.com
+                  https://www.google.com
+                  https://maps.google.com;
+              `.replace(/\s+/g, " "),
           },
         ],
       },
@@ -94,6 +118,7 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
 
 
 

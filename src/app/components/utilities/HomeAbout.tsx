@@ -13,19 +13,19 @@ const HomeAbout: React.FC<HomeAboutProps> = ({ doctor }) => {
   const getColorScheme = () => {
     if (doctor.id === 'drjay') {
       return {
-        background: 'from-orange-50 via-amber-50 to-orange-100',
-        cardBg: 'bg-gradient-to-br from-orange-100/80 to-amber-100/80',
+        background: 'from-orange-50/50 via-white to-orange-50/30',
+        cardBg: 'bg-white/60',
         accentColor: 'text-orange-600',
         buttonBg: 'bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600',
-        borderColor: 'border-orange-200'
+        borderColor: 'border-orange-100/50'
       };
     } else if (doctor.id === 'dranupam') {
       return {
-        background: 'from-teal-50 via-emerald-50 to-teal-100',
-        cardBg: 'bg-gradient-to-br from-teal-100/80 to-emerald-100/80',
+        background: 'from-teal-50/50 via-white to-teal-50/30',
+        cardBg: 'bg-white/60',
         accentColor: 'text-teal-600',
         buttonBg: 'bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600',
-        borderColor: 'border-teal-200'
+        borderColor: 'border-teal-100/50'
       };
     }
     // Default fallback
@@ -110,7 +110,7 @@ const HomeAbout: React.FC<HomeAboutProps> = ({ doctor }) => {
               </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className={`${colors.cardBg} backdrop-blur-sm p-6 rounded-2xl border ${colors.borderColor} shadow-lg`}>
+            <motion.div variants={itemVariants} className={`${colors.cardBg} backdrop-blur-md p-8 rounded-[2rem] border ${colors.borderColor} shadow-xl transition-all duration-500 hover:shadow-2xl`}>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <div className={`w-3 h-3 rounded-full ${colors.buttonBg}`}></div>
@@ -149,10 +149,10 @@ const HomeAbout: React.FC<HomeAboutProps> = ({ doctor }) => {
             <motion.div variants={itemVariants}>
               <Link
                 href="/about"
-                className={`inline-flex items-center space-x-2 ${colors.buttonBg} text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl`}
+                className={`inline-flex items-center space-x-3 ${colors.buttonBg} text-white px-10 py-5 rounded-full font-bold transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-xl hover:shadow-2xl`}
               >
                 <span>Learn More About Dr {doctor.personalDetails.name.split(' ')[1]}</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
@@ -167,33 +167,33 @@ const HomeAbout: React.FC<HomeAboutProps> = ({ doctor }) => {
             className="relative"
           >
             {/* Desktop Layout */}
-            <div className="hidden md:grid grid-cols-3 gap-4 h-[700px]">
+            <div className="hidden md:grid grid-cols-3 gap-6 h-[750px]">
               {/* Standing Image - Takes full height */}
-              <div className="col-span-2 relative h-full rounded-3xl overflow-hidden">
+              <div className="col-span-2 relative h-full rounded-[2.5rem] overflow-hidden shadow-2xl group">
                 <Image
                   src={doctor.personalDetails.imageUrl3}
                   alt={`${doctor.personalDetails.name} - Main`}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
 
               {/* Two Vertical Images */}
-              <div className="col-span-1 flex flex-col gap-4 h-full">
-                <div className="relative h-1/2 rounded-2xl overflow-hidden">
+              <div className="col-span-1 flex flex-col gap-6 h-full">
+                <div className="relative h-1/2 rounded-[2rem] overflow-hidden shadow-xl group">
                   <Image
                     src={doctor.personalDetails.imageUrl || doctor.personalDetails.imageUrl3}
                     alt={`${doctor.personalDetails.name} - Portrait 1`}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
-                <div className="relative h-1/2 rounded-2xl overflow-hidden">
+                <div className="relative h-1/2 rounded-[2rem] overflow-hidden shadow-xl group">
                   <Image
                     src={doctor.personalDetails.imageUrl2 || doctor.personalDetails.imageUrl3}
                     alt={`${doctor.personalDetails.name} - Portrait 2`}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
               </div>
