@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Raleway, Merriweather } from 'next/font/google'
+import { Inter, Manrope } from 'next/font/google'
 
-const raleway = Raleway({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ['400', '700'],
   display: 'swap'
 });
 
-const merriweather = Merriweather({
+const manrope = Manrope({
   subsets: ["latin"],
-  weight: ['400', '700', '900'],
-  variable: '--font-merriweather',
   display: 'swap'
 });
 
@@ -68,7 +65,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${raleway.className} ${merriweather.variable}`}
+        className={`${inter.className} antialiased`}
       >
         {children}
       </body>
