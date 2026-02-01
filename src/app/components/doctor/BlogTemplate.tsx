@@ -36,7 +36,7 @@ const BlogTemplate: React.FC<BlogTemplateProps> = ({ blog }) => {
             />
             <div className="absolute inset-0 bg-black bg-opacity-50" />
           </div>
-          
+
           <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
             <div className="mb-6">
               <div className="flex flex-wrap justify-center gap-2 mb-4">
@@ -50,17 +50,17 @@ const BlogTemplate: React.FC<BlogTemplateProps> = ({ blog }) => {
                 ))}
               </div>
             </div>
-            
+
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               {blog.title}
             </h1>
-            
+
             <p className="text-xl md:text-2xl mb-8 leading-relaxed opacity-90">
               {blog.description}
             </p>
-            
-             
-            
+
+
+
           </div>
         </section>
 
@@ -112,7 +112,7 @@ const BlogTemplate: React.FC<BlogTemplateProps> = ({ blog }) => {
               })}
             </article>
 
-          
+
 
             {/* Related Tags */}
             <div className="mt-12 text-center">

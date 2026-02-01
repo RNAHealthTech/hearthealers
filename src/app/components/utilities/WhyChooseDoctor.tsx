@@ -27,84 +27,84 @@ const WhyChooseDoctor: React.FC<WhyChooseDoctorProps> = ({ doctor }) => {
   // 🎨 Color Scheme
   const colorScheme = isDrJay
     ? {
-        gradientFrom: 'from-red-600',
-        gradientTo: 'to-orange-500',
-        bgGradient: 'from-red-50 via-orange-50 to-red-50',
-        primaryText: 'text-red-600',
-        secondaryText: 'text-red-500',
-        primaryBg: 'bg-red-500',
-        lightBg: 'bg-red-50',
-        iconBg: 'bg-gradient-to-br from-red-500 to-orange-500',
-      }
+      gradientFrom: 'from-red-600',
+      gradientTo: 'to-orange-500',
+      bgGradient: 'from-red-50 via-orange-50 to-red-50',
+      primaryText: 'text-red-600',
+      secondaryText: 'text-red-500',
+      primaryBg: 'bg-red-500',
+      lightBg: 'bg-red-50',
+      iconBg: 'bg-gradient-to-br from-red-500 to-orange-500',
+    }
     : {
-        gradientFrom: 'from-teal-600',
-        gradientTo: 'to-cyan-500',
-        bgGradient: 'from-teal-50 via-cyan-50 to-teal-50',
-        primaryText: 'text-teal-600',
-        secondaryText: 'text-teal-500',
-        primaryBg: 'bg-teal-500',
-        lightBg: 'bg-teal-50',
-        iconBg: 'bg-gradient-to-br from-teal-500 to-cyan-500',
-      };
+      gradientFrom: 'from-teal-600',
+      gradientTo: 'to-cyan-500',
+      bgGradient: 'from-teal-50 via-cyan-50 to-teal-50',
+      primaryText: 'text-teal-600',
+      secondaryText: 'text-teal-500',
+      primaryBg: 'bg-teal-500',
+      lightBg: 'bg-teal-50',
+      iconBg: 'bg-gradient-to-br from-teal-500 to-cyan-500',
+    };
 
   // 📚 Content
   const content = isDrJay
     ? {
-        title: `Why Choose ${doctor.personalDetails.name}?`,
-        subtitle: "Leading Excellence in Pediatric & Fetal Cardiology",
+      title: `Why Choose ${doctor.personalDetails.name}?`,
+      subtitle: "Leading Excellence in Pediatric & Fetal Cardiology",
 
-        expertiseAreas: [
-          {
-            icon: <Heart className="w-5 h-5" />,
-            title: "Specialized Pediatric Heart Care",
-            description:
-              "Expert in diagnosing and treating congenital heart defects in children with compassionate care.",
-          },
-          {
-            icon: <Baby className="w-5 h-5" />,
-            title: "Advanced Fetal Cardiology",
-            description:
-              "Prenatal heart diagnosis using cutting-edge ultrasound technology.",
-          },
-          {
-            icon: <Stethoscope className="w-5 h-5" />,
-            title: "Minimally Invasive Interventions",
-            description:
-              "Catheter-based treatments ensuring faster recovery for young patients.",
-          },
-        ],
+      expertiseAreas: [
+        {
+          icon: <Heart className="w-5 h-5" />,
+          title: "Specialized Pediatric Heart Care",
+          description:
+            "Expert in diagnosing and treating congenital heart defects in children with compassionate care.",
+        },
+        {
+          icon: <Baby className="w-5 h-5" />,
+          title: "Advanced Fetal Cardiology",
+          description:
+            "Prenatal heart diagnosis using cutting-edge ultrasound technology.",
+        },
+        {
+          icon: <Stethoscope className="w-5 h-5" />,
+          title: "Minimally Invasive Interventions",
+          description:
+            "Catheter-based treatments ensuring faster recovery for young patients.",
+        },
+      ],
 
-        uniqueValue:
-          "Combining advanced expertise with pediatric psychology, Dr. Relan ensures medical excellence and emotional comfort for families.",
-      }
+      uniqueValue:
+        "Combining advanced expertise with pediatric psychology, Dr. Relan ensures medical excellence and emotional comfort for families.",
+    }
     : {
-        title: `Why Choose ${doctor.personalDetails.name}?`,
-        subtitle: "Master Surgeon in Cardiothoracic & Vascular Excellence",
+      title: `Why Choose ${doctor.personalDetails.name}?`,
+      subtitle: "Master Surgeon in Cardiothoracic & Vascular Excellence",
 
-        expertiseAreas: [
-          {
-            icon: <Shield className="w-5 h-5" />,
-            title: "Complex Cardiac Surgery",
-            description:
-              "Expert in bypass, valve repair, and transplant surgeries with exceptional precision.",
-          },
-          {
-            icon: <Brain className="w-5 h-5" />,
-            title: "Dual Adult & Pediatric Expertise",
-            description:
-              "Advanced cardiovascular surgeries across all age groups.",
-          },
-          {
-            icon: <Microscope className="w-5 h-5" />,
-            title: "Minimally Invasive Techniques",
-            description:
-              "Robotic procedures reducing trauma and speeding recovery.",
-          },
-        ],
+      expertiseAreas: [
+        {
+          icon: <Shield className="w-5 h-5" />,
+          title: "Complex Cardiac Surgery",
+          description:
+            "Expert in bypass, valve repair, and transplant surgeries with exceptional precision.",
+        },
+        {
+          icon: <Brain className="w-5 h-5" />,
+          title: "Dual Adult & Pediatric Expertise",
+          description:
+            "Advanced cardiovascular surgeries across all age groups.",
+        },
+        {
+          icon: <Microscope className="w-5 h-5" />,
+          title: "Minimally Invasive Techniques",
+          description:
+            "Robotic procedures reducing trauma and speeding recovery.",
+        },
+      ],
 
-        uniqueValue:
-          "Dr. Das combines surgical mastery with innovative techniques to deliver life-saving results with faster recovery.",
-      };
+      uniqueValue:
+        "Dr. Das combines surgical mastery with innovative techniques to deliver life-saving results with faster recovery.",
+    };
 
   return (
     <>
@@ -245,8 +245,8 @@ const WhyChooseDoctor: React.FC<WhyChooseDoctorProps> = ({ doctor }) => {
           </div>
 
           {/* 🔥 CTA */}
-        <div className="text-center mt-16">
-  <div className="
+          <div className="text-center mt-16">
+            <div className="
     w-full
     bg-white
     rounded-3xl
@@ -254,17 +254,17 @@ const WhyChooseDoctor: React.FC<WhyChooseDoctorProps> = ({ doctor }) => {
     shadow-[0_25px_80px_rgba(0,0,0,0.12)]
     border border-gray-100
   ">
-    <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
-      Ready to Take the Next Step in Your Heart Health Journey?
-    </h3>
+              <h3 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
+                Ready to Take the Next Step in Your Heart Health Journey?
+              </h3>
 
-    <p className="text-gray-600 mb-8 max-w-3xl mx-auto">
-      Schedule a consultation today and experience world-class cardiac care tailored specifically to your needs.
-    </p>
+              <p className="text-gray-600 mb-8 max-w-3xl mx-auto">
+                Schedule a consultation today and experience world-class cardiac care tailored specifically to your needs.
+              </p>
 
-    <button
-      onClick={() => setIsModalOpen(true)}
-      className={`
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className={`
         bg-gradient-to-r ${colorScheme.gradientFrom} ${colorScheme.gradientTo}
         text-white
         px-10 py-4
@@ -276,23 +276,23 @@ const WhyChooseDoctor: React.FC<WhyChooseDoctorProps> = ({ doctor }) => {
         hover:scale-[1.04]
         transition-all
       `}
-    >
-      Book Your Consultation
-    </button>
+              >
+                Book Your Consultation
+              </button>
 
-    <div className="mt-8 flex flex-col sm:flex-row justify-center gap-8 text-gray-500 text-sm">
-      <div className="flex items-center gap-2">
-        <Clock className="w-4 h-4" />
-        Same Day Appointments
-      </div>
+              <div className="mt-8 flex flex-col sm:flex-row justify-center gap-8 text-gray-500 text-sm">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4" />
+                  Same Day Appointments
+                </div>
 
-      <div className="flex items-center gap-2">
-        <Shield className="w-4 h-4" />
-        Insurance Accepted
-      </div>
-    </div>
-  </div>
-</div>
+                <div className="flex items-center gap-2">
+                  <Shield className="w-4 h-4" />
+                  Insurance Accepted
+                </div>
+              </div>
+            </div>
+          </div>
 
 
         </div>
