@@ -28,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ doctorId }) => {
   const [isProceduresOpen, setIsProceduresOpen] = useState(false); // Add separate state for procedures
   const [scrolled, setScrolled] = useState(false);
   const [doctor, setDoctor] = useState<Doctor | null>(null);
-  const [activeSection, setActiveSection] = useState('home');
+  const [activeSection] = useState('home');
 
 
   useEffect(() => {

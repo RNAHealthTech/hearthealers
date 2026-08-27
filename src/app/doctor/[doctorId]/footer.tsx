@@ -23,23 +23,11 @@ function getDoctorById(id: string): Doctor | null {
 
 const Footer: React.FC<FooterProps> = ({ doctorId }) => {
   const [doctor, setDoctor] = useState<Doctor | null>(null);
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
 
   useEffect(() => {
     const doctorData = getDoctorById(doctorId);
     setDoctor(doctorData);
   }, [doctorId]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 400);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-
 
   if (!doctor) return null;
 

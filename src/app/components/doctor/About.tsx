@@ -1,6 +1,6 @@
 'use client'
 // components/doctor/About.tsx
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Doctor from '@/data/doctors';
 import Image from 'next/image';
 import { Award, BookOpen, ChevronRight, Globe, Stethoscope, GraduationCap, Briefcase } from 'lucide-react';
@@ -12,9 +12,6 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = ({ doctor }) => {
-  const [activeTab, setActiveTab] = useState('bio');
-
-  const [scrollY, setScrollY] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
 
@@ -62,12 +59,6 @@ const About: React.FC<AboutProps> = ({ doctor }) => {
     borderColor: 'border-teal-200/30',
     hoverShadow: 'hover:shadow-teal-200/20'
   };
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Transform data for timeline components
   const educationTimelineData = education.map(edu => ({

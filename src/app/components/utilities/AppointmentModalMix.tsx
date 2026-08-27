@@ -44,7 +44,6 @@ const doctorWhatsAppNumbers = {
 
 const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) => {
   const [selectedDoctor, setSelectedDoctor] = useState<'drjay' | 'dranupam' | ''>('');
-  const [appointmentType, setAppointmentType] = useState<'Online Appointment' | 'Offline Appointment' | ''>('');
   const [state, handleSubmit] = useForm(selectedDoctor ? doctorFormIds[selectedDoctor] : 'xzzdgaqg');
   const [formData, setFormData] = useState({
     name: '',
@@ -69,7 +68,6 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
           doctorName: '',
         });
         setSelectedDoctor('');
-        setAppointmentType('');
       }, 3000);
       return () => clearTimeout(timer);
     }
@@ -87,9 +85,6 @@ const AppointmentModal: React.FC<AppointmentModalProps> = ({ isOpen, onClose }) 
       } else if (value === 'Dr. Anupam Das') {
         setSelectedDoctor('dranupam');
       }
-    }
-    if (name === 'appointmentType') {
-      setAppointmentType(value as 'Online Appointment' | 'Offline Appointment');
     }
     setFormData(prevData => ({
       ...prevData,
