@@ -5,26 +5,28 @@ import { Inter, Manrope } from "next/font/google";
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter",
 });
 
 const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-manrope",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hearthealers.in"),
+
   verification: {
     google: "67uf7OrInFooh6lju5Wwt9MhQvI7W7xwyI1TQ1FJq4I",
   },
+
   title: {
     default: "Best Heart Doctors Near You | HeartHealers",
     template: "%s | HeartHealers",
   },
+
   description:
     "Find the best heart doctors near you at HeartHealers. Expert cardiac care for congenital and acquired heart diseases in Delhi NCR. Book Appointment or Call us now.",
+
   keywords: [
     "heart doctor",
     "cardiologist",
@@ -33,17 +35,21 @@ export const metadata: Metadata = {
     "heart surgery",
     "pediatric cardiologist",
   ],
+
   authors: [{ name: "HeartHealers" }],
   creator: "RNA HealthTech",
   publisher: "HeartHealers",
+
   formatDetection: {
     email: false,
     address: true,
     telephone: true,
   },
+
   alternates: {
     canonical: "/",
   },
+
   openGraph: {
     title: "Best Heart Doctors Near You | HeartHealers",
     description:
@@ -53,12 +59,14 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
     title: "Best Heart Doctors Near You | HeartHealers",
     description:
       "Expert cardiac care for congenital and acquired heart diseases. Leading specialists in Delhi NCR.",
   },
+
   robots: {
     index: true,
     follow: true,
@@ -79,10 +87,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${manrope.variable} ${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased`}>
         {children}
       </body>
     </html>
   );
 }
-
