@@ -39,9 +39,13 @@ export async function generateMetadata({ params }: Props) {
     return {
         title: `Best ${doctor.personalDetails.speciality} in Delhi NCR`, 
         description: `Contact ${doctor.personalDetails.name} for any heart related diseases in your infants and babies. Call us now on ${doctor.contactDetails.phone}`, 
+        alternates: {
+            canonical: '/contact',
+        },
         openGraph: {
             title: `Best ${doctor.personalDetails.speciality} in Delhi NCR`, 
             description: `Contact ${doctor.personalDetails.name} for any heart related diseases in your infants and babies. Call us now on ${doctor.contactDetails.phone}`, 
+            url: 'https://drjay.hearthealers.in/contact',
             images: [doctor.personalDetails.imageUrl]
         }, 
     };

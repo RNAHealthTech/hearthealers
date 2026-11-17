@@ -41,9 +41,13 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: `${doctor.personalDetails.name} - Best Heart Doctor Near you`,
     description: `Meet ${doctor.personalDetails.name} with ${doctor.totalExp} years experience`,
+    alternates: {
+      canonical: '/about',
+    },
     openGraph: {
       title: `${doctor.personalDetails.name} - Best Heart Doctor Near you`,
       description: `Meet ${doctor.personalDetails.name} with ${doctor.totalExp} years experience`,
+      url: 'https://drjay.hearthealers.in/about',
       images: [doctor.personalDetails.imageUrl],
     },
   };

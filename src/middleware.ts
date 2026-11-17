@@ -3,20 +3,24 @@
 // it will redirect the request to the 
 // subdomain: drjay.hearthealers.in && dranupam.hearthealers.in
 
+import { NextRequest, NextResponse } from 'next/server';
 
-import {NextRequest, NextResponse} from 'next/server';
+const DOCTOR_SUBDOMAINS = ['drjay', 'dranupam'];
 
+export function middleware(request: NextRequest) {
+    const pathname = request.nextUrl.pathname;
 
-const DOCTOR_SUBDOMAINS = ['drjay','dranupam'];
+    // Do not rewrite sitemap, robots, api, or static assets
+    if (pathname === '/sitemap.xml' || pathname === '/robots.txt') {
+        return NextResponse.next();
+    }
 
-export function middleware(request: NextRequest){
     const hostname = request.headers.get('host') || ""; 
     const url = request.nextUrl.clone();
 
     let subdomain = '';
 
-    if (hostname.includes('localhost')){
-
+    if (hostname.includes('localhost')) {
         const parts = hostname.split('.');
         subdomain = parts.length > 1 && parts[0] !== 'localhost' ? parts[0] : '';
     } else {
@@ -25,10 +29,8 @@ export function middleware(request: NextRequest){
         subdomain = parts.length > 2 ? parts[0] : ''; 
     }
 
-    if (DOCTOR_SUBDOMAINS.includes(subdomain)){
-        const pathname = url.pathname;
-
-        if (!pathname.startsWith(`/doctor/${subdomain}`)){
+    if (DOCTOR_SUBDOMAINS.includes(subdomain)) {
+        if (!pathname.startsWith(`/doctor/${subdomain}`)) {
             url.pathname = `/doctor/${subdomain}${pathname}`;
             return NextResponse.rewrite(url);
         }
@@ -38,8 +40,6 @@ export function middleware(request: NextRequest){
 
 export const config = {
     matcher: [
-        '/((?!api|_next/static|_next/image|favicon.ico).*)',
+        '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
     ]
 }
-
-

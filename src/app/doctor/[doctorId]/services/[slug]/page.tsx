@@ -56,10 +56,14 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: `${blog.title} - ${doctor.personalDetails.name}`,
     description: blog.description,
+    alternates: {
+      canonical: `/services/${slug}`,
+    },
     openGraph: {
       title: `${blog.title} - ${doctor.personalDetails.name}`,
       description: blog.description,
-       
+      url: `https://drjay.hearthealers.in/services/${slug}`,
+      images: [blog.image],
     },
   };
 }

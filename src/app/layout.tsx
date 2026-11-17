@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Inter, Manrope } from "next/font/google";
+import { Inter } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hearthealers.in"),
+  metadataBase: new URL("https://drjay.hearthealers.in"),
 
   verification: {
     google: "67uf7OrInFooh6lju5Wwt9MhQvI7W7xwyI1TQ1FJq4I",
@@ -54,7 +49,7 @@ export const metadata: Metadata = {
     title: "Best Heart Doctors Near You | HeartHealers",
     description:
       "Expert cardiac care for congenital and acquired heart diseases. Leading specialists in Delhi NCR.",
-    url: "https://hearthealers.in",
+    url: "https://drjay.hearthealers.in",
     siteName: "HeartHealers",
     locale: "en_IN",
     type: "website",

@@ -41,12 +41,12 @@ export async function generateMetadata({ params }: Props) {
     title: `${doctor.personalDetails.name} - ${doctor.personalDetails.speciality}`,
     description: `Consult with ${doctor.personalDetails.name}, an expert ${doctor.personalDetails.speciality} with ${doctor.totalExp} years of experience. ${doctor.bio.substring(0, 150)}...`,
     alternates: {
-      canonical: `/doctor/${doctorId}`,
+      canonical: doctorId === 'drjay' ? '/' : `/doctor/${doctorId}`,
     },
     openGraph: {
       title: `${doctor.personalDetails.name} - ${doctor.personalDetails.speciality} | HeartHealers`,
       description: `Consult with ${doctor.personalDetails.name}, an expert ${doctor.personalDetails.speciality}. Book an appointment today.`,
-      url: `https://hearthealers.in/doctor/${doctorId}`,
+      url: doctorId === 'drjay' ? 'https://drjay.hearthealers.in' : `https://hearthealers.in/doctor/${doctorId}`,
       siteName: 'HeartHealers',
       images: [
         {

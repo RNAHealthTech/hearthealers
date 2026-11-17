@@ -41,9 +41,13 @@ function getDoctorById(id: string): Doctor | null {
     return {
       title: `Service - ${doctor.personalDetails.name}`,
       description: `Read latest medical insights and articles by ${doctor.personalDetails.name}`,
+      alternates: {
+        canonical: '/services',
+      },
       openGraph: {
         title: `Service - ${doctor.personalDetails.name}`,
         description: `Read latest medical insights and articles by ${doctor.personalDetails.name}`,
+        url: 'https://drjay.hearthealers.in/services',
         images: [doctor.personalDetails.imageUrl],
       },
     };

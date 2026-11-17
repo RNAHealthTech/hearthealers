@@ -56,9 +56,13 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: `${blog.title} - ${doctor.personalDetails.name}`,
     description: blog.description,
+    alternates: {
+      canonical: `/blogs/${slug}`,
+    },
     openGraph: {
       title: `${blog.title} - ${doctor.personalDetails.name}`,
       description: blog.description,
+      url: `https://drjay.hearthealers.in/blogs/${slug}`,
       images: [blog.imageUrl],
     },
   };
